@@ -1,0 +1,63 @@
+# //  ModelSim DE 2024.2 May 20 2024 Linux 4.18.0-553.27.1.el8_10.x86_64
+# //
+# // Unpublished work. Copyright 2024 Siemens
+# //
+# // This material contains trade secrets or otherwise confidential information
+# // owned by Siemens Industry Software Inc. or its affiliates (collectively,
+# // "SISW"), or its licensors. Access to and use of this information is strictly
+# // limited as set forth in the Customer's applicable agreements with SISW.
+# //
+# // This material may not be copied, distributed, or otherwise disclosed outside
+# // of the Customer's facilities without the express written permission of SISW,
+# // and may not be used in any way not expressly authorized by SISW.
+# //
+# do runsim.do
+# Model Technology ModelSim DE vmap 2024.2 Lib Mapping Utility 2024.05 May 20 2024
+# vmap work work 
+# Copying /tools/mentor/ModelSim/2024.2/modelsim_dlx/linuxpe/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# Model Technology ModelSim DE vlog 2024.2 Compiler 2024.05 May 20 2024
+# Start time: 17:46:25 on Nov 25,2024
+# vlog -reportprogress 300 "+acc" -incr ../../RTL/APB_Controller.v 
+# -- Compiling module APB_FSM_Controller
+# 
+# Top level modules:
+# 	APB_FSM_Controller
+# End time: 17:46:25 on Nov 25,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim DE vlog 2024.2 Compiler 2024.05 May 20 2024
+# Start time: 17:46:25 on Nov 25,2024
+# vlog -reportprogress 300 "+acc" -incr APB_Controller_tb.v 
+# -- Compiling module APB_FSM_Controller_tb
+# 
+# Top level modules:
+# 	APB_FSM_Controller_tb
+# End time: 17:46:25 on Nov 25,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# ** Warning: (vsim-8690) Ignoring plusarg '+acc' with -novopt in effect.
+# vsim "+acc" -t ps -lib work APB_FSM_Controller_tb 
+# Start time: 17:46:26 on Nov 25,2024
+# Loading work.APB_FSM_Controller_tb
+# Loading work.APB_FSM_Controller
+# Testing ST_IDLE...
+# ST_IDLE Test Passed
+# Testing ST_WWAIT...
+# ST_WWAIT Test Failed
+# Testing ST_WRITE...
+# ST_WRITE Test Failed
+# Testing ST_WRITEP...
+# ST_WRITEP Test Failed
+# Testing ST_READ...
+# ST_READ Test Failed
+# Testing ST_RENABLE...
+# ST_RENABLE Test Passed
+# Testing ST_WENABLE...
+# ST_WENABLE Test Failed
+# Testing ST_WENABLEP...
+# ST_WENABLEP Test Failed
+# All tests completed.
+# ** Note: $stop    : APB_Controller_tb.v(153)
+#    Time: 100 ns  Iteration: 0  Instance: /APB_FSM_Controller_tb
+# Break in Module APB_FSM_Controller_tb at APB_Controller_tb.v line 153
+# End time: 17:47:46 on Nov 25,2024, Elapsed time: 0:01:20
+# Errors: 0, Warnings: 1
