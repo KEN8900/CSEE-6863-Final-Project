@@ -1,8 +1,8 @@
 
-module APB_FSM_Controller( Hclk,Hresetn,valid,Haddr1,Haddr2,Hwdata1,Hwdata2,Prdata,Hwrite,Haddr,Hwdata,Hwritereg,tempselx, 
+module APB_FSM( clk,rst,valid,Haddr1,Haddr2,Hwdata1,Hwdata2,Prdata,Hwrite,Haddr,Hwdata,Hwritereg,tempselx, 
 			   Pwrite,Penable,Pselx,Paddr,Pwdata,Hreadyout);
 
-input Hclk,Hresetn,valid,Hwrite,Hwritereg;
+input clk,rst,valid,Hwrite,Hwritereg;
 input [31:0] Hwdata,Haddr,Haddr1,Haddr2,Hwdata1,Hwdata2,Prdata;
 input [2:0] tempselx;
 output reg Pwrite,Penable;
@@ -12,95 +12,95 @@ output reg [31:0] Paddr,Pwdata;
 
 //////////////////////////////////////////////////////states
 
-parameter ST_IDLE=3'b000;
-parameter ST_WWAIT=3'b001;
-parameter ST_READ= 3'b010;
-parameter ST_WRITE=3'b011;
-parameter ST_WRITEP=3'b100;
-parameter ST_RENABLE=3'b101;
-parameter ST_WENABLE=3'b110;
-parameter ST_WENABLEP=3'b111;
+parameter IDLE=3'b000;
+parameter WAIT=3'b001;
+parameter READ= 3'b010;
+parameter WRITE=3'b011;
+parameter WRITEP=3'b100;
+parameter RENABLE=3'b101;
+parameter WENABLE=3'b110;
+parameter WENABLEP=3'b111;
 
 
 //////////////////////////////////////////////////// PRESENT STATE LOGIC
 
-reg [2:0] PRESENT_STATE,NEXT_STATE;
+reg [2:0] CS,NS;
 
-always @(posedge Hclk)
- begin:PRESENT_STATE_LOGIC
-  if (~Hresetn)
-    PRESENT_STATE<=ST_IDLE;
+always @(posedge clk)
+ begin:CS_LOGIC
+  if (~rst)
+    CS<=IDLE;
   else
-    PRESENT_STATE<=NEXT_STATE;
+    CS<=NS;
  end
 
 
 /////////////////////////////////////////////////////// NEXT STATE LOGIC
 
-always @(PRESENT_STATE,valid,Hwrite,Hwritereg)
- begin:NEXT_STATE_LOGIC
-  case (PRESENT_STATE)
+always @(CS,valid,Hwrite,Hwritereg)
+ begin:NS_LOGIC
+  case (CS)
     
- 	ST_IDLE:begin
+ 	IDLE:begin
 		 if (~valid)
-		  NEXT_STATE=ST_IDLE;
+		  NS=IDLE;
 		 else if (valid && Hwrite)
-		  NEXT_STATE=ST_WWAIT;
+		  NS=WAIT;
 		 else 
-		  NEXT_STATE=ST_READ;
+		  NS=READ;
 		end    
 
-	ST_WWAIT:begin
+	WAIT:begin
 		 if (~valid)
-		  NEXT_STATE=ST_WRITE;
+		  NS=WRITE;
 		 else
-		  NEXT_STATE=ST_WRITEP;
+		  NS=WRITEP;
 		end
 
-	ST_READ: begin
-		   NEXT_STATE=ST_RENABLE;
+	READ: begin
+		   NS=RENABLE;
 		 end
 
-	ST_WRITE:begin
+	WRITE:begin
 		  if (~valid)
-		   NEXT_STATE=ST_WENABLE;
+		   NS=WENABLE;
 		  else
-		   NEXT_STATE=ST_WENABLEP;
+		   NS=WENABLEP;
 		 end
 
-	ST_WRITEP:begin
-		   NEXT_STATE=ST_WENABLEP;
+	WRITEP:begin
+		   NS=WENABLEP;
 		  end
 
-	ST_RENABLE:begin
+	RENABLE:begin
 		     if (~valid)
-		      NEXT_STATE=ST_IDLE;
+		      NS=IDLE;
 		     else if (valid && Hwrite)
-		      NEXT_STATE=ST_WWAIT;
+		      NS=WAIT;
 		     else
-		      NEXT_STATE=ST_READ;
+		      NS=READ;
 		   end
 
-	ST_WENABLE:begin
+	WENABLE:begin
 		     if (~valid)
-		      NEXT_STATE=ST_IDLE;
+		      NS=IDLE;
 		     else if (valid && Hwrite)
-		      NEXT_STATE=ST_WWAIT;
+		      NS=WAIT;
 		     else
-		      NEXT_STATE=ST_READ;
+		      NS=READ;
 		   end
 
-	ST_WENABLEP:begin
+	WENABLEP:begin
 		      if (~valid && Hwritereg)
-		       NEXT_STATE=ST_WRITE;
+		       NS=WRITE;
 		      else if (valid && Hwritereg)
-		       NEXT_STATE=ST_WRITEP;
+		       NS=WRITEP;
 		      else
-		       NEXT_STATE=ST_READ;
+		       NS=READ;
 		    end
 
 	default: begin
-		   NEXT_STATE=ST_IDLE;
+		   NS=IDLE;
 		  end
   endcase
  end
@@ -114,9 +114,9 @@ reg [31:0] Paddr_temp, Pwdata_temp;
 
 always @(*)
  begin:OUTPUT_COMBINATIONAL_LOGIC
-   case(PRESENT_STATE)
+   case(CS)
     
-	ST_IDLE: begin
+	IDLE: begin
 			  if (valid && ~Hwrite) 
 			   begin:IDLE_TO_READ
 			        Paddr_temp=Haddr;
@@ -141,7 +141,7 @@ always @(*)
 			   end
 		     end    
 
-	ST_WWAIT:begin
+	WAIT:begin
 	          if (~valid) 
 			   begin:WAIT_TO_WRITE
 			    Paddr_temp=Haddr1;
@@ -164,12 +164,12 @@ always @(*)
 			   
 		     end  
 
-	ST_READ: begin:READ_TO_RENABLE
+	READ: begin:READ_TO_RENABLE
 			  Penable_temp=1;
 			  Hreadyout_temp=1;
 		     end
 
-	ST_WRITE:begin
+	WRITE:begin
               if (~valid) 
 			   begin:WRITE_TO_WENABLE
 				Penable_temp=1;
@@ -183,12 +183,12 @@ always @(*)
 			   end
 		     end
 
-	ST_WRITEP:begin:WRITEP_TO_WENABLEP
+	WRITEP:begin:WRITEP_TO_WENABLEP
                Penable_temp=1;
 			   Hreadyout_temp=1;
 		      end
 
-	ST_RENABLE:begin
+	RENABLE:begin
 	            if (valid && ~Hwrite) 
 				 begin:RENABLE_TO_READ
 					Paddr_temp=Haddr;
@@ -214,7 +214,7 @@ always @(*)
 
 		       end
 
-	ST_WENABLEP:begin
+	WENABLEP:begin
                  if (~valid && Hwritereg) 
 			      begin:WENABLEP_TO_WRITEP
 			       Paddr_temp=Haddr2;
@@ -237,7 +237,7 @@ always @(*)
 			     end
 		        end
 
-	ST_WENABLE :begin
+	WENABLE :begin
 	             if (~valid && Hwritereg) 
 			      begin:WENABLE_TO_IDLE
 				   Pselx_temp=0;
@@ -261,10 +261,10 @@ end
 
 ////////////////////////////////////////////////////////OUTPUT LOGIC:SEQUENTIAL
 
-always @(posedge Hclk)
+always @(posedge clk)
  begin
   
-  if (~Hresetn)
+  if (~rst)
    begin
     Paddr<=0;
 	Pwrite<=0;
