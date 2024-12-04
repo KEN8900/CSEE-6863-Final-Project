@@ -19,7 +19,15 @@ module APB_FSM_sva(
         input wire [31:0] Pwdata,
         input wire Hreadyout,
         input wire [2:0] CS,
-        input wire [2:0] NS
+        input wire [2:0] NS,
+
+	//added all temp ports
+	input wire Penable_temp,
+	input wire Hreadyout_temp,
+	input wire Pwrite_temp,
+	input wire [2:0] Pselx_temp,
+	input wire [31:0] Paddr_temp,
+	input wire [31:0] Pwdata_temp
 );
 //PARAMETERS
 
@@ -155,6 +163,136 @@ property WENABLEP_TO_READ;
 	CS == WENABLEP && valid && !Hwritereg |-> NS == READ;
 endproperty
 assert_wenablep2read: assert property (WENABLEP_TO_READ);
+
+//Output combinational logic
+
+//IDLE
+property IDLE_Paddr;
+	@(posedge clk) disable iff(!rst)
+	CS == IDLE && valid && !Hwrite |-> Paddr_temp == Haddr;
+endproperty
+assert_IDLE_Paddr: assert property (IDLE_Paddr);
+
+property IDLE_Pwrite;
+	@(posedge clk) disable iff(!rst)
+	CS == IDLE && valid && !Hwrite |-> Pwrite_temp == Hwrite;
+endproperty
+assert_IDLE_Pwrite: assert property (IDLE_Pwrite);
+
+property IDLE_Pselx;
+	@(posedge clk) disable iff(!rst)
+	CS == IDLE && valid && !Hwrite |-> Pselx_temp == tempselx;
+endproperty
+assert_IDLE_Pselx: assert property (IDLE_Pselx);
+
+property IDLE_Hreadyout;
+	@(posedge clk) disable iff(!rst)
+	CS == IDLE && valid && !Hwrite |-> Hreadyout_temp == 0;
+endproperty
+assert_IDLE_Hreadyout: assert property (IDLE_Hreadyout);
+
+
+property IDLE_IDLE;
+	@(posedge clk) disable iff(!rst)
+	CS == IDLE && (!valid || (valid && Hwrite)) |-> Pselx_temp == 0 && Penable_temp == 0 && Hreadyout_temp == 1;
+endproperty
+assert_IDLE_IDLE: assert property (IDLE_IDLE);
+
+
+
+//WAIT
+property WAIT_Paddr;
+	@(posedge clk) disable iff(!rst)
+	CS == WAIT |-> Paddr_temp == Haddr1;
+endproperty
+assert_WAIT_Paddr: assert property (WAIT_Paddr);
+
+property WAIT_Pwrite;
+	@(posedge clk) disable iff(!rst)
+	CS == WAIT |-> Pwrite_temp == 1;
+endproperty
+assert_WAIT_Pwrite: assert property (WAIT_Pwrite);
+
+property WAIT_Pselx;
+	@(posedge clk) disable iff(!rst)
+	CS == WAIT |-> Pselx_temp == tempselx;
+endproperty
+assert_WAIT_Pselx: assert property (WAIT_Pselx);
+
+property WAIT_Pwdata;
+	@(posedge clk) disable iff(!rst)
+	CS == WAIT |-> Pwdata_temp == Hwdata;
+endproperty
+assert_WAIT_Pwdata: assert property (WAIT_Pwdata);
+
+property WAIT_Penable;
+	@(posedge clk) disable iff(!rst)
+	CS == WAIT |-> Penable_temp == 0;
+endproperty
+assert_WAIT_Penable: assert property (WAIT_Penable);
+
+property WAIT_Hreadyout;
+	@(posedge clk) disable iff(!rst)
+	CS == WAIT |-> Hreadyout_temp == 0;
+endproperty
+assert_WAIT_Hreadyout: assert property (WAIT_Hreadyout);
+
+
+//READ
+property READ_Penable;
+	@(posedge clk) disable iff(!rst)
+	CS == READ |-> Penable_temp == 1;
+endproperty
+assert_READ_Penable: assert property (READ_Penable);
+
+property READ_Hreadyout;
+	@(posedge clk) disable iff(!rst)
+	CS == READ |-> Hreadyout_temp == 1;
+endproperty
+assert_READ_Hreadyout: assert property (READ_Hreadyout);
+
+
+//WRITE
+property WRITE_Penable;
+	@(posedge clk) disable iff(!rst)
+	CS == WRITE && !valid |-> Penable_temp == 1;
+endproperty
+assert_WRITE_Penable: assert property (WRITE_Penable);
+
+property WRITE_Hreadyout;
+	@(posedge clk) disable iff(!rst)
+	CS == WRITE && !valid |-> Hreadyout_temp == 1;
+endproperty
+assert_WRITE_Hreadyout: assert property (WRITE_Hreadyout);
+
+property WRITE_Penable_p;
+	@(posedge clk) disable iff(!rst)
+	CS == WRITE && valid |-> Penable_temp == 1;
+endproperty
+assert_WRITE_Penable_p: assert property (WRITE_Penable_p);
+
+property WRITE_Hreadyout_p;
+	@(posedge clk) disable iff(!rst)
+	CS == WRITE && valid |-> Hreadyout_temp == 1;
+endproperty
+assert_WRITE_Hreadyout_p: assert property (WRITE_Hreadyout_p);
+
+//WRITEP
+property WRITEP_Penable;
+	@(posedge clk) disable iff(!rst)
+	CS == WRITEP |-> Penable_temp == 1;
+endproperty
+assert_WRITEP_Penable: assert property (WRITEP_Penable);
+
+property WRITEP_Hreadyout;
+	@(posedge clk) disable iff(!rst)
+	CS == WRITEP |-> Hreadyout_temp == 1;
+endproperty
+assert_WRITEP_Hreadyout: assert property (WRITEP_Hreadyout);
+
+
+//RENABLE
+
 
 
 endmodule
