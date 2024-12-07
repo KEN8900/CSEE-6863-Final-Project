@@ -292,8 +292,84 @@ assert_WRITEP_Hreadyout: assert property (WRITEP_Hreadyout);
 
 
 //RENABLE
+property RENABLE_Paddr;
+	@(posedge clk) disable iff(!rst)
+	CS == RENABLE && valid && !Hwrite |-> Paddr_temp == Haddr;
+endproperty
+assert_RENABLE_Paddr: assert property (RENABLE_Paddr);
+
+property RENABLE_Pwrite;
+	@(posedge clk) disable iff(!rst)
+	CS == RENABLE && valid && !Hwrite |-> Pwrite_temp == Hwrite;
+endproperty
+assert_RENABLE_Pwrite: assert property (RENABLE_Pwrite);
+
+property RENABLE_Pselx;
+	@(posedge clk) disable iff(!rst)
+	CS == RENABLE && valid && !Hwrite |-> Pselx_temp == tempselx;
+endproperty
+assert_RENABLE_Pselx: assert property (RENABLE_Pselx);
+
+property RENABLE_Hreadyout;
+	@(posedge clk) disable iff(!rst)
+	CS == RENABLE && valid && !Hwrite |-> Hreadyout_temp == 0;
+endproperty
+assert_RENABLE_Hreadyout: assert property (RENABLE_Hreadyout);
 
 
+property RENABLE_IDLE;
+	@(posedge clk) disable iff(!rst)
+	CS == RENABLE && (!valid || (valid && Hwrite)) |-> Pselx_temp == 0 && Penable_temp == 0 && Hreadyout_temp == 1;
+endproperty
+assert_RENABLE_IDLE: assert property (RENABLE_IDLE);
+
+//WENABLEP
+property WENABLEP_TO_WRITEP_OUTPUT;
+	@(posedge clk) disable iff(!rst)
+	CS == WENABLEP && !valid && Hwritereg |-> Paddr_temp == Haddr2 && Pwrite_temp == Hwrite && Pselx_temp == tempselx && Pwdata_temp == Hwdata && Penable_temp == 0 && Hreadyout_temp == 0;
+endproperty
+assert_WENABLEP_TO_WRITEP_OUTPUT: assert property (WENABLEP_TO_WRITEP_OUTPUT);
+
+property WENABLEP_TO_WRITE_OR_READ_OUTPUT;
+	@(posedge clk) disable iff(!rst)
+	CS == WENABLEP && !valid && Hwritereg |-> Paddr_temp == Haddr2 && Pwrite_temp == Hwrite && Pselx_temp == tempselx && Pwdata_temp == Hwdata && Penable_temp == 0 && Hreadyout_temp == 0;
+endproperty
+assert_WENABLEP_TO_WRITE_OR_READ_OUTPUT: assert property (WENABLEP_TO_WRITE_OR_READ_OUTPUT);
+
+
+//WENABLE
+
+property WENABLE_TO_IDLE_OUTPUT; //
+	@(posedge clk) disable iff(!rst)
+	CS == WENABLE && !valid && Hwritereg |-> Pselx_temp == 0 && Penable_temp == 0 && Hreadyout_temp == 0;
+endproperty
+assert_WENABLE_TO_IDLE_OUTPUT: assert property (WENABLE_TO_IDLE_OUTPUT);
+
+property WENABLE_TO_WAIT_OR_READ_OUTPUT;//
+	@(posedge clk) disable iff(!rst)
+	CS == WENABLE && (valid || !Hwritereg) |-> Pselx_temp == 0 && Penable_temp == 0 && Hreadyout_temp == 0;
+endproperty
+assert_WENABLE_TO_WAIT_OR_READ_OUTPUT: assert property (WENABLE_TO_WAIT_OR_READ_OUTPUT);
+
+//Sequential output
+//Unreachable covers
+property reset;
+	@(posedge clk)
+	~rst |-> Paddr == 0 && Pwrite == 0 && Pselx == 0 && Pwdata == 0 && Penable == 0 && Hreadyout == 0;
+endproperty
+assert_reset: assert property (reset);
+
+//property temp;
+	//@(posedge clk) 
+	//!rst |-> Paddr_temp == 0 && Pwrite_temp == 0 && Pselx_temp == 0 && Pwdata_temp == 0 && Penable_temp == 0 && Hreadyout_temp == 0;
+//endproperty
+//assert_temp: assert property (temp);
+
+property outputs;
+	@(posedge clk) disable iff(~rst)
+	rst |-> Paddr == Paddr_temp && Pwrite == Pwrite_temp && Pselx == Pselx_temp && Pwdata == Pwdata_temp && Penable == Penable_temp && Hreadyout == Hreadyout_temp;
+endproperty
+assert_outputs: assert property (outputs);
 
 endmodule
 
