@@ -144,3 +144,9 @@
 2024-12-06 20:57:36.232219 (713683) lic__man INFO    Claim 'fpv' for 'session_0/prove-0'.
 2024-12-06 20:57:37.020973 (713683) lic__man INFO    Unclaim everything for 'session_0/prove-0'.
 2024-12-06 21:07:41.279758 (713683) lic__man INFO    Entering idle state.
+2024-12-06 21:18:28.894137 (713683) lic__man INFO    Leaving idle state.
+2024-12-06 21:18:31.359159 (713683) main____ INFO    About to exit: requested from GUI
+2024-12-06 21:18:31.523880 (713683) session_ INFO    Analysis session 'session_0' disconnected.
+2024-12-06 21:18:31.535750 (713683) lic_core INFO    (1) checkin jasper_interactive
+2024-12-06 21:18:31.537553 (713683) lic_core INFO    (3) checkin jasper_fao
+2024-12-06 21:18:31.551872 (713683) main____ INFO    Exiting with status 0.
