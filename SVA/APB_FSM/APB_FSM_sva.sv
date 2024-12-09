@@ -353,11 +353,11 @@ assert_WENABLE_TO_WAIT_OR_READ_OUTPUT: assert property (WENABLE_TO_WAIT_OR_READ_
 
 //Sequential output
 //Unreachable covers
-//property reset;
-	//@(posedge clk)
-	//~rst |-> Paddr == 0 && Pwrite == 0 && Pselx == 0 && Pwdata == 0 && Penable == 0 && Hreadyout == 0;
-//endproperty
-//assert_reset: assert property (reset);
+property reset;
+	@(posedge clk)
+	~rst |-> Paddr == 0 && Pwrite == 0 && Pselx == 0 && Pwdata == 0 && Penable == 0 && Hreadyout == 0;
+endproperty
+assert_reset: assert property (reset);
 
 
 //property temp;
@@ -366,11 +366,11 @@ assert_WENABLE_TO_WAIT_OR_READ_OUTPUT: assert property (WENABLE_TO_WAIT_OR_READ_
 //endproperty
 //assert_temp: assert property (temp);
 
-//property outputs;
-	//@(posedge clk) disable iff(~rst)
-	//rst |-> Paddr == Paddr_temp && Pwrite == Pwrite_temp && Pselx == Pselx_temp && Pwdata == Pwdata_temp && Penable == Penable_temp && Hreadyout == Hreadyout_temp;
-//endproperty
-//assert_outputs: assert property (outputs);
+property outputs;
+	@(posedge clk) disable iff(~rst)
+	rst |-> Paddr == Paddr_temp && Pwrite == Pwrite_temp && Pselx == Pselx_temp && Pwdata == Pwdata_temp && Penable == Penable_temp && Hreadyout == Hreadyout_temp;
+endproperty
+assert_outputs: assert property (outputs);
 
 endmodule
 
