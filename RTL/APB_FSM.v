@@ -27,7 +27,7 @@ parameter WENABLEP=3'b111;
 
 reg [2:0] CS,NS;
 
-always @(posedge clk)
+always @(posedge clk or negedge rst)
  begin:CS_LOGIC
   if (~rst)
     CS<=IDLE;
@@ -139,7 +139,9 @@ always @(*)
                             begin:IDLE_TO_IDLE
 			        Pselx_temp=0;
 				Penable_temp=0;
-				Hreadyout_temp=1;	
+				Hreadyout_temp=1;
+				Paddr_temp='0;
+				Pwrite_temp='0;	
 			   end
 		     end    
 
@@ -263,7 +265,7 @@ end
 
 ////////////////////////////////////////////////////////OUTPUT LOGIC:SEQUENTIAL
 
-always @(posedge clk)
+always @(posedge clk or negedge rst)
  begin
   
   if (~rst)
