@@ -55,13 +55,13 @@ assert_nonseq_timing: assert property (nonseq_timing)
   	else $error("Timing mismatch in non-sequential transaction");
 
 
-property nonseq_pselx_valid; //failed, Htrans = 2'b11, Hwrite is high
-  @(posedge clk) disable iff (!rst)
-  nonseq_read ##[1:$] (
-    ($onehot(Pselx) || Pselx == 3'b000) &&
-    ((Htrans == 2'b10) && (Pselx == 3'b001 && addr0 ||
-                           Pselx == 3'b010 && addr1 ||
-                           Pselx == 3'b100 && addr2))
+property nonseq_pselx_valid;
+  	@(posedge clk) disable iff (!rst)
+  	nonseq_read |-> ##[1:$] (
+    	($onehot(Pselx) || Pselx == 3'b000) &&
+    	(($past(Pselx) == 3'b001 && addr0) ||
+     	($past(Pselx) == 3'b010 && addr1) ||
+     	($past(Pselx) == 3'b100 && addr2))
   );
 endproperty
 
