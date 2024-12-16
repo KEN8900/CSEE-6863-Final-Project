@@ -5,26 +5,132 @@
 # version   : 2024.06p002 64 bits
 # build date: 2024.09.02 16:28:38 UTC
 # ----------------------------------------
-# started   : 2024-12-11 13:05:39 EST
-# hostname  : micro27.(none)
-# pid       : 1345196
-# arguments : '-label' 'session_0' '-console' '//127.0.0.1:34087' '-style' 'windows' '-data' 'AAAAfnicY2RgYLCp////PwMYMD6A0Aw2jAyoAMRnQhUJbEChGRhYYZqRNYkxlDDkMxQwxDMUM5QxJDLoAfnJDDlgeQDxagtE' '-proj' '/homes/user/stud/fall23/ym3000/6863/CSEE-6863-Final-Project/SVA/top/jgproject/sessionLogs/session_0' '-init' '-hidden' '/homes/user/stud/fall23/ym3000/6863/CSEE-6863-Final-Project/SVA/top/jgproject/.tmp/.initCmds.tcl' 'top_sva.tcl'
+# started   : 2024-12-15 14:45:55 EST
+# hostname  : micro12.(none)
+# pid       : 1767150
+# arguments : '-label' 'session_0' '-console' '//127.0.0.1:39785' '-style' 'windows' '-data' 'AAAAfnicY2RgYLCp////PwMYMD6A0Aw2jAyoAMRnQhUJbEChGRhYYZqRNYkxlDDkMxQwxDMUM5QxJDLoAfnJDDlgeQDxagtE' '-proj' '/homes/user/stud/fall23/ym3000/6863/CSEE-6863-Final-Project/SVA/top/jgproject/sessionLogs/session_0' '-init' '-hidden' '/homes/user/stud/fall23/ym3000/6863/CSEE-6863-Final-Project/SVA/top/jgproject/.tmp/.initCmds.tcl' 'top_sva.tcl'
 clear -all
 
 analyze -sv09 top_sva.sv
-analyze -sv09 ../../RTL/top.v
-analyze -sv09 ../../RTL/AHB_Interface.v
-analyze -sv09 ../../RTL/APB_FSM.v
-elaborate -top Bridge_Top
-
-clock clk
-reset ~rst
-prove -bg -all
-visualize -violation -property <embedded>::Bridge_Top.chk_top.assert_nonseq_pselx -new_window
+include /homes/user/stud/fall23/ym3000/6863/CSEE-6863-Final-Project/SVA/top/top_sva.tcl
 include /homes/user/stud/fall23/ym3000/6863/CSEE-6863-Final-Project/SVA/top/top_sva.tcl
 prove -bg -all
-visualize -violation -property <embedded>::Bridge_Top.chk_top.assert_nonseq_pselx -new_window
+visualize -violation -property <embedded>::Bridge_Top.chk_top.Read_after_write1 -new_window
 include /homes/user/stud/fall23/ym3000/6863/CSEE-6863-Final-Project/SVA/top/top_sva.tcl
 prove -bg -all
+visualize -violation -property <embedded>::Bridge_Top.chk_top.Read_after_write1 -new_window
+include /homes/user/stud/fall23/ym3000/6863/CSEE-6863-Final-Project/SVA/top/top_sva.tcl
+include /homes/user/stud/fall23/ym3000/6863/CSEE-6863-Final-Project/SVA/top/top_sva.tcl
+prove -bg -all
+visualize -violation -property <embedded>::Bridge_Top.chk_top.Read_after_write1 -new_window
+include /homes/user/stud/fall23/ym3000/6863/CSEE-6863-Final-Project/SVA/top/top_sva.tcl
+include /homes/user/stud/fall23/ym3000/6863/CSEE-6863-Final-Project/SVA/top/top_sva.tcl
+prove -bg -all
+visualize -violation -property <embedded>::Bridge_Top.chk_top.Read_after_write2 -new_window
+include /homes/user/stud/fall23/ym3000/6863/CSEE-6863-Final-Project/SVA/top/top_sva.tcl
+prove -bg -all
+include /homes/user/stud/fall23/ym3000/6863/CSEE-6863-Final-Project/SVA/top/top_sva.tcl
+include /homes/user/stud/fall23/ym3000/6863/CSEE-6863-Final-Project/SVA/top/top_sva.tcl
+include /homes/user/stud/fall23/ym3000/6863/CSEE-6863-Final-Project/SVA/top/top_sva.tcl
+include /homes/user/stud/fall23/ym3000/6863/CSEE-6863-Final-Project/SVA/top/top_sva.tcl
+include /homes/user/stud/fall23/ym3000/6863/CSEE-6863-Final-Project/SVA/top/top_sva.tcl
+include /homes/user/stud/fall23/ym3000/6863/CSEE-6863-Final-Project/SVA/top/top_sva.tcl
+prove -bg -all
+visualize -violation -property <embedded>::Bridge_Top.chk_top.Read_after_write1 -new_window
+include /homes/user/stud/fall23/ym3000/6863/CSEE-6863-Final-Project/SVA/top/top_sva.tcl
+prove -bg -all
+visualize -violation -property <embedded>::Bridge_Top.chk_top.Read_after_write1 -new_window
+include /homes/user/stud/fall23/ym3000/6863/CSEE-6863-Final-Project/SVA/top/top_sva.tcl
+prove -bg -all
+visualize -violation -property <embedded>::Bridge_Top.chk_top.Read_after_write1 -new_window
+include /homes/user/stud/fall23/ym3000/6863/CSEE-6863-Final-Project/SVA/top/top_sva.tcl
+prove -bg -all
+visualize -violation -property <embedded>::Bridge_Top.chk_top.Read_after_write1 -new_window
+include /homes/user/stud/fall23/ym3000/6863/CSEE-6863-Final-Project/SVA/top/top_sva.tcl
+prove -bg -all
+visualize -violation -property <embedded>::Bridge_Top.chk_top.Read_after_write1 -new_window
+include /homes/user/stud/fall23/ym3000/6863/CSEE-6863-Final-Project/SVA/top/top_sva.tcl
+prove -bg -all
+include /homes/user/stud/fall23/ym3000/6863/CSEE-6863-Final-Project/SVA/top/top_sva.tcl
+prove -bg -all
+visualize -violation -property <embedded>::Bridge_Top.chk_top.Read_after_write1 -new_window
+include /homes/user/stud/fall23/ym3000/6863/CSEE-6863-Final-Project/SVA/top/top_sva.tcl
+prove -bg -all
+include /homes/user/stud/fall23/ym3000/6863/CSEE-6863-Final-Project/SVA/top/top_sva.tcl
+prove -bg -all
+include /homes/user/stud/fall23/ym3000/6863/CSEE-6863-Final-Project/SVA/top/top_sva.tcl
+include /homes/user/stud/fall23/ym3000/6863/CSEE-6863-Final-Project/SVA/top/top_sva.tcl
+prove -bg -all
+visualize -violation -property <embedded>::Bridge_Top.chk_top.Same_HPwrite_read -new_window
+include /homes/user/stud/fall23/ym3000/6863/CSEE-6863-Final-Project/SVA/top/top_sva.tcl
+prove -bg -all
+visualize -violation -property <embedded>::Bridge_Top.chk_top.Same_HPwrite_read -new_window
+include /homes/user/stud/fall23/ym3000/6863/CSEE-6863-Final-Project/SVA/top/top_sva.tcl
+include /homes/user/stud/fall23/ym3000/6863/CSEE-6863-Final-Project/SVA/top/top_sva.tcl
+prove -bg -all
+visualize -property <embedded>::Bridge_Top.chk_top.Same_HPwrite_read:precondition1 -new_window
+visualize -violation -property <embedded>::Bridge_Top.chk_top.Same_HPwrite_read -new_window
+visualize -violation -property <embedded>::Bridge_Top.chk_top.Same_HPwrite_read -new_window
+include /homes/user/stud/fall23/ym3000/6863/CSEE-6863-Final-Project/SVA/top/top_sva.tcl
+include /homes/user/stud/fall23/ym3000/6863/CSEE-6863-Final-Project/SVA/top/top_sva.tcl
+prove -bg -all
+visualize -violation -property <embedded>::Bridge_Top.chk_top.Same_HPwrite_read -new_window
+include /homes/user/stud/fall23/ym3000/6863/CSEE-6863-Final-Project/SVA/top/top_sva.tcl
+prove -bg -all
+visualize -violation -property <embedded>::Bridge_Top.chk_top.Same_HPwrite_read -new_window
+include /homes/user/stud/fall23/ym3000/6863/CSEE-6863-Final-Project/SVA/top/top_sva.tcl
+prove -bg -all
+visualize -violation -property <embedded>::Bridge_Top.chk_top.Same_HPwrite_read -new_window
+include /homes/user/stud/fall23/ym3000/6863/CSEE-6863-Final-Project/SVA/top/top_sva.tcl
+prove -bg -all
+include /homes/user/stud/fall23/ym3000/6863/CSEE-6863-Final-Project/SVA/top/top_sva.tcl
+prove -bg -all
+visualize -violation -property <embedded>::Bridge_Top.chk_top.Read_Pwrite -new_window
+include /homes/user/stud/fall23/ym3000/6863/CSEE-6863-Final-Project/SVA/top/top_sva.tcl
+prove -bg -all
+visualize -violation -property <embedded>::Bridge_Top.chk_top.Read_Pwrite -new_window
+include /homes/user/stud/fall23/ym3000/6863/CSEE-6863-Final-Project/SVA/top/top_sva.tcl
+prove -bg -all
+visualize -violation -property <embedded>::Bridge_Top.chk_top.Read_Pwrite -new_window
+include /homes/user/stud/fall23/ym3000/6863/CSEE-6863-Final-Project/SVA/top/top_sva.tcl
+include /homes/user/stud/fall23/ym3000/6863/CSEE-6863-Final-Project/SVA/top/top_sva.tcl
+prove -bg -all
+include /homes/user/stud/fall23/ym3000/6863/CSEE-6863-Final-Project/SVA/top/top_sva.tcl
+prove -bg -all
+include /homes/user/stud/fall23/ym3000/6863/CSEE-6863-Final-Project/SVA/top/top_sva.tcl
+include /homes/user/stud/fall23/ym3000/6863/CSEE-6863-Final-Project/SVA/top/top_sva.tcl
+prove -bg -all
+visualize -violation -property <embedded>::Bridge_Top.chk_top.Read_Pwrite -new_window
+include /homes/user/stud/fall23/ym3000/6863/CSEE-6863-Final-Project/SVA/top/top_sva.tcl
+prove -bg -all
+visualize -violation -property <embedded>::Bridge_Top.chk_top.Read_Pwrite -new_window
+include /homes/user/stud/fall23/ym3000/6863/CSEE-6863-Final-Project/SVA/top/top_sva.tcl
+prove -bg -all
+visualize -violation -property <embedded>::Bridge_Top.chk_top.Write_Pwrite -new_window
+include /homes/user/stud/fall23/ym3000/6863/CSEE-6863-Final-Project/SVA/top/top_sva.tcl
+include /homes/user/stud/fall23/ym3000/6863/CSEE-6863-Final-Project/SVA/top/top_sva.tcl
+include /homes/user/stud/fall23/ym3000/6863/CSEE-6863-Final-Project/SVA/top/top_sva.tcl
+prove -bg -all
+include /homes/user/stud/fall23/ym3000/6863/CSEE-6863-Final-Project/SVA/top/top_sva.tcl
+include /homes/user/stud/fall23/ym3000/6863/CSEE-6863-Final-Project/SVA/top/top_sva.tcl
+prove -bg -all
+visualize -violation -property <embedded>::Bridge_Top.chk_top.Write_Pwrite -new_window
+include /homes/user/stud/fall23/ym3000/6863/CSEE-6863-Final-Project/SVA/top/top_sva.tcl
+prove -bg -all
+visualize -violation -property <embedded>::Bridge_Top.chk_top.Write_Pwrite -new_window
+include /homes/user/stud/fall23/ym3000/6863/CSEE-6863-Final-Project/SVA/top/top_sva.tcl
+include /homes/user/stud/fall23/ym3000/6863/CSEE-6863-Final-Project/SVA/top/top_sva.tcl
+prove -bg -all
+visualize -violation -property <embedded>::Bridge_Top.chk_top.Write_Pwrite -new_window
+include /homes/user/stud/fall23/ym3000/6863/CSEE-6863-Final-Project/SVA/top/top_sva.tcl
+prove -bg -all
+visualize -violation -property <embedded>::Bridge_Top.chk_top.Write_Pwrite -new_window
+include /homes/user/stud/fall23/ym3000/6863/CSEE-6863-Final-Project/SVA/top/top_sva.tcl
+include /homes/user/stud/fall23/ym3000/6863/CSEE-6863-Final-Project/SVA/top/top_sva.tcl
+prove -bg -all
+visualize -violation -property <embedded>::Bridge_Top.chk_top.Write_Pwrite -new_window
+include /homes/user/stud/fall23/ym3000/6863/CSEE-6863-Final-Project/SVA/top/top_sva.tcl
+prove -bg -all
+visualize -violation -property <embedded>::Bridge_Top.chk_top.Write_Pwrite -new_window
 include /homes/user/stud/fall23/ym3000/6863/CSEE-6863-Final-Project/SVA/top/top_sva.tcl
 prove -bg -all

@@ -1,0 +1,2695 @@
+# ----------------------------------------
+# Jasper Version Info
+# tool      : Jasper 2024.06
+# platform  : Linux 4.18.0-553.30.1.el8_10.x86_64
+# version   : 2024.06p002 64 bits
+# build date: 2024.09.02 16:28:38 UTC
+# ----------------------------------------
+# started   : 2024-12-13 20:08:28 EST
+# hostname  : micro25.(none)
+# pid       : 2180921
+# arguments : '-label' 'session_0' '-console' '//127.0.0.1:36367' '-style' 'windows' '-data' 'AAAAfnicY2RgYLCp////PwMYMD6A0Aw2jAyoAMRnQhUJbEChGRhYYZqRNYkxlDDkMxQwxDMUM5QxJDLoAfnJDDlgeQDxagtE' '-proj' '/homes/user/stud/fall23/ym3000/6863/CSEE-6863-Final-Project/SVA/top/jgproject/sessionLogs/session_0' '-init' '-hidden' '/homes/user/stud/fall23/ym3000/6863/CSEE-6863-Final-Project/SVA/top/jgproject/.tmp/.initCmds.tcl' 'top_sva.tcl'
+
+Any disclosure about the Cadence Design Systems software or its use
+model to any third party violates the written Non-Disclosure Agreement
+between Cadence Design Systems, Inc. and the customer.
+
+THIS SOFTWARE CONTAINS CONFIDENTIAL INFORMATION AND TRADE SECRETS OF
+CADENCE DESIGN SYSTEMS, INC. USE, DISCLOSURE, OR REPRODUCTION IS
+PROHIBITED WITHOUT THE PRIOR EXPRESS WRITTEN PERMISSION OF CADENCE
+DESIGN SYSTEMS, INC.
+
+Copyright (C) 2000-2024 Cadence Design Systems, Inc. All Rights
+Reserved.  Unpublished -- rights reserved under the copyright laws of
+the United States.
+
+This product includes software developed by others and redistributed
+according to license agreement. See doc/third_party_readme.txt for
+further details.
+
+RESTRICTED RIGHTS LEGEND
+
+Use, duplication, or disclosure by the Government is subject to
+restrictions as set forth in subparagraph (c) (1) (ii) of the Rights in
+Technical Data and Computer Software clause at DFARS 252.227-7013 or
+subparagraphs (c) (1) and (2) of Commercial Computer Software -- Restricted
+Rights at 48 CFR 52.227-19, as applicable.
+
+
+                          Cadence Design Systems, Inc.
+                          2655 Seely Avenue
+                          San Jose, CA 95134
+                          Phone: 408.943.1234
+
+For technical assistance visit http://support.cadence.com.
+
+Jasper Apps Analysis Session - /homes/user/stud/fall23/ym3000/6863/CSEE-6863-Final-Project/SVA/top/jgproject/sessionLogs/session_0
+
+INFO: successfully checked out licenses "jasper_interactive" and "jasper_fao".
+INFO: reading configuration file "/user/stud/fall23/ym3000/.config/cadence/jasper.conf".
+% clear -all
+INFO (IPF121): Cleared environment completely for new design analysis.
+% 
+% analyze -sv09 top_sva.sv
+[-- (VERI-1482)] Analyzing Verilog file '/tools/cadence/jasper_2024.06p002/lib/verilog/packages/std/std.sv' into library 'std'
+[-- (VERI-1482)] Analyzing Verilog file 'top_sva.sv'
+% analyze -sv09 ../../RTL/top.v
+[-- (VERI-1482)] Analyzing Verilog file '../../RTL/top.v'
+% analyze -sv09 ../../RTL/AHB_Interface.v
+[-- (VERI-1482)] Analyzing Verilog file '../../RTL/AHB_Interface.v'
+% analyze -sv09 ../../RTL/APB_FSM.v
+[-- (VERI-1482)] Analyzing Verilog file '../../RTL/APB_FSM.v'
+% elaborate -top Bridge_Top
+INFO (ISW003): Top module name is "Bridge_Top".
+[INFO (VERI-1018)] ../../RTL/AHB_Interface.v(12): compiling module 'AHB_slave_interface'
+[INFO (VERI-1018)] ../../RTL/APB_FSM.v(2): compiling module 'APB_FSM'
+[INFO (VERI-1018)] top_sva.sv(1): compiling module 'top_sva'
+[INFO (VERI-1018)] ../../RTL/top.v(1): compiling module 'Bridge_Top'
+INFO (INL208): Elaboration synthesis summary:
+  Number of synthesized netlists          5 (1 packages)
+  Single run mode                         On
+  Pipeline                                On (4 pipelined netlists)
+  Late hierarchical reference connection  On
+  Number of analyzed Verilog modules      5 (5 synthesized)
+  Number of analyzed VHDL entities        0 (0 synthesized)
+INFO (INL003): Clearing all state information (assumes, stopats, and so forth).
+Bridge_Top
+[<embedded>] % 
+[<embedded>] % clock clk
+[<embedded>] % reset ~rst
+INFO (IPM031): Clearing proof results of all properties.
+INFO (IRS006): Current reset condition is "rst".
+[<embedded>] % prove -bg -all
+Ncustom1: Custom engine code is hT3Ng7hPPfiYQOTDZ3qhYOwGAM51eA+J/FjkM5shLioAsqhgLR4Ft+O1BuKG6ilQ83B9tLXSl+CwjiTMAQA
+Bcustom2: Custom engine code is hT3Nm7hPr1Vp3Di1Ra2USNIGL4JypRnLKLAdF6JAyuavO2JfGCiY9OZJhcAcOUnLx5xwNdhILGrAWX9s+z2WDkKwNR7tAfClBEjRFVQeq6DU54boFgEA
+AMcustom3: Custom engine code is hT3Ng7hP/feYQOTDZ3qhYOwGAM51eA+J/FjkM5shLioAsqhgLR4Ft+O1BuKG6ilQ83B9tLXSmmqwm7g9AQA
+Mpcustom4: Custom engine code is hT3NZbhP9fmY2AbBQnsjfOxn6c+6e6yL+/e8fZFmaQrnlgEA
+background 0
+INFO (IPF036): Starting proof on task: "<embedded>", 14 properties to prove with 0 already proven/unreachable
+INFO (IRS029): Starting reset analysis: phase 1 of 4.
+INFO (IRS030): Running reset analysis: phase 2 of 4.
+INFO (IRS031): Running reset analysis: phase 3 of 4.
+INFO (IRS020): Starting the reset analysis simulation with a limit of 100 iterations (phase 4 of 4).
+INFO (IRS024): Reset iterations 0 to 4 analyzed.
+INFO (IRS018): Reset analysis simulation executed for 3 iterations. Assigned values for 202 of 202 design flops, 36 of 68 design latches, 39 of 41 internal elements.
+INFO (IRS039): Reset analysis complete.
+INFO (IPF031): Settings used for proof thread 0:
+    orchestration                 = on
+    time_limit                    = 86400s
+    per_property_time_limit       = 1s * 10 ^ scan
+    engine_mode                   = auto
+    proofgrid_per_engine_max_jobs = 1
+    max engine jobs               = auto
+    proofgrid_mode                = local
+    proofgrid_restarts            = 10
+AMcustom5: Custom engine code is hT3N1rhP11/52HrFRS21ROp2LOjVTgPvT8L8BGXHgLhaIuqtT4nARFjUqrBL+7pLmaTOzBepZW/Jm8SSrHDybSQtoNiO3y43wk+dEoWlsZizu97Fih6O6lPVG/LpWP5SsUPwlGagLNa1FKEFvwVXyX7//8prySbvSxIHXr5er+z4RAEA
+Ncustom6: Custom engine code is hT3OXrhPByJp3TrFSTLhUmMH4KVtJgmTCnNDF46yMXOKY48m4LS5nE7yBzFjA7kDuwO/GhGUpEPiky3p3wmPn3dJZHxFMsafSoObRzSC+tn7sEY0WbTdZ/FV4hL3MYH/b1CIUvXSWR4wqEoVLsmMOD4xIPT4lI1LO6ZCO7PnnWQuLwetnvKlrXx6wCW/A+x+enqslg1YPobi4wEF/EvbzOvcTYdJvl2s4H2yZg2b2ofAVN5WvhWk1HoBAA
+ADcustom7: Custom engine code is hT3Nv7hPv1752HrFRa2kROx2f/ECJeZB2AZsLdlO8VwmIuqtT4nIDFXclhg+O+o+DMmQCekbheGk0kK28laA9gaOFDXsQp29J3X615HY1IPHJWd6FUFvCHjO+p1k652b5JJvZlShNpGlGSXAiQe/mEAj6tEBAA
+Tricustom8: Custom engine code is hT3Nu7hPt1752DvFRa0kNDiyIV97VyejwM9C/jCLJjdPvusZONHY42VYUy0Q1ZotnhcVtNc56tJ5wbxv6V2+XpdsaSlHck5vfnbYjdwj1OECy9U+7oSQ0SZE3g5ayD+Phuh4odCJTjeKa2k4elM9ldQfkAEA
+Gcustom9: Custom engine code is hT3NibhPDfeYQADBZnYcglOvK9Pfd7EOeniIqP8jNsyIqInncipMGcUXqAadachREE9F2PwhBUZUNw5kHnd4JdXkamORRgEA
+C2custom10: Custom engine code is hT3NirhPjfWYQADBZnYcglOvK9Pfd7EOeniIqP8jNsyIqInncgkrYMMXCYbdK0dUjZIF9d4cJ0rHoBDjwVLBKuG86XYVV00BAA
+AGcustom11: Custom engine code is hT3NirhP/fmYQADBZnYcglOvK9Pfd7EOeniIqP8jNsyIqInnckcwYMMXCYbdK0dUjZIF9d4cJ0rHoBDjwVLBKuHEZnZByh0BAA
+Bcustom12: Custom engine code is hT3NjrhPDfiYQADBZnYcglOvK9PfWxFtenjIyBqfrgr7if/jL/yPOuK1BAflEcW0DxNH2eDIoezN2gxlQFg81RZtiWXh7aiTAidvAQA
+Ncustom13: Custom engine code is hT3NR7hPByFp3TrFSTLhUmMH4KWtJglTyV/c51BHEeZWamnJv767nE6PCak26bd3gf3XGN3rIRheufhDieCJQVISo+gNYUKhiUedBKGtsP/a18svAnlMJZudHxDFwK5ufsyoxsIyiAeSY2oi3tEuoDHr5gw42DFKAG3PqO3CEsl8Azzdt3pl5nGA1Ifv2H02eYsFzWb/nfp8PMb3F0krE/EgBcm8TD9Div8BAA
+Tricustom14: Custom engine code is hT3Nu7hP3fiYQADBZnYcglNHp9bfd7EOeniIqP/ji8sGLQu8yhsFO+wxJ+O+R0bU8g/IewXFomyos+viQnWc2xYNYmMqpo3i40O7DaZR7qfp4YqNx26KRvQ/qx0BAA
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property "Bridge_Top.chk_top.assert_nonseq_write" was proven in 0.00 s.
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property "Bridge_Top.chk_top.assert_nonseq_read" was proven in 0.00 s.
+0: Found proofs for 2 properties in preprocessing
+0: Using multistage preprocessing
+0: Starting reduce
+0: Finished reduce in 0.026s
+0.0.PRE: Performing Proof Simplification...
+0.0.N: clocks: 3, declared: 1, looping: 0, posedge: 3, negedge: 0, noedge: 0, bothedge: 0
+0.0.N: Proof Simplification Iteration 1	[0.00 s]
+0.0.PRE: A trace with 1 cycles was found. [0.00 s]
+INFO (IPF047): 0.0.PRE: The cover property "Bridge_Top.chk_top.assert_nonseq_write:precondition1" was covered in 1 cycles in 0.00 s.
+INFO (IPF047): 0.0.PRE: The cover property "Bridge_Top.chk_top.assert_write_timing:precondition1" was covered in 1 cycles in 0.00 s.
+INFO (IPF047): 0.0.PRE: The cover property "Bridge_Top.chk_top.assert_write_pselx:precondition1" was covered in 1 cycles in 0.00 s.
+0.0.N: Proof Simplification Iteration 2	[0.18 s]
+0.0.N: Proof Simplification Iteration 3	[0.18 s]
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property ":noDeadEnd" was proven in 0.00 s.
+    Use check_assumptions -show -dead_end to show this property in the property table.
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property ":noConflict" was proven in 0.00 s.
+    Use check_assumptions -show to show this property in the property table.
+INFO (IPF047): 0.0.PRE: The cover property ":live" was covered in 1 cycles in 0.00 s.
+    Use check_assumptions -show -live to show this property in the property table.
+0.0.PRE: Proof Simplification completed in 0.23 s
+0.0.N: Identified and disabled 4 duplicated targets.
+0: About to start ProofGrid in its own thread with a limit of 10000 pending notifications and a limit of 10 traces.
+0: =============================== ProofGrid start ===============================
+0: ProofGrid usable level: 7
+0: Initial ProofGrid level: 1
+0: ProofGrid is starting event handling
+0.0.Hp: Proofgrid shell started at 2181577@micro25(local) jg_2180921_micro25_1
+0.0.N: Proofgrid shell started at 2181576@micro25(local) jg_2180921_micro25_1
+0.0.Hp: clocks: 1, declared: 1, looping: 0, posedge: 1, negedge: 0, noedge: 0, bothedge: 0
+0.0.N: clocks: 1, declared: 1, looping: 0, posedge: 1, negedge: 0, noedge: 0, bothedge: 0
+0.0.N: Next scan (0) will use per property time limit: 1s * 10 ^ 0 = 1s
+0.0.N: Starting proof for property "Bridge_Top.chk_top.assert_non_seq_read"	[0.00 s].
+0.0.Hp: Trace Attempt  1	[0.12 s]
+0.0.Hp: A trace with 1 cycles was found. [0.12 s]
+INFO (IPF047): 0.0.Hp: The cover property "Bridge_Top.chk_top.assert_non_seq_read:precondition1" was covered in 1 cycles in 0.04 s.
+INFO (IPF047): 0.0.Hp: The cover property "Bridge_Top.chk_top.assert_nonseq_read:precondition1" was covered in 1 cycles in 0.04 s.
+INFO (IPF047): 0.0.Hp: The cover property "Bridge_Top.chk_top.assert_read_timing:precondition1" was covered in 1 cycles in 0.04 s.
+INFO (IPF047): 0.0.Hp: The cover property "Bridge_Top.chk_top.assert_read_pselx:precondition1" was covered in 1 cycles in 0.04 s.
+0.0.Hp: Trace Attempt  2	[0.13 s]
+0.0.Hp: A trace with 2 cycles was found. [0.13 s]
+INFO (IPF055): 0.0.Hp: A counterexample (cex) with 2 cycles was found for the property "Bridge_Top.chk_top.assert_read_pselx" in 0.12 s.
+0.0.Hp: Trace Attempt  3	[0.14 s]
+0.0.Hp: A trace with 3 cycles was found. [0.14 s]
+INFO (IPF055): 0.0.Hp: A counterexample (cex) with 3 cycles was found for the property "Bridge_Top.chk_top.assert_read_timing" in 0.19 s.
+0.0.Hp: A trace with 3 cycles was found. [0.14 s]
+INFO (IPF055): 0.0.Hp: A counterexample (cex) with 3 cycles was found for the property "Bridge_Top.chk_top.assert_write_pselx" in 0.24 s.
+0.0.Hp: Trace Attempt  4	[0.14 s]
+0.0.Hp: A trace with 4 cycles was found. [0.14 s]
+INFO (IPF055): 0.0.Hp: A counterexample (cex) with 4 cycles was found for the property "Bridge_Top.chk_top.assert_non_seq_read" in 0.27 s.
+0.0.N: Requesting engine job to terminate
+0.0.Hp: Requesting engine job to terminate
+INFO (IPF144): 0: Initiating shutdown of proof [0.19 s]
+0: ProofGrid is temporarily paused because there are too many pending traces.
+0: ProofGrid is resuming to work after pausing for 0s. The amount of pending traces decreased.
+0.0.Hp: A trace with 4 cycles was found. [0.14 s]
+INFO (IPF055): 0.0.Hp: A counterexample (cex) with 4 cycles was found for the property "Bridge_Top.chk_top.assert_write_timing" in 0.30 s.
+0.0.Hp: All properties determined. [0.14 s]
+0.0.Ht: Proofgrid shell started at 2181608@micro25(local) jg_2180921_micro25_1
+0.0.Ht: Requesting engine job to terminate
+0.0.Ht: Preventing job from starting because proof is shutting down.
+0.0.Ht: Requesting engine job to terminate
+0.0.Ht: Interrupted. [0.00 s]
+0.0.N: Trace Attempt  1	[0.05 s]
+0.0.N: Trace Attempt  2	[0.06 s]
+0.0.N: Stopped processing property "Bridge_Top.chk_top.assert_non_seq_read"	[0.30 s].
+0.0.N: All properties determined. [0.11 s]
+0.0.Hp: Exited with Success (@ 0.28 s)
+0: ProofGrid usable level: 0
+0.0.Ht: Exited with Success (@ 0.28 s)
+0.0.N: Exited with Success (@ 0.28 s)
+0.0.Mpcustom4: Proofgrid shell started at 2181613@micro25(local) jg_2180921_micro25_1
+0.0.Mpcustom4: Requesting engine job to terminate
+0.0.Bm: Proofgrid shell started at 2181612@micro25(local) jg_2180921_micro25_1
+0.0.Bm: Requesting engine job to terminate
+0.0.Bm: Preventing job from starting because proof is shutting down.
+0.0.Bm: Requesting engine job to terminate
+0.0.Bm: Interrupted. [0.00 s]
+0.0.Mpcustom4: Preventing job from starting because proof is shutting down.
+0.0.Mpcustom4: Requesting engine job to terminate
+0.0.Mpcustom4: Interrupted. [0.00 s]
+0.0.Bm: Exited with Success (@ 0.32 s)
+0.0.L: Proofgrid shell started at 2181616@micro25(local) jg_2180921_micro25_1
+0.0.L: Requesting engine job to terminate
+0.0.Mpcustom4: Exited with Success (@ 0.35 s)
+0.0.L: Preventing job from starting because proof is shutting down.
+0.0.L: Requesting engine job to terminate
+0.0.L: Interrupted. [0.00 s]
+0.0.Oh: Proofgrid shell started at 2181615@micro25(local) jg_2180921_micro25_1
+0.0.Oh: Requesting engine job to terminate
+0.0.L: Exited with Success (@ 0.36 s)
+0.0.Oh: Preventing job from starting because proof is shutting down.
+0.0.Oh: Requesting engine job to terminate
+0.0.Oh: Interrupted. [0.00 s]
+0.0.B: Proofgrid shell started at 2181644@micro25(local) jg_2180921_micro25_1
+0.0.B: Requesting engine job to terminate
+0.0.AM: Proofgrid shell started at 2181656@micro25(local) jg_2180921_micro25_1
+0.0.AM: Requesting engine job to terminate
+0.0.Oh: Exited with Success (@ 0.37 s)
+0.0.B: Preventing job from starting because proof is shutting down.
+0.0.B: Requesting engine job to terminate
+0.0.B: Interrupted. [0.00 s]
+0.0.AM: Preventing job from starting because proof is shutting down.
+0.0.AM: Requesting engine job to terminate
+0.0.B: Exited with Success (@ 0.38 s)
+0.0.AM: Interrupted. [0.00 s]
+0.0.AM: Exited with Success (@ 0.38 s)
+0: --------------------------------------------------------------
+ProofGrid Summary (utilization 9.36 %)
+--------------------------------------------------------------
+     engines started                               :     9
+     engine jobs started                           :     9
+
+    Average time in state (seconds)
+    ------------------------------------------------------
+    Engine  Pending     Running        Dead    Utilization
+    ------------------------------------------------------
+      N        0.32        0.12        0.00       28.01 %
+     Hp        0.30        0.13        0.00       29.96 %
+     Ht        0.28        0.00        0.00        0.00 %
+     Bm        0.26        0.00        0.00        0.00 %
+    Mpcustom4        0.25        0.00        0.00        0.00 %
+     Oh        0.29        0.00        0.00        0.00 %
+      L        0.28        0.00        0.00        0.00 %
+      B        0.24        0.00        0.00        0.00 %
+     AM        0.23        0.00        0.00        0.00 %
+    all        0.27        0.03        0.00        9.36 %
+
+    Total time in state (seconds)
+    -----------------------------------------
+            Pending     Running        Dead  
+    -----------------------------------------
+               2.45        0.25        0.00
+
+    Data read    : 6.45 kiB
+    Data written : 1.13 kiB
+
+0: All pending notifications were processed.
+0: ProofGrid was paused 1 times for a total of 0.083 seconds
+INFO (IPF059): 0: Completed proof on task: "<embedded>"
+
+==============================================================
+SUMMARY
+==============================================================
+           Properties Considered              : 14
+                 assertions                   : 7
+                  - proven                    : 2 (28.5714%)
+                  - bounded_proven (user)     : 0 (0%)
+                  - bounded_proven (auto)     : 0 (0%)
+                  - marked_proven             : 0 (0%)
+                  - cex                       : 5 (71.4286%)
+                  - ar_cex                    : 0 (0%)
+                  - undetermined              : 0 (0%)
+                  - unknown                   : 0 (0%)
+                  - error                     : 0 (0%)
+                 covers                       : 7
+                  - unreachable               : 0 (0%)
+                  - bounded_unreachable (user): 0 (0%)
+                  - covered                   : 7 (100%)
+                  - ar_covered                : 0 (0%)
+                  - undetermined              : 0 (0%)
+                  - unknown                   : 0 (0%)
+                  - error                     : 0 (0%)
+[<embedded>] % visualize -violation -property <embedded>::Bridge_Top.chk_top.assert_non_seq_read -new_window
+INFO (IVS015): Setting Visualize task to "<embedded>".
+INFO (IVS008): Expanding analysis region to enable visualization of "<embedded>::Bridge_Top.chk_top.assert_non_seq_read".
+cex
+[<embedded>] % include /homes/user/stud/fall23/ym3000/6863/CSEE-6863-Final-Project/SVA/top/top_sva.tcl
+%% clear -all
+INFO (IPF121): Cleared environment completely for new design analysis.
+%% 
+%% analyze -sv09 top_sva.sv
+[-- (VERI-1482)] Analyzing Verilog file '/tools/cadence/jasper_2024.06p002/lib/verilog/packages/std/std.sv' into library 'std'
+[-- (VERI-1482)] Analyzing Verilog file 'top_sva.sv'
+%% analyze -sv09 ../../RTL/top.v
+[-- (VERI-1482)] Analyzing Verilog file '../../RTL/top.v'
+%% analyze -sv09 ../../RTL/AHB_Interface.v
+[-- (VERI-1482)] Analyzing Verilog file '../../RTL/AHB_Interface.v'
+%% analyze -sv09 ../../RTL/APB_FSM.v
+[-- (VERI-1482)] Analyzing Verilog file '../../RTL/APB_FSM.v'
+%% elaborate -top Bridge_Top
+INFO (ISW003): Top module name is "Bridge_Top".
+[INFO (VERI-1018)] ../../RTL/AHB_Interface.v(12): compiling module 'AHB_slave_interface'
+[INFO (VERI-1018)] ../../RTL/APB_FSM.v(2): compiling module 'APB_FSM'
+[INFO (VERI-1018)] top_sva.sv(1): compiling module 'top_sva'
+[INFO (VERI-1018)] ../../RTL/top.v(1): compiling module 'Bridge_Top'
+INFO (INL208): Elaboration synthesis summary:
+  Number of synthesized netlists          5 (1 packages)
+  Single run mode                         On
+  Pipeline                                On (4 pipelined netlists)
+  Late hierarchical reference connection  On
+  Number of analyzed Verilog modules      5 (5 synthesized)
+  Number of analyzed VHDL entities        0 (0 synthesized)
+INFO (INL003): Clearing all state information (assumes, stopats, and so forth).
+Bridge_Top
+%% 
+%% clock clk
+%% reset ~rst
+INFO (IPM031): Clearing proof results of all properties.
+INFO (IRS006): Current reset condition is "rst".
+Bridge_Top
+[<embedded>] % prove -bg -all
+background 0
+INFO (IPF036): Starting proof on task: "<embedded>", 14 properties to prove with 0 already proven/unreachable
+INFO (IRS029): Starting reset analysis: phase 1 of 4.
+INFO (IRS030): Running reset analysis: phase 2 of 4.
+INFO (IRS031): Running reset analysis: phase 3 of 4.
+INFO (IRS020): Starting the reset analysis simulation with a limit of 100 iterations (phase 4 of 4).
+INFO (IRS024): Reset iterations 0 to 4 analyzed.
+INFO (IRS018): Reset analysis simulation executed for 3 iterations. Assigned values for 202 of 202 design flops, 36 of 68 design latches, 39 of 41 internal elements.
+INFO (IRS039): Reset analysis complete.
+INFO (IPF031): Settings used for proof thread 0:
+    orchestration                 = on
+    time_limit                    = 86400s
+    per_property_time_limit       = 1s * 10 ^ scan
+    engine_mode                   = auto
+    proofgrid_per_engine_max_jobs = 1
+    max engine jobs               = auto
+    proofgrid_mode                = local
+    proofgrid_restarts            = 10
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property "Bridge_Top.chk_top.assert_nonseq_write" was proven in 0.00 s.
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property "Bridge_Top.chk_top.assert_nonseq_read" was proven in 0.00 s.
+0: Found proofs for 2 properties in preprocessing
+0: Using multistage preprocessing
+0: Starting reduce
+0: Finished reduce in 0s
+0.0.PRE: Performing Proof Simplification...
+0.0.N: clocks: 3, declared: 1, looping: 0, posedge: 3, negedge: 0, noedge: 0, bothedge: 0
+0.0.N: Proof Simplification Iteration 1	[0.00 s]
+0.0.PRE: A trace with 1 cycles was found. [0.00 s]
+INFO (IPF047): 0.0.PRE: The cover property "Bridge_Top.chk_top.assert_nonseq_write:precondition1" was covered in 1 cycles in 0.00 s.
+INFO (IPF047): 0.0.PRE: The cover property "Bridge_Top.chk_top.assert_write_timing:precondition1" was covered in 1 cycles in 0.00 s.
+INFO (IPF047): 0.0.PRE: The cover property "Bridge_Top.chk_top.assert_write_pselx:precondition1" was covered in 1 cycles in 0.00 s.
+0.0.N: Proof Simplification Iteration 2	[0.16 s]
+0.0.N: Proof Simplification Iteration 3	[0.16 s]
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property ":noDeadEnd" was proven in 0.00 s.
+    Use check_assumptions -show -dead_end to show this property in the property table.
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property ":noConflict" was proven in 0.00 s.
+    Use check_assumptions -show to show this property in the property table.
+INFO (IPF047): 0.0.PRE: The cover property ":live" was covered in 1 cycles in 0.00 s.
+    Use check_assumptions -show -live to show this property in the property table.
+0.0.PRE: Proof Simplification completed in 0.16 s
+0.0.N: Identified and disabled 4 duplicated targets.
+0: About to start ProofGrid in its own thread with a limit of 10000 pending notifications and a limit of 10 traces.
+0: =============================== ProofGrid start ===============================
+0: ProofGrid usable level: 7
+0: Initial ProofGrid level: 1
+0: ProofGrid is starting event handling
+0.0.N: Proofgrid shell started at 2186081@micro25(local) jg_2180921_micro25_2
+0.0.Hp: Proofgrid shell started at 2186082@micro25(local) jg_2180921_micro25_2
+0.0.N: clocks: 1, declared: 1, looping: 0, posedge: 1, negedge: 0, noedge: 0, bothedge: 0
+0.0.N: Next scan (0) will use per property time limit: 1s * 10 ^ 0 = 1s
+0.0.N: Starting proof for property "Bridge_Top.chk_top.assert_non_seq_read"	[0.00 s].
+0.0.N: Trace Attempt  1	[0.00 s]
+0.0.N: A max_length bound was found. The shortest trace is no longer than 256 cycles. [0.00 s]
+INFO (IPF008): 0.0.N: A max_length bound of 256 was found for the property "Bridge_Top.chk_top.assert_non_seq_read" in 0.00 s.
+0.0.N: Trace Attempt  2	[0.00 s]
+0.0.N: Trace Attempt  2	[0.00 s]
+0.0.N: Trace Attempt  3	[0.00 s]
+0.0.N: Trace Attempt  3	[0.00 s]
+0.0.N: Trace Attempt  4	[0.00 s]
+0.0.N: Trace Attempt  4	[0.00 s]
+0.0.N: A trace with 4 cycles was found. [0.00 s]
+INFO (IPF055): 0.0.N: A counterexample (cex) with 4 cycles was found for the property "Bridge_Top.chk_top.assert_non_seq_read" in 0.00 s.
+INFO (IPF047): 0.0.N: The cover property "Bridge_Top.chk_top.assert_non_seq_read:precondition1" was covered in 3 cycles in 0.00 s by the incidental trace "Bridge_Top.chk_top.assert_non_seq_read".
+INFO (IPF047): 0.0.N: The cover property "Bridge_Top.chk_top.assert_nonseq_read:precondition1" was covered in 2 cycles in 0.00 s by the incidental trace "Bridge_Top.chk_top.assert_non_seq_read".
+INFO (IPF055): 0.0.N: A counterexample (cex) with 3 cycles was found for the property "Bridge_Top.chk_top.assert_read_pselx" in 0.00 s by the incidental trace "Bridge_Top.chk_top.assert_non_seq_read".
+INFO (IPF055): 0.0.N: A counterexample (cex) with 3 cycles was found for the property "Bridge_Top.chk_top.assert_write_pselx" in 0.00 s by the incidental trace "Bridge_Top.chk_top.assert_non_seq_read".
+INFO (IPF047): 0.0.N: The cover property "Bridge_Top.chk_top.assert_read_timing:precondition1" was covered in 2 cycles in 0.00 s by the incidental trace "Bridge_Top.chk_top.assert_non_seq_read".
+INFO (IPF047): 0.0.N: The cover property "Bridge_Top.chk_top.assert_read_pselx:precondition1" was covered in 2 cycles in 0.00 s by the incidental trace "Bridge_Top.chk_top.assert_non_seq_read".
+0.0.N: Stopped processing property "Bridge_Top.chk_top.assert_non_seq_read"	[0.05 s].
+0.0.Hp: clocks: 1, declared: 1, looping: 0, posedge: 1, negedge: 0, noedge: 0, bothedge: 0
+0.0.N: Starting proof for property "Bridge_Top.chk_top.assert_read_timing"	[0.00 s].
+0.0.N: Trace Attempt  1	[0.00 s]
+0.0.N: A max_length bound was found. The shortest trace is no longer than 64 cycles. [0.00 s]
+INFO (IPF008): 0.0.N: A max_length bound of 64 was found for the property "Bridge_Top.chk_top.assert_read_timing" in 0.00 s.
+0.0.N: Trace Attempt  2	[0.00 s]
+0: ProofGrid usable level: 2
+0.0.Hp: Trace Attempt  1	[0.01 s]
+0.0.Hp: Trace Attempt  2	[0.01 s]
+0.0.Hp: Trace Attempt  3	[0.01 s]
+0.0.Hp: A trace with 3 cycles was found. [0.01 s]
+INFO (IPF055): 0.0.Hp: A counterexample (cex) with 3 cycles was found for the property "Bridge_Top.chk_top.assert_read_timing" in 0.00 s.
+0.0.Hp: Trace Attempt  4	[0.01 s]
+0.0.N: Requesting engine job to terminate
+0.0.Hp: Requesting engine job to terminate
+INFO (IPF144): 0: Initiating shutdown of proof [0.01 s]
+0.0.Hp: A trace with 4 cycles was found. [0.01 s]
+INFO (IPF055): 0.0.Hp: A counterexample (cex) with 4 cycles was found for the property "Bridge_Top.chk_top.assert_write_timing" in 0.05 s.
+0.0.Hp: All properties determined. [0.01 s]
+0.0.N: Trace Attempt  3	[0.00 s]
+0.0.N: Trace Attempt  3	[0.00 s]
+0.0.N: A trace with 3 cycles was found. [0.00 s]
+INFO (IPF047): 0.0.N: The cover property "Bridge_Top.chk_top.assert_non_seq_read:precondition1" was covered in 1 cycles in 0.09 s by the incidental trace "Bridge_Top.chk_top.assert_non_seq_read:precondition1".
+INFO (IPF047): 0.0.N: The cover property "Bridge_Top.chk_top.assert_nonseq_read:precondition1" was covered in 1 cycles in 0.09 s by the incidental trace "Bridge_Top.chk_top.assert_non_seq_read:precondition1".
+INFO (IPF055): 0.0.N: A counterexample (cex) with 2 cycles was found for the property "Bridge_Top.chk_top.assert_read_pselx" in 0.09 s by the incidental trace "Bridge_Top.chk_top.assert_non_seq_read:precondition1".
+INFO (IPF047): 0.0.N: The cover property "Bridge_Top.chk_top.assert_read_timing:precondition1" was covered in 1 cycles in 0.09 s by the incidental trace "Bridge_Top.chk_top.assert_non_seq_read:precondition1".
+INFO (IPF047): 0.0.N: The cover property "Bridge_Top.chk_top.assert_read_pselx:precondition1" was covered in 1 cycles in 0.09 s by the incidental trace "Bridge_Top.chk_top.assert_non_seq_read:precondition1".
+0.0.N: Stopped processing property "Bridge_Top.chk_top.assert_read_timing"	[0.12 s].
+0.0.Hp: Exited with Success (@ 0.01 s)
+0: ProofGrid usable level: 0
+0.0.N: All properties determined. [0.00 s]
+0.0.N: Exited with Success (@ 0.02 s)
+0.0.Mpcustom4: Proofgrid shell started at 2186115@micro25(local) jg_2180921_micro25_2
+0.0.Mpcustom4: Requesting engine job to terminate
+0.0.Bm: Proofgrid shell started at 2186114@micro25(local) jg_2180921_micro25_2
+0.0.Bm: Requesting engine job to terminate
+0.0.Ht: Proofgrid shell started at 2186113@micro25(local) jg_2180921_micro25_2
+0.0.Ht: Requesting engine job to terminate
+0.0.Mpcustom4: Preventing job from starting because proof is shutting down.
+0.0.Mpcustom4: Requesting engine job to terminate
+0.0.Mpcustom4: Interrupted. [0.00 s]
+0.0.Mpcustom4: Exited with Success (@ 0.14 s)
+0.0.Bm: Preventing job from starting because proof is shutting down.
+0.0.Bm: Requesting engine job to terminate
+0.0.Bm: Interrupted. [0.00 s]
+0.0.Bm: Exited with Success (@ 0.15 s)
+0.0.Ht: Preventing job from starting because proof is shutting down.
+0.0.Ht: Requesting engine job to terminate
+0.0.Ht: Interrupted. [0.00 s]
+0.0.Oh: Proofgrid shell started at 2186116@micro25(local) jg_2180921_micro25_2
+0.0.Oh: Requesting engine job to terminate
+0.0.Ht: Exited with Success (@ 0.15 s)
+0.0.Oh: Preventing job from starting because proof is shutting down.
+0.0.Oh: Requesting engine job to terminate
+0.0.Oh: Interrupted. [0.00 s]
+0.0.L: Proofgrid shell started at 2186117@micro25(local) jg_2180921_micro25_2
+0.0.L: Requesting engine job to terminate
+0.0.Oh: Exited with Success (@ 0.16 s)
+0.0.L: Preventing job from starting because proof is shutting down.
+0.0.L: Requesting engine job to terminate
+0.0.L: Interrupted. [0.00 s]
+0.0.AM: Proofgrid shell started at 2186119@micro25(local) jg_2180921_micro25_2
+0.0.AM: Requesting engine job to terminate
+0.0.L: Exited with Success (@ 0.17 s)
+0.0.AM: Preventing job from starting because proof is shutting down.
+0.0.AM: Requesting engine job to terminate
+0.0.AM: Interrupted. [0.00 s]
+0.0.B: Proofgrid shell started at 2186118@micro25(local) jg_2180921_micro25_2
+0.0.B: Requesting engine job to terminate
+0.0.AM: Exited with Success (@ 0.19 s)
+0.0.B: Preventing job from starting because proof is shutting down.
+0.0.B: Requesting engine job to terminate
+0.0.B: Interrupted. [0.00 s]
+0.0.B: Exited with Success (@ 0.19 s)
+0: --------------------------------------------------------------
+ProofGrid Summary (utilization 1.07 %)
+--------------------------------------------------------------
+     engines started                               :     9
+     engine jobs started                           :     9
+
+    Average time in state (seconds)
+    ------------------------------------------------------
+    Engine  Pending     Running        Dead    Utilization
+    ------------------------------------------------------
+      N        0.12        0.01        0.00        6.13 %
+     Hp        0.11        0.01        0.00        5.27 %
+     Ht        0.14        0.00        0.00        0.00 %
+     Bm        0.14        0.00        0.00        0.00 %
+    Mpcustom4        0.14        0.00        0.00        0.00 %
+     Oh        0.14        0.00        0.00        0.00 %
+      L        0.15        0.00        0.00        0.00 %
+      B        0.18        0.00        0.00        0.00 %
+     AM        0.16        0.00        0.00        0.00 %
+    all        0.14        0.00        0.00        1.07 %
+
+    Total time in state (seconds)
+    -----------------------------------------
+            Pending     Running        Dead  
+    -----------------------------------------
+               1.26        0.01        0.00
+
+    Data read    : 6.09 kiB
+    Data written : 1.11 kiB
+
+0: All pending notifications were processed.
+INFO (IPF059): 0: Completed proof on task: "<embedded>"
+
+==============================================================
+SUMMARY
+==============================================================
+           Properties Considered              : 14
+                 assertions                   : 7
+                  - proven                    : 2 (28.5714%)
+                  - bounded_proven (user)     : 0 (0%)
+                  - bounded_proven (auto)     : 0 (0%)
+                  - marked_proven             : 0 (0%)
+                  - cex                       : 5 (71.4286%)
+                  - ar_cex                    : 0 (0%)
+                  - undetermined              : 0 (0%)
+                  - unknown                   : 0 (0%)
+                  - error                     : 0 (0%)
+                 covers                       : 7
+                  - unreachable               : 0 (0%)
+                  - bounded_unreachable (user): 0 (0%)
+                  - covered                   : 7 (100%)
+                  - ar_covered                : 0 (0%)
+                  - undetermined              : 0 (0%)
+                  - unknown                   : 0 (0%)
+                  - error                     : 0 (0%)
+[<embedded>] % visualize -violation -property <embedded>::Bridge_Top.chk_top.assert_non_seq_read -new_window
+INFO (IVS015): Setting Visualize task to "<embedded>".
+INFO (IVS008): Expanding analysis region to enable visualization of "<embedded>::Bridge_Top.chk_top.assert_non_seq_read".
+cex
+[<embedded>] % include /homes/user/stud/fall23/ym3000/6863/CSEE-6863-Final-Project/SVA/top/top_sva.tcl
+%% clear -all
+INFO (IPF121): Cleared environment completely for new design analysis.
+%% 
+%% analyze -sv09 top_sva.sv
+[-- (VERI-1482)] Analyzing Verilog file '/tools/cadence/jasper_2024.06p002/lib/verilog/packages/std/std.sv' into library 'std'
+[-- (VERI-1482)] Analyzing Verilog file 'top_sva.sv'
+%% analyze -sv09 ../../RTL/top.v
+[-- (VERI-1482)] Analyzing Verilog file '../../RTL/top.v'
+%% analyze -sv09 ../../RTL/AHB_Interface.v
+[-- (VERI-1482)] Analyzing Verilog file '../../RTL/AHB_Interface.v'
+%% analyze -sv09 ../../RTL/APB_FSM.v
+[-- (VERI-1482)] Analyzing Verilog file '../../RTL/APB_FSM.v'
+%% elaborate -top Bridge_Top
+INFO (ISW003): Top module name is "Bridge_Top".
+[INFO (VERI-1018)] ../../RTL/AHB_Interface.v(12): compiling module 'AHB_slave_interface'
+[INFO (VERI-1018)] ../../RTL/APB_FSM.v(2): compiling module 'APB_FSM'
+[INFO (VERI-1018)] top_sva.sv(1): compiling module 'top_sva'
+[INFO (VERI-1018)] ../../RTL/top.v(1): compiling module 'Bridge_Top'
+INFO (INL208): Elaboration synthesis summary:
+  Number of synthesized netlists          5 (1 packages)
+  Single run mode                         On
+  Pipeline                                On (4 pipelined netlists)
+  Late hierarchical reference connection  On
+  Number of analyzed Verilog modules      5 (5 synthesized)
+  Number of analyzed VHDL entities        0 (0 synthesized)
+INFO (INL003): Clearing all state information (assumes, stopats, and so forth).
+Bridge_Top
+%% 
+%% clock clk
+%% reset ~rst
+INFO (IPM031): Clearing proof results of all properties.
+INFO (IRS006): Current reset condition is "rst".
+Bridge_Top
+[<embedded>] % prove -bg -all
+background 0
+INFO (IPF036): Starting proof on task: "<embedded>", 15 properties to prove with 0 already proven/unreachable
+INFO (IRS029): Starting reset analysis: phase 1 of 4.
+INFO (IRS030): Running reset analysis: phase 2 of 4.
+INFO (IRS031): Running reset analysis: phase 3 of 4.
+INFO (IRS020): Starting the reset analysis simulation with a limit of 100 iterations (phase 4 of 4).
+INFO (IRS024): Reset iterations 0 to 4 analyzed.
+INFO (IRS018): Reset analysis simulation executed for 3 iterations. Assigned values for 202 of 202 design flops, 36 of 68 design latches, 42 of 44 internal elements.
+INFO (IRS039): Reset analysis complete.
+INFO (IPF031): Settings used for proof thread 0:
+    orchestration                 = on
+    time_limit                    = 86400s
+    per_property_time_limit       = 1s * 10 ^ scan
+    engine_mode                   = auto
+    proofgrid_per_engine_max_jobs = 1
+    max engine jobs               = auto
+    proofgrid_mode                = local
+    proofgrid_restarts            = 10
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property "Bridge_Top.chk_top.assert_nonseq_write" was proven in 0.00 s.
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property "Bridge_Top.chk_top.assert_nonseq_read" was proven in 0.00 s.
+0: Found proofs for 2 properties in preprocessing
+0: Using multistage preprocessing
+0: Starting reduce
+0: Finished reduce in 0s
+0.0.PRE: Performing Proof Simplification...
+0.0.N: clocks: 3, declared: 1, looping: 0, posedge: 3, negedge: 0, noedge: 0, bothedge: 0
+0.0.N: Proof Simplification Iteration 1	[0.00 s]
+0.0.PRE: A trace with 1 cycles was found. [0.00 s]
+INFO (IPF047): 0.0.PRE: The cover property "Bridge_Top.chk_top.assert_nonseq_write:precondition1" was covered in 1 cycles in 0.00 s.
+INFO (IPF047): 0.0.PRE: The cover property "Bridge_Top.chk_top.assert_write_timing:precondition1" was covered in 1 cycles in 0.00 s.
+INFO (IPF047): 0.0.PRE: The cover property "Bridge_Top.chk_top.assert_write_pselx:precondition1" was covered in 1 cycles in 0.00 s.
+0.0.N: Proof Simplification Iteration 2	[0.16 s]
+0.0.N: Proof Simplification Iteration 3	[0.16 s]
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property ":noDeadEnd" was proven in 0.00 s.
+    Use check_assumptions -show -dead_end to show this property in the property table.
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property ":noConflict" was proven in 0.00 s.
+    Use check_assumptions -show to show this property in the property table.
+INFO (IPF047): 0.0.PRE: The cover property ":live" was covered in 1 cycles in 0.00 s.
+    Use check_assumptions -show -live to show this property in the property table.
+0.0.PRE: Proof Simplification completed in 0.16 s
+0.0.N: Identified and disabled 5 duplicated targets.
+0: About to start ProofGrid in its own thread with a limit of 10000 pending notifications and a limit of 10 traces.
+0: =============================== ProofGrid start ===============================
+0: ProofGrid usable level: 7
+0: Initial ProofGrid level: 1
+0: ProofGrid is starting event handling
+0.0.N: Proofgrid shell started at 2186487@micro25(local) jg_2180921_micro25_3
+0.0.N: clocks: 1, declared: 1, looping: 0, posedge: 1, negedge: 0, noedge: 0, bothedge: 0
+0.0.N: Next scan (0) will use per property time limit: 1s * 10 ^ 0 = 1s
+0.0.N: Starting proof for property "Bridge_Top.chk_top._assume_2:precondition1"	[0.00 s].
+0.0.N: Starting proof for property "Bridge_Top.chk_top.assert_nonseq_read:precondition1"	[0.00 s].
+0.0.N: Starting proof for property "Bridge_Top.chk_top.assert_read_timing:precondition1"	[0.00 s].
+0.0.N: Starting proof for property "Bridge_Top.chk_top.assert_read_pselx:precondition1"	[0.00 s].
+0.0.N: Trace Attempt  1	[0.00 s]
+0.0.N: A trace with 1 cycles was found. [0.00 s]
+INFO (IPF047): 0.0.N: The cover property "Bridge_Top.chk_top._assume_2:precondition1" was covered in 1 cycles in 0.01 s.
+INFO (IPF047): 0.0.N: The cover property "Bridge_Top.chk_top.assert_non_seq_read:precondition1" was covered in 1 cycles in 0.01 s by the incidental trace "Bridge_Top.chk_top._assume_2:precondition1".
+INFO (IPF047): 0.0.N: The cover property "Bridge_Top.chk_top.assert_nonseq_read:precondition1" was covered in 1 cycles in 0.01 s.
+INFO (IPF047): 0.0.N: The cover property "Bridge_Top.chk_top.assert_read_timing:precondition1" was covered in 1 cycles in 0.01 s.
+INFO (IPF047): 0.0.N: The cover property "Bridge_Top.chk_top.assert_read_pselx:precondition1" was covered in 1 cycles in 0.01 s.
+0: ProofGrid usable level: 5
+0.0.N: Stopped processing property "Bridge_Top.chk_top._assume_2:precondition1"	[0.09 s].
+0.0.N: Stopped processing property "Bridge_Top.chk_top.assert_nonseq_read:precondition1"	[0.09 s].
+0.0.N: Stopped processing property "Bridge_Top.chk_top.assert_read_timing:precondition1"	[0.09 s].
+0.0.N: Stopped processing property "Bridge_Top.chk_top.assert_read_pselx:precondition1"	[0.09 s].
+0.0.Hp: Proofgrid shell started at 2186488@micro25(local) jg_2180921_micro25_3
+0.0.N: Starting proof for property "Bridge_Top.chk_top.assert_non_seq_read"	[0.00 s].
+0.0.N: Trace Attempt  1	[0.00 s]
+0.0.N: A max_length bound was found. The shortest trace is no longer than 512 cycles. [0.00 s]
+INFO (IPF008): 0.0.N: A max_length bound of 512 was found for the property "Bridge_Top.chk_top.assert_non_seq_read" in 0.00 s.
+0.0.N: Trace Attempt  2	[0.00 s]
+0.0.N: Trace Attempt  2	[0.00 s]
+0.0.N: Trace Attempt  3	[0.00 s]
+0.0.N: Trace Attempt  3	[0.00 s]
+0.0.N: Trace Attempt  4	[0.00 s]
+0.0.N: Trace Attempt  4	[0.00 s]
+0.0.N: A trace with 4 cycles was found. [0.00 s]
+INFO (IPF055): 0.0.N: A counterexample (cex) with 4 cycles was found for the property "Bridge_Top.chk_top.assert_non_seq_read" in 0.00 s.
+INFO (IPF055): 0.0.N: A counterexample (cex) with 4 cycles was found for the property "Bridge_Top.chk_top.assert_read_pselx" in 0.00 s by the incidental trace "Bridge_Top.chk_top.assert_non_seq_read".
+INFO (IPF055): 0.0.N: A counterexample (cex) with 3 cycles was found for the property "Bridge_Top.chk_top.assert_write_pselx" in 0.00 s by the incidental trace "Bridge_Top.chk_top.assert_non_seq_read".
+0.0.N: Stopped processing property "Bridge_Top.chk_top.assert_non_seq_read"	[0.08 s].
+0.0.N: Starting proof for property "Bridge_Top.chk_top.assert_read_timing"	[0.00 s].
+0: ProofGrid usable level: 2
+0.0.N: Trace Attempt  1	[0.00 s]
+0.0.N: A max_length bound was found. The shortest trace is no longer than 64 cycles. [0.00 s]
+INFO (IPF008): 0.0.N: A max_length bound of 64 was found for the property "Bridge_Top.chk_top.assert_read_timing" in 0.00 s.
+0.0.N: Trace Attempt  2	[0.00 s]
+0.0.N: Trace Attempt  3	[0.00 s]
+0.0.N: Trace Attempt  3	[0.00 s]
+0.0.N: A trace with 3 cycles was found. [0.00 s]
+INFO (IPF055): 0.0.N: A counterexample (cex) with 3 cycles was found for the property "Bridge_Top.chk_top.assert_read_timing" in 0.00 s.
+INFO (IPF055): 0.0.N: A counterexample (cex) with 2 cycles was found for the property "Bridge_Top.chk_top.assert_read_pselx" in 0.00 s by the incidental trace "Bridge_Top.chk_top.assert_read_timing".
+0.0.N: Stopped processing property "Bridge_Top.chk_top.assert_read_timing"	[0.05 s].
+0.0.N: Last scan. Per property time limit: 0s
+0.0.N: Starting proof for property "Bridge_Top.chk_top.assert_write_timing"	[0.00 s].
+0.0.N: Trace Attempt  1	[0.00 s]
+0.0.N: A max_length bound was found. The shortest trace is no longer than 256 cycles. [0.00 s]
+INFO (IPF008): 0.0.N: A max_length bound of 256 was found for the property "Bridge_Top.chk_top.assert_write_timing" in 0.00 s.
+0.0.N: Trace Attempt  2	[0.00 s]
+0.0.N: Trace Attempt  3	[0.00 s]
+0.0.N: Trace Attempt  3	[0.00 s]
+0.0.N: Trace Attempt  4	[0.00 s]
+0.0.N: Trace Attempt  4	[0.00 s]
+0.0.N: Requesting engine job to terminate
+INFO (IPF144): 0: Initiating shutdown of proof [0.02 s]
+0.0.N: A trace with 4 cycles was found. [0.00 s]
+INFO (IPF055): 0.0.N: A counterexample (cex) with 4 cycles was found for the property "Bridge_Top.chk_top.assert_write_timing" in 0.00 s.
+0.0.N: Stopped processing property "Bridge_Top.chk_top.assert_write_timing"	[0.03 s].
+0.0.N: All properties determined. [0.00 s]
+0.0.Hp: Preventing job from starting because proof is shutting down.
+0.0.Hp: Requesting engine job to terminate
+0.0.N: Exited with Success (@ 0.03 s)
+0: ProofGrid usable level: 0
+0.0.Hp: Interrupted. [0.00 s]
+0.0.Mpcustom4: Proofgrid shell started at 2186521@micro25(local) jg_2180921_micro25_3
+0.0.Mpcustom4: Requesting engine job to terminate
+0.0.B: Proofgrid shell started at 2186524@micro25(local) jg_2180921_micro25_3
+0.0.B: Requesting engine job to terminate
+0.0.Hp: Exited with Success (@ 0.22 s)
+0.0.Mpcustom4: Preventing job from starting because proof is shutting down.
+0.0.Mpcustom4: Requesting engine job to terminate
+0.0.Mpcustom4: Interrupted. [0.00 s]
+0.0.Ht: Proofgrid shell started at 2186519@micro25(local) jg_2180921_micro25_3
+0.0.Ht: Requesting engine job to terminate
+0.0.Mpcustom4: Exited with Success (@ 0.23 s)
+0.0.B: Preventing job from starting because proof is shutting down.
+0.0.B: Requesting engine job to terminate
+0.0.B: Interrupted. [0.00 s]
+0.0.Oh: Proofgrid shell started at 2186522@micro25(local) jg_2180921_micro25_3
+0.0.Oh: Requesting engine job to terminate
+0.0.B: Exited with Success (@ 0.23 s)
+0.0.Ht: Preventing job from starting because proof is shutting down.
+0.0.Ht: Requesting engine job to terminate
+0.0.Ht: Interrupted. [0.00 s]
+0.0.Oh: Preventing job from starting because proof is shutting down.
+0.0.Oh: Requesting engine job to terminate
+0.0.Ht: Exited with Success (@ 0.23 s)
+0.0.Oh: Interrupted. [0.00 s]
+0.0.Oh: Exited with Success (@ 0.23 s)
+0.0.L: Proofgrid shell started at 2186523@micro25(local) jg_2180921_micro25_3
+0.0.L: Requesting engine job to terminate
+0.0.L: Preventing job from starting because proof is shutting down.
+0.0.L: Requesting engine job to terminate
+0.0.L: Interrupted. [0.00 s]
+0.0.Bm: Proofgrid shell started at 2186520@micro25(local) jg_2180921_micro25_3
+0.0.Bm: Requesting engine job to terminate
+0.0.AM: Proofgrid shell started at 2186525@micro25(local) jg_2180921_micro25_3
+0.0.AM: Requesting engine job to terminate
+0.0.Bm: Preventing job from starting because proof is shutting down.
+0.0.Bm: Requesting engine job to terminate
+0.0.Bm: Interrupted. [0.00 s]
+0.0.L: Exited with Success (@ 0.25 s)
+0.0.AM: Preventing job from starting because proof is shutting down.
+0.0.AM: Requesting engine job to terminate
+0.0.Bm: Exited with Success (@ 0.26 s)
+0.0.AM: Interrupted. [0.00 s]
+0.0.AM: Exited with Success (@ 0.26 s)
+0: --------------------------------------------------------------
+ProofGrid Summary (utilization 0.75 %)
+--------------------------------------------------------------
+     engines started                               :     9
+     engine jobs started                           :     9
+
+    Average time in state (seconds)
+    ------------------------------------------------------
+    Engine  Pending     Running        Dead    Utilization
+    ------------------------------------------------------
+      N        0.10        0.01        0.00       12.35 %
+     Hp        0.10        0.00        0.00        0.00 %
+     Ht        0.22        0.00        0.00        0.00 %
+     Bm        0.25        0.00        0.00        0.00 %
+    Mpcustom4        0.21        0.00        0.00        0.00 %
+     Oh        0.22        0.00        0.00        0.00 %
+      L        0.24        0.00        0.00        0.00 %
+      B        0.21        0.00        0.00        0.00 %
+     AM        0.24        0.00        0.00        0.00 %
+    all        0.20        0.00        0.00        0.75 %
+
+    Total time in state (seconds)
+    -----------------------------------------
+            Pending     Running        Dead  
+    -----------------------------------------
+               1.78        0.01        0.00
+
+    Data read    : 6.03 kiB
+    Data written : 908.00 B
+
+0: All pending notifications were processed.
+INFO (IPF059): 0: Completed proof on task: "<embedded>"
+
+==============================================================
+SUMMARY
+==============================================================
+           Properties Considered              : 15
+                 assertions                   : 7
+                  - proven                    : 2 (28.5714%)
+                  - bounded_proven (user)     : 0 (0%)
+                  - bounded_proven (auto)     : 0 (0%)
+                  - marked_proven             : 0 (0%)
+                  - cex                       : 5 (71.4286%)
+                  - ar_cex                    : 0 (0%)
+                  - undetermined              : 0 (0%)
+                  - unknown                   : 0 (0%)
+                  - error                     : 0 (0%)
+                 covers                       : 8
+                  - unreachable               : 0 (0%)
+                  - bounded_unreachable (user): 0 (0%)
+                  - covered                   : 8 (100%)
+                  - ar_covered                : 0 (0%)
+                  - undetermined              : 0 (0%)
+                  - unknown                   : 0 (0%)
+                  - error                     : 0 (0%)
+[<embedded>] % visualize -violation -property <embedded>::Bridge_Top.chk_top.assert_non_seq_read -new_window
+INFO (IVS015): Setting Visualize task to "<embedded>".
+INFO (IVS008): Expanding analysis region to enable visualization of "<embedded>::Bridge_Top.chk_top.assert_non_seq_read".
+cex
+[<embedded>] % include /homes/user/stud/fall23/ym3000/6863/CSEE-6863-Final-Project/SVA/top/top_sva.tcl
+%% clear -all
+INFO (IPF121): Cleared environment completely for new design analysis.
+%% 
+%% analyze -sv09 top_sva.sv
+[-- (VERI-1482)] Analyzing Verilog file '/tools/cadence/jasper_2024.06p002/lib/verilog/packages/std/std.sv' into library 'std'
+[-- (VERI-1482)] Analyzing Verilog file 'top_sva.sv'
+%% analyze -sv09 ../../RTL/top.v
+[-- (VERI-1482)] Analyzing Verilog file '../../RTL/top.v'
+%% analyze -sv09 ../../RTL/AHB_Interface.v
+[-- (VERI-1482)] Analyzing Verilog file '../../RTL/AHB_Interface.v'
+%% analyze -sv09 ../../RTL/APB_FSM.v
+[-- (VERI-1482)] Analyzing Verilog file '../../RTL/APB_FSM.v'
+%% elaborate -top Bridge_Top
+INFO (ISW003): Top module name is "Bridge_Top".
+[INFO (VERI-1018)] ../../RTL/AHB_Interface.v(12): compiling module 'AHB_slave_interface'
+[INFO (VERI-1018)] ../../RTL/APB_FSM.v(2): compiling module 'APB_FSM'
+[INFO (VERI-1018)] top_sva.sv(1): compiling module 'top_sva'
+[INFO (VERI-1018)] ../../RTL/top.v(1): compiling module 'Bridge_Top'
+INFO (INL208): Elaboration synthesis summary:
+  Number of synthesized netlists          5 (1 packages)
+  Single run mode                         On
+  Pipeline                                On (4 pipelined netlists)
+  Late hierarchical reference connection  On
+  Number of analyzed Verilog modules      5 (5 synthesized)
+  Number of analyzed VHDL entities        0 (0 synthesized)
+INFO (INL003): Clearing all state information (assumes, stopats, and so forth).
+Bridge_Top
+%% 
+%% clock clk
+%% reset ~rst
+INFO (IPM031): Clearing proof results of all properties.
+INFO (IRS006): Current reset condition is "rst".
+Bridge_Top
+[<embedded>] % prove -bg -all
+background 0
+INFO (IPF036): Starting proof on task: "<embedded>", 15 properties to prove with 0 already proven/unreachable
+INFO (IRS029): Starting reset analysis: phase 1 of 4.
+INFO (IRS030): Running reset analysis: phase 2 of 4.
+INFO (IRS031): Running reset analysis: phase 3 of 4.
+INFO (IRS020): Starting the reset analysis simulation with a limit of 100 iterations (phase 4 of 4).
+INFO (IRS024): Reset iterations 0 to 4 analyzed.
+INFO (IRS018): Reset analysis simulation executed for 3 iterations. Assigned values for 202 of 202 design flops, 36 of 68 design latches, 44 of 50 internal elements.
+INFO (IRS039): Reset analysis complete.
+INFO (IPF031): Settings used for proof thread 0:
+    orchestration                 = on
+    time_limit                    = 86400s
+    per_property_time_limit       = 1s * 10 ^ scan
+    engine_mode                   = auto
+    proofgrid_per_engine_max_jobs = 1
+    max engine jobs               = auto
+    proofgrid_mode                = local
+    proofgrid_restarts            = 10
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property "Bridge_Top.chk_top.assert_nonseq_write" was proven in 0.00 s.
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property "Bridge_Top.chk_top.assert_nonseq_read" was proven in 0.00 s.
+0: Found proofs for 2 properties in preprocessing
+0: Using multistage preprocessing
+0: Starting reduce
+0: Finished reduce in 0s
+0.0.PRE: Performing Proof Simplification...
+0.0.N: clocks: 3, declared: 1, looping: 0, posedge: 3, negedge: 0, noedge: 0, bothedge: 0
+0.0.N: Proof Simplification Iteration 1	[0.00 s]
+0.0.PRE: A trace with 1 cycles was found. [0.00 s]
+INFO (IPF047): 0.0.PRE: The cover property "Bridge_Top.chk_top.assert_nonseq_write:precondition1" was covered in 1 cycles in 0.00 s.
+INFO (IPF047): 0.0.PRE: The cover property "Bridge_Top.chk_top.assert_write_timing:precondition1" was covered in 1 cycles in 0.00 s.
+INFO (IPF047): 0.0.PRE: The cover property "Bridge_Top.chk_top.assert_write_pselx:precondition1" was covered in 1 cycles in 0.00 s.
+0.0.N: Proof Simplification Iteration 2	[0.18 s]
+0.0.N: Proof Simplification Iteration 3	[0.18 s]
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property ":noDeadEnd" was proven in 0.00 s.
+    Use check_assumptions -show -dead_end to show this property in the property table.
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property ":noConflict" was proven in 0.00 s.
+    Use check_assumptions -show to show this property in the property table.
+INFO (IPF047): 0.0.PRE: The cover property ":live" was covered in 1 cycles in 0.00 s.
+    Use check_assumptions -show -live to show this property in the property table.
+0.0.PRE: Proof Simplification completed in 0.18 s
+0.0.N: Identified and disabled 5 duplicated targets.
+0: About to start ProofGrid in its own thread with a limit of 10000 pending notifications and a limit of 10 traces.
+0: =============================== ProofGrid start ===============================
+0: ProofGrid usable level: 7
+0: Initial ProofGrid level: 1
+0: ProofGrid is starting event handling
+0.0.N: Proofgrid shell started at 2191913@micro25(local) jg_2180921_micro25_4
+0.0.Hp: Proofgrid shell started at 2191914@micro25(local) jg_2180921_micro25_4
+0.0.N: clocks: 1, declared: 1, looping: 0, posedge: 1, negedge: 0, noedge: 0, bothedge: 0
+0.0.N: Next scan (0) will use per property time limit: 1s * 10 ^ 0 = 1s
+0.0.N: Starting proof for property "Bridge_Top.chk_top._assume_2:precondition1"	[0.00 s].
+0.0.N: Starting proof for property "Bridge_Top.chk_top.assert_nonseq_read:precondition1"	[0.00 s].
+0.0.N: Starting proof for property "Bridge_Top.chk_top.assert_read_timing:precondition1"	[0.00 s].
+0.0.N: Starting proof for property "Bridge_Top.chk_top.assert_read_pselx:precondition1"	[0.00 s].
+0.0.N: Trace Attempt  1	[0.00 s]
+0.0.N: A trace with 1 cycles was found. [0.00 s]
+INFO (IPF047): 0.0.N: The cover property "Bridge_Top.chk_top._assume_2:precondition1" was covered in 1 cycles in 0.00 s.
+INFO (IPF047): 0.0.N: The cover property "Bridge_Top.chk_top.assert_nonseq_read:precondition1" was covered in 1 cycles in 0.00 s.
+INFO (IPF047): 0.0.N: The cover property "Bridge_Top.chk_top.assert_read_timing:precondition1" was covered in 1 cycles in 0.00 s.
+INFO (IPF047): 0.0.N: The cover property "Bridge_Top.chk_top.assert_read_pselx:precondition1" was covered in 1 cycles in 0.00 s.
+0.0.N: Stopped processing property "Bridge_Top.chk_top._assume_2:precondition1"	[0.07 s].
+0.0.N: Stopped processing property "Bridge_Top.chk_top.assert_nonseq_read:precondition1"	[0.07 s].
+0.0.N: Stopped processing property "Bridge_Top.chk_top.assert_read_timing:precondition1"	[0.07 s].
+0.0.N: Stopped processing property "Bridge_Top.chk_top.assert_read_pselx:precondition1"	[0.07 s].
+0.0.N: Starting proof for property "Bridge_Top.chk_top.assert_non_seq_read"	[0.00 s].
+0: ProofGrid usable level: 6
+0.0.N: Trace Attempt  1	[0.00 s]
+0.0.N: A max_length bound was found. The shortest trace is no longer than 8192 cycles. [0.00 s]
+INFO (IPF008): 0.0.N: A max_length bound of 8192 was found for the property "Bridge_Top.chk_top.assert_non_seq_read" in 0.00 s.
+0.0.N: Trace Attempt  2	[0.00 s]
+0.0.N: Trace Attempt  3	[0.00 s]
+0.0.N: Trace Attempt  3	[0.00 s]
+0.0.N: Trace Attempt  4	[0.00 s]
+0.0.N: Trace Attempt  4	[0.00 s]
+0.0.N: Trace Attempt  5	[0.00 s]
+0.0.N: Trace Attempt  5	[0.00 s]
+0.0.N: Trace Attempt  6	[0.00 s]
+0.0.N: A trace with 6 cycles was found. [0.00 s]
+INFO (IPF055): 0.0.N: A counterexample (cex) with 6 cycles was found for the property "Bridge_Top.chk_top.assert_non_seq_read" in 0.00 s.
+INFO (IPF047): 0.0.N: The cover property "Bridge_Top.chk_top.assert_non_seq_read:precondition1" was covered in 3 cycles in 0.00 s by the incidental trace "Bridge_Top.chk_top.assert_non_seq_read".
+INFO (IPF055): 0.0.N: A counterexample (cex) with 5 cycles was found for the property "Bridge_Top.chk_top.assert_read_timing" in 0.00 s by the incidental trace "Bridge_Top.chk_top.assert_non_seq_read".
+INFO (IPF055): 0.0.N: A counterexample (cex) with 4 cycles was found for the property "Bridge_Top.chk_top.assert_read_pselx" in 0.00 s by the incidental trace "Bridge_Top.chk_top.assert_non_seq_read".
+INFO (IPF055): 0.0.N: A counterexample (cex) with 3 cycles was found for the property "Bridge_Top.chk_top.assert_write_pselx" in 0.00 s by the incidental trace "Bridge_Top.chk_top.assert_non_seq_read".
+0.0.N: Stopped processing property "Bridge_Top.chk_top.assert_non_seq_read"	[0.06 s].
+0.0.Hp: clocks: 1, declared: 1, looping: 0, posedge: 1, negedge: 0, noedge: 0, bothedge: 0
+0.0.Hp: Trace Attempt  1	[0.00 s]
+0.0.Hp: A trace with 1 cycles was found. [0.00 s]
+INFO (IPF047): 0.0.Hp: The cover property "Bridge_Top.chk_top.assert_non_seq_read:precondition1" was covered in 1 cycles in 0.00 s.
+0.0.Hp: Trace Attempt  2	[0.00 s]
+0.0.Hp: A trace with 2 cycles was found. [0.00 s]
+INFO (IPF055): 0.0.Hp: A counterexample (cex) with 2 cycles was found for the property "Bridge_Top.chk_top.assert_read_pselx" in 0.04 s.
+INFO (IPF054): 0.0.Hp: A min_length bound of 3 was found for the property "Bridge_Top.chk_top.assert_write_pselx" in 0.07 s.
+0.0.Hp: Trace Attempt  3	[0.01 s]
+0.0.N: Last scan. Per property time limit: 0s
+0.0.N: Starting proof for property "Bridge_Top.chk_top.assert_write_timing"	[0.00 s].
+0.0.Hp: Trace Attempt  4	[0.01 s]
+0.0.N: Requesting engine job to terminate
+0.0.Hp: Requesting engine job to terminate
+INFO (IPF144): 0: Initiating shutdown of proof [0.02 s]
+0.0.Hp: A trace with 4 cycles was found. [0.01 s]
+INFO (IPF055): 0.0.Hp: A counterexample (cex) with 4 cycles was found for the property "Bridge_Top.chk_top.assert_write_timing" in 0.07 s.
+0.0.N: Trace Attempt  1	[0.00 s]
+0.0.Hp: All properties determined. [0.01 s]
+0.0.N: Trace Attempt  2	[0.00 s]
+0.0.N: Stopped processing property "Bridge_Top.chk_top.assert_write_timing"	[0.03 s].
+0.0.N: All properties determined. [0.00 s]
+0.0.Hp: Exited with Success (@ 0.13 s)
+0: ProofGrid usable level: 0
+0.0.Mpcustom4: Proofgrid shell started at 2191947@micro25(local) jg_2180921_micro25_4
+0.0.Mpcustom4: Requesting engine job to terminate
+0.0.B: Proofgrid shell started at 2191950@micro25(local) jg_2180921_micro25_4
+0.0.B: Requesting engine job to terminate
+0.0.N: Exited with Success (@ 0.14 s)
+0.0.Ht: Proofgrid shell started at 2191945@micro25(local) jg_2180921_micro25_4
+0.0.Ht: Requesting engine job to terminate
+0.0.Mpcustom4: Preventing job from starting because proof is shutting down.
+0.0.Mpcustom4: Requesting engine job to terminate
+0.0.Mpcustom4: Interrupted. [0.00 s]
+0.0.Mpcustom4: Exited with Success (@ 0.14 s)
+0.0.B: Preventing job from starting because proof is shutting down.
+0.0.B: Requesting engine job to terminate
+0.0.B: Interrupted. [0.00 s]
+0.0.Bm: Proofgrid shell started at 2191946@micro25(local) jg_2180921_micro25_4
+0.0.Bm: Requesting engine job to terminate
+0.0.Oh: Proofgrid shell started at 2191948@micro25(local) jg_2180921_micro25_4
+0.0.Oh: Requesting engine job to terminate
+0.0.B: Exited with Success (@ 0.14 s)
+0.0.Ht: Preventing job from starting because proof is shutting down.
+0.0.Ht: Requesting engine job to terminate
+0.0.Ht: Interrupted. [0.00 s]
+0.0.Bm: Preventing job from starting because proof is shutting down.
+0.0.Bm: Requesting engine job to terminate
+0.0.Ht: Exited with Success (@ 0.15 s)
+0.0.Bm: Interrupted. [0.00 s]
+0.0.Oh: Preventing job from starting because proof is shutting down.
+0.0.Oh: Requesting engine job to terminate
+0.0.Bm: Exited with Success (@ 0.15 s)
+0.0.Oh: Interrupted. [0.00 s]
+0.0.L: Proofgrid shell started at 2191949@micro25(local) jg_2180921_micro25_4
+0.0.L: Requesting engine job to terminate
+0.0.Oh: Exited with Success (@ 0.17 s)
+0.0.L: Preventing job from starting because proof is shutting down.
+0.0.L: Requesting engine job to terminate
+0.0.L: Interrupted. [0.00 s]
+0.0.L: Exited with Success (@ 0.18 s)
+0: --------------------------------------------------------------
+ProofGrid Summary (utilization 2.31 %)
+--------------------------------------------------------------
+     engines started                               :     8
+     engine jobs started                           :     8
+
+    Average time in state (seconds)
+    ------------------------------------------------------
+    Engine  Pending     Running        Dead    Utilization
+    ------------------------------------------------------
+      N        0.10        0.02        0.00       14.99 %
+     Hp        0.10        0.01        0.00        6.33 %
+     Ht        0.14        0.00        0.00        0.00 %
+     Bm        0.14        0.00        0.00        0.00 %
+    Mpcustom4        0.12        0.00        0.00        0.00 %
+     Oh        0.13        0.00        0.00        0.00 %
+      L        0.15        0.00        0.00        0.00 %
+      B        0.12        0.00        0.00        0.00 %
+    all        0.13        0.00        0.00        2.31 %
+
+    Total time in state (seconds)
+    -----------------------------------------
+            Pending     Running        Dead  
+    -----------------------------------------
+               1.01        0.02        0.00
+
+    Data read    : 6.86 kiB
+    Data written : 1.04 kiB
+
+0: All pending notifications were processed.
+INFO (IPF059): 0: Completed proof on task: "<embedded>"
+
+==============================================================
+SUMMARY
+==============================================================
+           Properties Considered              : 15
+                 assertions                   : 7
+                  - proven                    : 2 (28.5714%)
+                  - bounded_proven (user)     : 0 (0%)
+                  - bounded_proven (auto)     : 0 (0%)
+                  - marked_proven             : 0 (0%)
+                  - cex                       : 5 (71.4286%)
+                  - ar_cex                    : 0 (0%)
+                  - undetermined              : 0 (0%)
+                  - unknown                   : 0 (0%)
+                  - error                     : 0 (0%)
+                 covers                       : 8
+                  - unreachable               : 0 (0%)
+                  - bounded_unreachable (user): 0 (0%)
+                  - covered                   : 8 (100%)
+                  - ar_covered                : 0 (0%)
+                  - undetermined              : 0 (0%)
+                  - unknown                   : 0 (0%)
+                  - error                     : 0 (0%)
+[<embedded>] % visualize -violation -property <embedded>::Bridge_Top.chk_top.assert_non_seq_read -new_window
+INFO (IVS015): Setting Visualize task to "<embedded>".
+INFO (IVS008): Expanding analysis region to enable visualization of "<embedded>::Bridge_Top.chk_top.assert_non_seq_read".
+cex
+[<embedded>] % include /homes/user/stud/fall23/ym3000/6863/CSEE-6863-Final-Project/SVA/top/top_sva.tcl
+%% clear -all
+INFO (IPF121): Cleared environment completely for new design analysis.
+%% 
+%% analyze -sv09 top_sva.sv
+[-- (VERI-1482)] Analyzing Verilog file '/tools/cadence/jasper_2024.06p002/lib/verilog/packages/std/std.sv' into library 'std'
+[-- (VERI-1482)] Analyzing Verilog file 'top_sva.sv'
+%% analyze -sv09 ../../RTL/top.v
+[-- (VERI-1482)] Analyzing Verilog file '../../RTL/top.v'
+%% analyze -sv09 ../../RTL/AHB_Interface.v
+[-- (VERI-1482)] Analyzing Verilog file '../../RTL/AHB_Interface.v'
+%% analyze -sv09 ../../RTL/APB_FSM.v
+[-- (VERI-1482)] Analyzing Verilog file '../../RTL/APB_FSM.v'
+%% elaborate -top Bridge_Top
+INFO (ISW003): Top module name is "Bridge_Top".
+[INFO (VERI-1018)] ../../RTL/AHB_Interface.v(12): compiling module 'AHB_slave_interface'
+[INFO (VERI-1018)] ../../RTL/APB_FSM.v(2): compiling module 'APB_FSM'
+[INFO (VERI-1018)] top_sva.sv(1): compiling module 'top_sva'
+[INFO (VERI-1018)] ../../RTL/top.v(1): compiling module 'Bridge_Top'
+INFO (INL208): Elaboration synthesis summary:
+  Number of synthesized netlists          5 (1 packages)
+  Single run mode                         On
+  Pipeline                                On (4 pipelined netlists)
+  Late hierarchical reference connection  On
+  Number of analyzed Verilog modules      5 (5 synthesized)
+  Number of analyzed VHDL entities        0 (0 synthesized)
+INFO (INL003): Clearing all state information (assumes, stopats, and so forth).
+Bridge_Top
+%% 
+%% clock clk
+%% reset ~rst
+INFO (IPM031): Clearing proof results of all properties.
+INFO (IRS006): Current reset condition is "rst".
+Bridge_Top
+[<embedded>] % prove -bg -all
+background 0
+INFO (IPF036): Starting proof on task: "<embedded>", 15 properties to prove with 0 already proven/unreachable
+INFO (IRS029): Starting reset analysis: phase 1 of 4.
+INFO (IRS030): Running reset analysis: phase 2 of 4.
+INFO (IRS031): Running reset analysis: phase 3 of 4.
+INFO (IRS020): Starting the reset analysis simulation with a limit of 100 iterations (phase 4 of 4).
+INFO (IRS024): Reset iterations 0 to 4 analyzed.
+INFO (IRS018): Reset analysis simulation executed for 3 iterations. Assigned values for 202 of 202 design flops, 36 of 68 design latches, 42 of 48 internal elements.
+INFO (IRS039): Reset analysis complete.
+INFO (IPF031): Settings used for proof thread 0:
+    orchestration                 = on
+    time_limit                    = 86400s
+    per_property_time_limit       = 1s * 10 ^ scan
+    engine_mode                   = auto
+    proofgrid_per_engine_max_jobs = 1
+    max engine jobs               = auto
+    proofgrid_mode                = local
+    proofgrid_restarts            = 10
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property "Bridge_Top.chk_top.assert_nonseq_write" was proven in 0.00 s.
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property "Bridge_Top.chk_top.assert_nonseq_read" was proven in 0.00 s.
+0: Found proofs for 2 properties in preprocessing
+0: Using multistage preprocessing
+0: Starting reduce
+0: Finished reduce in 0s
+0.0.PRE: Performing Proof Simplification...
+0.0.N: clocks: 3, declared: 1, looping: 0, posedge: 3, negedge: 0, noedge: 0, bothedge: 0
+0.0.N: Proof Simplification Iteration 1	[0.00 s]
+0.0.PRE: A trace with 1 cycles was found. [0.00 s]
+INFO (IPF047): 0.0.PRE: The cover property "Bridge_Top.chk_top.assert_nonseq_write:precondition1" was covered in 1 cycles in 0.00 s.
+INFO (IPF047): 0.0.PRE: The cover property "Bridge_Top.chk_top.assert_write_timing:precondition1" was covered in 1 cycles in 0.00 s.
+INFO (IPF047): 0.0.PRE: The cover property "Bridge_Top.chk_top.assert_write_pselx:precondition1" was covered in 1 cycles in 0.00 s.
+0.0.N: Proof Simplification Iteration 2	[0.13 s]
+0.0.N: Proof Simplification Iteration 3	[0.13 s]
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property ":noDeadEnd" was proven in 0.00 s.
+    Use check_assumptions -show -dead_end to show this property in the property table.
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property ":noConflict" was proven in 0.00 s.
+    Use check_assumptions -show to show this property in the property table.
+INFO (IPF047): 0.0.PRE: The cover property ":live" was covered in 1 cycles in 0.00 s.
+    Use check_assumptions -show -live to show this property in the property table.
+0.0.PRE: Proof Simplification completed in 0.14 s
+0.0.N: Identified and disabled 5 duplicated targets.
+0: About to start ProofGrid in its own thread with a limit of 10000 pending notifications and a limit of 10 traces.
+0: =============================== ProofGrid start ===============================
+0: ProofGrid usable level: 7
+0: Initial ProofGrid level: 1
+0: ProofGrid is starting event handling
+0.0.Hp: Proofgrid shell started at 2194655@micro25(local) jg_2180921_micro25_5
+0.0.N: Proofgrid shell started at 2194654@micro25(local) jg_2180921_micro25_5
+0.0.Hp: clocks: 1, declared: 1, looping: 0, posedge: 1, negedge: 0, noedge: 0, bothedge: 0
+0.0.Hp: Trace Attempt  1	[0.00 s]
+0.0.Hp: A trace with 1 cycles was found. [0.00 s]
+INFO (IPF047): 0.0.Hp: The cover property "Bridge_Top.chk_top._assume_2:precondition1" was covered in 1 cycles in 0.01 s.
+INFO (IPF047): 0.0.Hp: The cover property "Bridge_Top.chk_top.assert_nonseq_read:precondition1" was covered in 1 cycles in 0.01 s.
+INFO (IPF047): 0.0.Hp: The cover property "Bridge_Top.chk_top.assert_read_timing:precondition1" was covered in 1 cycles in 0.01 s.
+INFO (IPF047): 0.0.Hp: The cover property "Bridge_Top.chk_top.assert_read_pselx:precondition1" was covered in 1 cycles in 0.01 s.
+0: ProofGrid usable level: 6
+0.0.Hp: A trace with 1 cycles was found. [0.00 s]
+INFO (IPF047): 0.0.Hp: The cover property "Bridge_Top.chk_top.assert_non_seq_read:precondition1" was covered in 1 cycles in 0.09 s.
+0: ProofGrid usable level: 5
+0.0.Hp: Trace Attempt  2	[0.01 s]
+0.0.Hp: A trace with 2 cycles was found. [0.01 s]
+INFO (IPF055): 0.0.Hp: A counterexample (cex) with 2 cycles was found for the property "Bridge_Top.chk_top.assert_read_pselx" in 0.13 s.
+0.0.Hp: Trace Attempt  3	[0.01 s]
+0.0.Hp: A trace with 3 cycles was found. [0.01 s]
+INFO (IPF055): 0.0.Hp: A counterexample (cex) with 3 cycles was found for the property "Bridge_Top.chk_top.assert_read_timing" in 0.16 s.
+0.0.Hp: A trace with 3 cycles was found. [0.01 s]
+INFO (IPF055): 0.0.Hp: A counterexample (cex) with 3 cycles was found for the property "Bridge_Top.chk_top.assert_write_pselx" in 0.19 s.
+0.0.Hp: Trace Attempt  4	[0.01 s]
+0: ProofGrid is temporarily paused because there are too many pending traces.
+0: ProofGrid is resuming to work after pausing for 0s. The amount of pending traces decreased.
+0.0.Hp: A trace with 4 cycles was found. [0.01 s]
+INFO (IPF055): 0.0.Hp: A counterexample (cex) with 4 cycles was found for the property "Bridge_Top.chk_top.assert_write_timing" in 0.22 s.
+0.0.Hp: Trace Attempt  5	[0.01 s]
+0.0.Hp: Requesting engine job to terminate
+INFO (IPF144): 0: Initiating shutdown of proof [0.09 s]
+0: ProofGrid is temporarily paused because there are too many pending traces.
+0: ProofGrid is resuming to work after pausing for 0s. The amount of pending traces decreased.
+0.0.Hp: A trace with 5 cycles was found. [0.01 s]
+INFO (IPF055): 0.0.Hp: A counterexample (cex) with 5 cycles was found for the property "Bridge_Top.chk_top.assert_non_seq_read" in 0.24 s.
+0.0.Hp: All properties determined. [0.01 s]
+0.0.Ht: Proofgrid shell started at 2194687@micro25(local) jg_2180921_micro25_5
+0.0.Ht: Requesting engine job to terminate
+0.0.Ht: Preventing job from starting because proof is shutting down.
+0.0.Ht: Requesting engine job to terminate
+0.0.Ht: Interrupted. [0.00 s]
+0.0.Bm: Proofgrid shell started at 2194688@micro25(local) jg_2180921_micro25_5
+0.0.Bm: Requesting engine job to terminate
+0.0.Bm: Preventing job from starting because proof is shutting down.
+0.0.Bm: Requesting engine job to terminate
+0.0.Bm: Interrupted. [0.00 s]
+0.0.Mpcustom4: Proofgrid shell started at 2194689@micro25(local) jg_2180921_micro25_5
+0.0.Mpcustom4: Requesting engine job to terminate
+0.0.Mpcustom4: Preventing job from starting because proof is shutting down.
+0.0.Mpcustom4: Requesting engine job to terminate
+0.0.Mpcustom4: Interrupted. [0.00 s]
+0.0.Oh: Proofgrid shell started at 2194690@micro25(local) jg_2180921_micro25_5
+0.0.Oh: Requesting engine job to terminate
+0.0.Oh: Preventing job from starting because proof is shutting down.
+0.0.Oh: Requesting engine job to terminate
+0.0.Oh: Interrupted. [0.00 s]
+0.0.L: Proofgrid shell started at 2194691@micro25(local) jg_2180921_micro25_5
+0.0.L: Requesting engine job to terminate
+0.0.L: Preventing job from starting because proof is shutting down.
+0.0.L: Requesting engine job to terminate
+0.0.L: Interrupted. [0.00 s]
+0.0.B: Proofgrid shell started at 2194692@micro25(local) jg_2180921_micro25_5
+0.0.B: Requesting engine job to terminate
+0.0.B: Preventing job from starting because proof is shutting down.
+0.0.B: Requesting engine job to terminate
+0.0.B: Interrupted. [0.00 s]
+0.0.AM: Proofgrid shell started at 2194693@micro25(local) jg_2180921_micro25_5
+0.0.AM: Requesting engine job to terminate
+0.0.AM: Preventing job from starting because proof is shutting down.
+0.0.AM: Requesting engine job to terminate
+0.0.AM: Interrupted. [0.00 s]
+0.0.N: Requesting engine job to terminate
+0.0.N: All properties determined. [0.06 s]
+0.0.Hp: Exited with Success (@ 0.23 s)
+0: ProofGrid usable level: 0
+0.0.Ht: Exited with Success (@ 0.23 s)
+0.0.Bm: Exited with Success (@ 0.23 s)
+0.0.Mpcustom4: Exited with Success (@ 0.23 s)
+0.0.Oh: Exited with Success (@ 0.23 s)
+0.0.L: Exited with Success (@ 0.23 s)
+0.0.B: Exited with Success (@ 0.23 s)
+0.0.AM: Exited with Success (@ 0.23 s)
+0.0.N: Exited with Success (@ 0.23 s)
+0: --------------------------------------------------------------
+ProofGrid Summary (utilization 4.79 %)
+--------------------------------------------------------------
+     engines started                               :     9
+     engine jobs started                           :     9
+
+    Average time in state (seconds)
+    ------------------------------------------------------
+    Engine  Pending     Running        Dead    Utilization
+    ------------------------------------------------------
+      N        0.11        0.00        0.00        0.00 %
+     Hp        0.10        0.09        0.00       46.85 %
+     Ht        0.23        0.00        0.00        0.00 %
+     Bm        0.23        0.00        0.00        0.00 %
+    Mpcustom4        0.23        0.00        0.00        0.00 %
+     Oh        0.22        0.00        0.00        0.00 %
+      L        0.22        0.00        0.00        0.00 %
+      B        0.22        0.00        0.00        0.00 %
+     AM        0.21        0.00        0.00        0.00 %
+    all        0.20        0.01        0.00        4.79 %
+
+    Total time in state (seconds)
+    -----------------------------------------
+            Pending     Running        Dead  
+    -----------------------------------------
+               1.78        0.09        0.00
+
+    Data read    : 6.55 kiB
+    Data written : 1.01 kiB
+
+0: All pending notifications were processed.
+0: ProofGrid was paused 2 times for a total of 0.197 seconds
+INFO (IPF059): 0: Completed proof on task: "<embedded>"
+
+==============================================================
+SUMMARY
+==============================================================
+           Properties Considered              : 15
+                 assertions                   : 7
+                  - proven                    : 2 (28.5714%)
+                  - bounded_proven (user)     : 0 (0%)
+                  - bounded_proven (auto)     : 0 (0%)
+                  - marked_proven             : 0 (0%)
+                  - cex                       : 5 (71.4286%)
+                  - ar_cex                    : 0 (0%)
+                  - undetermined              : 0 (0%)
+                  - unknown                   : 0 (0%)
+                  - error                     : 0 (0%)
+                 covers                       : 8
+                  - unreachable               : 0 (0%)
+                  - bounded_unreachable (user): 0 (0%)
+                  - covered                   : 8 (100%)
+                  - ar_covered                : 0 (0%)
+                  - undetermined              : 0 (0%)
+                  - unknown                   : 0 (0%)
+                  - error                     : 0 (0%)
+[<embedded>] % visualize -violation -property <embedded>::Bridge_Top.chk_top.assert_non_seq_read -new_window
+INFO (IVS015): Setting Visualize task to "<embedded>".
+INFO (IVS008): Expanding analysis region to enable visualization of "<embedded>::Bridge_Top.chk_top.assert_non_seq_read".
+cex
+[<embedded>] % include /homes/user/stud/fall23/ym3000/6863/CSEE-6863-Final-Project/SVA/top/top_sva.tcl
+%% clear -all
+INFO (IPF121): Cleared environment completely for new design analysis.
+%% 
+%% analyze -sv09 top_sva.sv
+[-- (VERI-1482)] Analyzing Verilog file '/tools/cadence/jasper_2024.06p002/lib/verilog/packages/std/std.sv' into library 'std'
+[-- (VERI-1482)] Analyzing Verilog file 'top_sva.sv'
+[ERROR (VERI-1137)] top_sva.sv(94): syntax error near 'property'
+[ERROR (VERI-2344)] top_sva.sv(94): SystemVerilog 2009 keyword 'property' used in incorrect context
+[ERROR (VERI-1128)] top_sva.sv(83): 'Hresetn' is not declared
+[ERROR (VERI-1128)] top_sva.sv(83): 'Hclk' is not declared
+[ERROR (VERI-1072)] top_sva.sv(167): module 'top_sva' is ignored due to previous errors
+Summary of errors detected:
+	[ERROR (VERI-1137)] top_sva.sv(94): syntax error near 'property'
+	[ERROR (VERI-2344)] top_sva.sv(94): SystemVerilog 2009 keyword 'property' used in incorrect context
+	[ERROR (VERI-1128)] top_sva.sv(83): 'Hresetn' is not declared
+	[ERROR (VERI-1128)] top_sva.sv(83): 'Hclk' is not declared
+	[ERROR (VERI-1072)] top_sva.sv(167): module 'top_sva' is ignored due to previous errors
+ERROR at line 3 in file /homes/user/stud/fall23/ym3000/6863/CSEE-6863-Final-Project/SVA/top/top_sva.tcl, more info in Tcl-variable errorInfo
+ERROR (ENL034): 5 errors detected in the design file(s).
+
+
+% include /homes/user/stud/fall23/ym3000/6863/CSEE-6863-Final-Project/SVA/top/top_sva.tcl
+%% clear -all
+INFO (IPF121): Cleared environment completely for new design analysis.
+%% 
+%% analyze -sv09 top_sva.sv
+[-- (VERI-1482)] Analyzing Verilog file '/tools/cadence/jasper_2024.06p002/lib/verilog/packages/std/std.sv' into library 'std'
+[-- (VERI-1482)] Analyzing Verilog file 'top_sva.sv'
+[ERROR (VERI-1128)] top_sva.sv(83): 'Hresetn' is not declared
+[ERROR (VERI-1128)] top_sva.sv(83): 'Hclk' is not declared
+[ERROR (VERI-1072)] top_sva.sv(167): module 'top_sva' is ignored due to previous errors
+Summary of errors detected:
+	[ERROR (VERI-1128)] top_sva.sv(83): 'Hresetn' is not declared
+	[ERROR (VERI-1128)] top_sva.sv(83): 'Hclk' is not declared
+	[ERROR (VERI-1072)] top_sva.sv(167): module 'top_sva' is ignored due to previous errors
+ERROR at line 3 in file /homes/user/stud/fall23/ym3000/6863/CSEE-6863-Final-Project/SVA/top/top_sva.tcl, more info in Tcl-variable errorInfo
+ERROR (ENL034): 3 errors detected in the design file(s).
+
+
+% include /homes/user/stud/fall23/ym3000/6863/CSEE-6863-Final-Project/SVA/top/top_sva.tcl
+%% clear -all
+INFO (IPF121): Cleared environment completely for new design analysis.
+%% 
+%% analyze -sv09 top_sva.sv
+[-- (VERI-1482)] Analyzing Verilog file '/tools/cadence/jasper_2024.06p002/lib/verilog/packages/std/std.sv' into library 'std'
+[-- (VERI-1482)] Analyzing Verilog file 'top_sva.sv'
+%% analyze -sv09 ../../RTL/top.v
+[-- (VERI-1482)] Analyzing Verilog file '../../RTL/top.v'
+%% analyze -sv09 ../../RTL/AHB_Interface.v
+[-- (VERI-1482)] Analyzing Verilog file '../../RTL/AHB_Interface.v'
+%% analyze -sv09 ../../RTL/APB_FSM.v
+[-- (VERI-1482)] Analyzing Verilog file '../../RTL/APB_FSM.v'
+%% elaborate -top Bridge_Top
+INFO (ISW003): Top module name is "Bridge_Top".
+[INFO (VERI-1018)] ../../RTL/AHB_Interface.v(12): compiling module 'AHB_slave_interface'
+[INFO (VERI-1018)] ../../RTL/APB_FSM.v(2): compiling module 'APB_FSM'
+[INFO (VERI-1018)] top_sva.sv(1): compiling module 'top_sva'
+[INFO (VERI-1018)] ../../RTL/top.v(1): compiling module 'Bridge_Top'
+INFO (INL208): Elaboration synthesis summary:
+  Number of synthesized netlists          5 (1 packages)
+  Single run mode                         On
+  Pipeline                                On (4 pipelined netlists)
+  Late hierarchical reference connection  On
+  Number of analyzed Verilog modules      5 (5 synthesized)
+  Number of analyzed VHDL entities        0 (0 synthesized)
+INFO (INL003): Clearing all state information (assumes, stopats, and so forth).
+Bridge_Top
+%% 
+%% clock clk
+%% reset ~rst
+INFO (IPM031): Clearing proof results of all properties.
+INFO (IRS006): Current reset condition is "rst".
+Bridge_Top
+[<embedded>] % prove -bg -all
+background 0
+INFO (IPF036): Starting proof on task: "<embedded>", 17 properties to prove with 0 already proven/unreachable
+INFO (IRS029): Starting reset analysis: phase 1 of 4.
+INFO (IRS030): Running reset analysis: phase 2 of 4.
+INFO (IRS031): Running reset analysis: phase 3 of 4.
+INFO (IRS020): Starting the reset analysis simulation with a limit of 100 iterations (phase 4 of 4).
+INFO (IRS024): Reset iterations 0 to 4 analyzed.
+INFO (IRS018): Reset analysis simulation executed for 3 iterations. Assigned values for 202 of 202 design flops, 36 of 68 design latches, 146 of 148 internal elements.
+INFO (IRS039): Reset analysis complete.
+INFO (IPF031): Settings used for proof thread 0:
+    orchestration                 = on
+    time_limit                    = 86400s
+    per_property_time_limit       = 1s * 10 ^ scan
+    engine_mode                   = auto
+    proofgrid_per_engine_max_jobs = 1
+    max engine jobs               = auto
+    proofgrid_mode                = local
+    proofgrid_restarts            = 10
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property "Bridge_Top.chk_top.assert_nonseq_write" was proven in 0.00 s.
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property "Bridge_Top.chk_top.assert_nonseq_read" was proven in 0.00 s.
+0: Found proofs for 2 properties in preprocessing
+0: Using multistage preprocessing
+0: Starting reduce
+0: Finished reduce in 0.001s
+0.0.PRE: Performing Proof Simplification...
+0.0.N: clocks: 3, declared: 1, looping: 0, posedge: 3, negedge: 0, noedge: 0, bothedge: 0
+0.0.N: Proof Simplification Iteration 1	[0.00 s]
+0.0.PRE: A trace with 1 cycles was found. [0.00 s]
+INFO (IPF047): 0.0.PRE: The cover property "Bridge_Top.chk_top.assert_nonseq_write:precondition1" was covered in 1 cycles in 0.00 s.
+INFO (IPF047): 0.0.PRE: The cover property "Bridge_Top.chk_top.assert_write_timing:precondition1" was covered in 1 cycles in 0.00 s.
+INFO (IPF047): 0.0.PRE: The cover property "Bridge_Top.chk_top.assert_write_pselx:precondition1" was covered in 1 cycles in 0.00 s.
+0.0.N: Proof Simplification Iteration 2	[0.17 s]
+0.0.N: Proof Simplification Iteration 3	[0.17 s]
+0.0.N: Proof Simplification Iteration 4	[0.17 s]
+0.0.N: Proof Simplification Iteration 5	[0.17 s]
+0.0.N: Proof Simplification Iteration 6	[0.17 s]
+0.0.N: Proof Simplification Iteration 7	[0.17 s]
+0.0.N: Proof Simplification Iteration 8	[0.17 s]
+0.0.N: Proof Simplification Iteration 9	[0.17 s]
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property ":noDeadEnd" was proven in 0.00 s.
+    Use check_assumptions -show -dead_end to show this property in the property table.
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property ":noConflict" was proven in 0.00 s.
+    Use check_assumptions -show to show this property in the property table.
+INFO (IPF047): 0.0.PRE: The cover property ":live" was covered in 1 cycles in 0.00 s.
+    Use check_assumptions -show -live to show this property in the property table.
+0.0.PRE: Proof Simplification completed in 0.18 s
+0.0.N: Identified and disabled 5 duplicated targets.
+0: About to start ProofGrid in its own thread with a limit of 10000 pending notifications and a limit of 10 traces.
+0: =============================== ProofGrid start ===============================
+0: ProofGrid usable level: 9
+0: Initial ProofGrid level: 1
+0: ProofGrid is starting event handling
+0.0.Hp: Proofgrid shell started at 2197891@micro25(local) jg_2180921_micro25_6
+0.0.Hp: clocks: 1, declared: 1, looping: 0, posedge: 1, negedge: 0, noedge: 0, bothedge: 0
+0.0.Hp: Trace Attempt  1	[0.00 s]
+0.0.Hp: A trace with 1 cycles was found. [0.00 s]
+INFO (IPF047): 0.0.Hp: The cover property "Bridge_Top.chk_top._assume_2:precondition1" was covered in 1 cycles in 0.03 s.
+INFO (IPF047): 0.0.Hp: The cover property "Bridge_Top.chk_top.assert_nonseq_read:precondition1" was covered in 1 cycles in 0.03 s.
+INFO (IPF047): 0.0.Hp: The cover property "Bridge_Top.chk_top.assert_read_timing:precondition1" was covered in 1 cycles in 0.03 s.
+INFO (IPF047): 0.0.Hp: The cover property "Bridge_Top.chk_top.assert_read_pselx:precondition1" was covered in 1 cycles in 0.03 s.
+0.0.Hp: A trace with 1 cycles was found. [0.00 s]
+INFO (IPF047): 0.0.Hp: The cover property "Bridge_Top.chk_top.assert_non_seq_read:precondition1" was covered in 1 cycles in 0.08 s.
+0.0.N: Proofgrid shell started at 2197890@micro25(local) jg_2180921_micro25_6
+0.0.Hp: Trace Attempt  2	[0.01 s]
+0.0.Hp: A trace with 2 cycles was found. [0.01 s]
+INFO (IPF047): 0.0.Hp: The cover property "Bridge_Top.chk_top._assert_4:precondition1" was covered in 2 cycles in 0.15 s.
+0.0.Hp: A trace with 2 cycles was found. [0.01 s]
+INFO (IPF055): 0.0.Hp: A counterexample (cex) with 2 cycles was found for the property "Bridge_Top.chk_top.assert_read_pselx" in 0.18 s.
+0.0.N: clocks: 1, declared: 1, looping: 0, posedge: 1, negedge: 0, noedge: 0, bothedge: 0
+0.0.N: Next scan (0) will use per property time limit: 1s * 10 ^ 0 = 1s
+0.0.N: Starting proof for property "Bridge_Top.chk_top.assert_non_seq_read"	[0.00 s].
+0.0.N: Trace Attempt  1	[0.00 s]
+0.0.N: A max_length bound was found. The shortest trace is no longer than 512 cycles. [0.00 s]
+INFO (IPF008): 0.0.N: A max_length bound of 512 was found for the property "Bridge_Top.chk_top.assert_non_seq_read" in 0.00 s.
+0.0.N: Trace Attempt  2	[0.00 s]
+0.0.N: Trace Attempt  2	[0.00 s]
+0.0.N: Trace Attempt  3	[0.00 s]
+0.0.N: Trace Attempt  3	[0.00 s]
+0.0.N: Trace Attempt  4	[0.00 s]
+0.0.N: Trace Attempt  4	[0.00 s]
+0.0.N: A trace with 4 cycles was found. [0.00 s]
+INFO (IPF055): 0.0.N: A counterexample (cex) with 4 cycles was found for the property "Bridge_Top.chk_top.assert_non_seq_read" in 0.00 s.
+INFO (IPF055): 0.0.N: A counterexample (cex) with 3 cycles was found for the property "Bridge_Top.chk_top.assert_write_pselx" in 0.00 s by the incidental trace "Bridge_Top.chk_top.assert_non_seq_read".
+0.0.N: Stopped processing property "Bridge_Top.chk_top.assert_non_seq_read"	[0.03 s].
+0.0.N: Starting proof for property "Bridge_Top.chk_top._assert_4"	[0.00 s].
+0.0.N: Trace Attempt  1	[0.00 s]
+0.0.N: Trace Attempt  2	[0.00 s]
+0.0.N: Trace Attempt  3	[0.00 s]
+0.0.N: Trace Attempt  3	[0.00 s]
+0.0.N: Trace Attempt  4	[0.00 s]
+0.0.Hp: Trace Attempt  3	[0.03 s]
+0: ProofGrid is temporarily paused because there are too many pending traces.
+0: ProofGrid is resuming to work after pausing for 0s. The amount of pending traces decreased.
+0.0.Hp: A trace with 3 cycles was found. [0.03 s]
+INFO (IPF055): 0.0.Hp: A counterexample (cex) with 3 cycles was found for the property "Bridge_Top.chk_top.assert_read_timing" in 0.24 s.
+0.0.Ht: Proofgrid shell started at 2197930@micro25(local) jg_2180921_micro25_6
+0.0.Bm: Proofgrid shell started at 2197931@micro25(local) jg_2180921_micro25_6
+0.0.Mpcustom4: Proofgrid shell started at 2197932@micro25(local) jg_2180921_micro25_6
+0.0.Oh: Proofgrid shell started at 2197933@micro25(local) jg_2180921_micro25_6
+0.0.L: Proofgrid shell started at 2197934@micro25(local) jg_2180921_micro25_6
+0.0.B: Proofgrid shell started at 2197935@micro25(local) jg_2180921_micro25_6
+0.0.AM: Proofgrid shell started at 2197936@micro25(local) jg_2180921_micro25_6
+0.0.N: Trace Attempt  4	[0.00 s]
+0.0.N: A trace with 4 cycles was found. [0.00 s]
+INFO (IPF055): 0.0.N: A counterexample (cex) with 4 cycles was found for the property "Bridge_Top.chk_top._assert_4" in 0.03 s.
+0.0.N: Stopped processing property "Bridge_Top.chk_top._assert_4"	[0.05 s].
+0.0.Hp: Trace Attempt  4	[0.03 s]
+0.0.N: Requesting engine job to terminate
+0.0.Hp: Requesting engine job to terminate
+INFO (IPF144): 0: Initiating shutdown of proof [0.22 s]
+0.0.Hp: A trace with 4 cycles was found. [0.03 s]
+INFO (IPF055): 0.0.Hp: A counterexample (cex) with 4 cycles was found for the property "Bridge_Top.chk_top.assert_write_timing" in 0.29 s.
+0.0.Hp: All properties determined. [0.03 s]
+0.0.Bm: Requesting engine job to terminate
+0.0.Mpcustom4: Requesting engine job to terminate
+0.0.Oh: Requesting engine job to terminate
+0.0.L: Requesting engine job to terminate
+0.0.B: Requesting engine job to terminate
+0.0.AM: Requesting engine job to terminate
+0.0.Hp: Exited with Success (@ 0.22 s)
+0: ProofGrid usable level: 0
+0.0.Ht: Requesting engine job to terminate
+0.0.Ht: All properties determined. [0.00 s]
+0.0.N: All properties determined. [0.19 s]
+0.0.Bm: All properties determined. [0.00 s]
+0.0.Oh: All properties determined. [0.00 s]
+0.0.Mpcustom4: All properties determined. [0.00 s]
+0.0.AM: All properties determined. [0.00 s]
+0.0.Ht: Exited with Success (@ 0.22 s)
+0.0.L: All properties determined. [0.00 s]
+0.0.N: Exited with Success (@ 0.22 s)
+0.0.Bm: Exited with Success (@ 0.22 s)
+0.0.B: All properties determined. [0.00 s]
+0.0.AM: Exited with Success (@ 0.22 s)
+0.0.Mpcustom4: Exited with Success (@ 0.22 s)
+0.0.Oh: Exited with Success (@ 0.22 s)
+0.0.L: Exited with Success (@ 0.22 s)
+0.0.B: Exited with Success (@ 0.23 s)
+0: --------------------------------------------------------------
+ProofGrid Summary (utilization 19.44 %)
+--------------------------------------------------------------
+     engines started                               :     9
+     engine jobs started                           :     9
+
+    Average time in state (seconds)
+    ------------------------------------------------------
+    Engine  Pending     Running        Dead    Utilization
+    ------------------------------------------------------
+      N        0.12        0.20        0.00       61.45 %
+     Hp        0.10        0.22        0.00       69.44 %
+     Ht        0.22        0.00        0.00        0.00 %
+     Bm        0.22        0.00        0.00        0.00 %
+    Mpcustom4        0.22        0.00        0.00        0.00 %
+     Oh        0.21        0.00        0.00        0.00 %
+      L        0.21        0.00        0.00        0.00 %
+      B        0.21        0.00        0.00        0.00 %
+     AM        0.21        0.00        0.00        0.00 %
+    all        0.19        0.05        0.00       19.44 %
+
+    Total time in state (seconds)
+    -----------------------------------------
+            Pending     Running        Dead  
+    -----------------------------------------
+               1.72        0.41        0.00
+
+    Data read    : 24.24 kiB
+    Data written : 3.00 kiB
+
+0: All pending notifications were processed.
+0: ProofGrid was paused 1 times for a total of 0.189 seconds
+INFO (IPF059): 0: Completed proof on task: "<embedded>"
+
+==============================================================
+SUMMARY
+==============================================================
+           Properties Considered              : 17
+                 assertions                   : 8
+                  - proven                    : 2 (25%)
+                  - bounded_proven (user)     : 0 (0%)
+                  - bounded_proven (auto)     : 0 (0%)
+                  - marked_proven             : 0 (0%)
+                  - cex                       : 6 (75%)
+                  - ar_cex                    : 0 (0%)
+                  - undetermined              : 0 (0%)
+                  - unknown                   : 0 (0%)
+                  - error                     : 0 (0%)
+                 covers                       : 9
+                  - unreachable               : 0 (0%)
+                  - bounded_unreachable (user): 0 (0%)
+                  - covered                   : 9 (100%)
+                  - ar_covered                : 0 (0%)
+                  - undetermined              : 0 (0%)
+                  - unknown                   : 0 (0%)
+                  - error                     : 0 (0%)
+[<embedded>] % visualize -violation -property <embedded>::Bridge_Top.chk_top.assert_non_seq_read -new_window
+INFO (IVS015): Setting Visualize task to "<embedded>".
+INFO (IVS008): Expanding analysis region to enable visualization of "<embedded>::Bridge_Top.chk_top.assert_non_seq_read".
+cex
+[<embedded>] % include /homes/user/stud/fall23/ym3000/6863/CSEE-6863-Final-Project/SVA/top/top_sva.tcl
+%% clear -all
+INFO (IPF121): Cleared environment completely for new design analysis.
+%% 
+%% analyze -sv09 top_sva.sv
+[-- (VERI-1482)] Analyzing Verilog file '/tools/cadence/jasper_2024.06p002/lib/verilog/packages/std/std.sv' into library 'std'
+[-- (VERI-1482)] Analyzing Verilog file 'top_sva.sv'
+%% analyze -sv09 ../../RTL/top.v
+[-- (VERI-1482)] Analyzing Verilog file '../../RTL/top.v'
+%% analyze -sv09 ../../RTL/AHB_Interface.v
+[-- (VERI-1482)] Analyzing Verilog file '../../RTL/AHB_Interface.v'
+%% analyze -sv09 ../../RTL/APB_FSM.v
+[-- (VERI-1482)] Analyzing Verilog file '../../RTL/APB_FSM.v'
+%% elaborate -top Bridge_Top
+INFO (ISW003): Top module name is "Bridge_Top".
+[INFO (VERI-1018)] ../../RTL/AHB_Interface.v(12): compiling module 'AHB_slave_interface'
+[INFO (VERI-1018)] ../../RTL/APB_FSM.v(2): compiling module 'APB_FSM'
+[INFO (VERI-1018)] top_sva.sv(1): compiling module 'top_sva'
+[INFO (VERI-1018)] ../../RTL/top.v(1): compiling module 'Bridge_Top'
+INFO (INL208): Elaboration synthesis summary:
+  Number of synthesized netlists          5 (1 packages)
+  Single run mode                         On
+  Pipeline                                On (4 pipelined netlists)
+  Late hierarchical reference connection  On
+  Number of analyzed Verilog modules      5 (5 synthesized)
+  Number of analyzed VHDL entities        0 (0 synthesized)
+INFO (INL003): Clearing all state information (assumes, stopats, and so forth).
+Bridge_Top
+%% 
+%% clock clk
+%% reset ~rst
+INFO (IPM031): Clearing proof results of all properties.
+INFO (IRS006): Current reset condition is "rst".
+Bridge_Top
+[<embedded>] % prove -bg -all
+background 0
+INFO (IPF036): Starting proof on task: "<embedded>", 17 properties to prove with 0 already proven/unreachable
+INFO (IRS029): Starting reset analysis: phase 1 of 4.
+INFO (IRS030): Running reset analysis: phase 2 of 4.
+INFO (IRS031): Running reset analysis: phase 3 of 4.
+INFO (IRS020): Starting the reset analysis simulation with a limit of 100 iterations (phase 4 of 4).
+INFO (IRS024): Reset iterations 0 to 4 analyzed.
+INFO (IRS018): Reset analysis simulation executed for 3 iterations. Assigned values for 202 of 202 design flops, 36 of 68 design latches, 150 of 152 internal elements.
+INFO (IRS039): Reset analysis complete.
+INFO (IPF031): Settings used for proof thread 0:
+    orchestration                 = on
+    time_limit                    = 86400s
+    per_property_time_limit       = 1s * 10 ^ scan
+    engine_mode                   = auto
+    proofgrid_per_engine_max_jobs = 1
+    max engine jobs               = auto
+    proofgrid_mode                = local
+    proofgrid_restarts            = 10
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property "Bridge_Top.chk_top.assert_nonseq_write" was proven in 0.00 s.
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property "Bridge_Top.chk_top.assert_nonseq_read" was proven in 0.00 s.
+0: Found proofs for 2 properties in preprocessing
+0: Using multistage preprocessing
+0: Starting reduce
+0: Finished reduce in 0.001s
+0.0.PRE: Performing Proof Simplification...
+0.0.N: clocks: 3, declared: 1, looping: 0, posedge: 3, negedge: 0, noedge: 0, bothedge: 0
+0.0.N: Proof Simplification Iteration 1	[0.00 s]
+0.0.PRE: A trace with 1 cycles was found. [0.00 s]
+INFO (IPF047): 0.0.PRE: The cover property "Bridge_Top.chk_top.assert_nonseq_write:precondition1" was covered in 1 cycles in 0.00 s.
+INFO (IPF047): 0.0.PRE: The cover property "Bridge_Top.chk_top.assert_write_timing:precondition1" was covered in 1 cycles in 0.00 s.
+INFO (IPF047): 0.0.PRE: The cover property "Bridge_Top.chk_top.assert_write_pselx:precondition1" was covered in 1 cycles in 0.00 s.
+0.0.N: Proof Simplification Iteration 2	[0.15 s]
+0.0.N: Proof Simplification Iteration 3	[0.15 s]
+0.0.N: Proof Simplification Iteration 4	[0.15 s]
+0.0.N: Proof Simplification Iteration 5	[0.15 s]
+0.0.N: Proof Simplification Iteration 6	[0.15 s]
+0.0.N: Proof Simplification Iteration 7	[0.15 s]
+0.0.N: Proof Simplification Iteration 8	[0.15 s]
+0.0.N: Proof Simplification Iteration 9	[0.15 s]
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property ":noDeadEnd" was proven in 0.00 s.
+    Use check_assumptions -show -dead_end to show this property in the property table.
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property ":noConflict" was proven in 0.00 s.
+    Use check_assumptions -show to show this property in the property table.
+INFO (IPF047): 0.0.PRE: The cover property ":live" was covered in 1 cycles in 0.00 s.
+    Use check_assumptions -show -live to show this property in the property table.
+0.0.PRE: Proof Simplification completed in 0.15 s
+0.0.N: Identified and disabled 5 duplicated targets.
+0: About to start ProofGrid in its own thread with a limit of 10000 pending notifications and a limit of 10 traces.
+0: =============================== ProofGrid start ===============================
+0: ProofGrid usable level: 9
+0: Initial ProofGrid level: 1
+0: ProofGrid is starting event handling
+0.0.Hp: Proofgrid shell started at 2201256@micro25(local) jg_2180921_micro25_7
+0.0.Hp: clocks: 1, declared: 1, looping: 0, posedge: 1, negedge: 0, noedge: 0, bothedge: 0
+0.0.N: Proofgrid shell started at 2201255@micro25(local) jg_2180921_micro25_7
+0.0.Hp: Trace Attempt  1	[0.00 s]
+0.0.Hp: A trace with 1 cycles was found. [0.00 s]
+INFO (IPF047): 0.0.Hp: The cover property "Bridge_Top.chk_top._assume_2:precondition1" was covered in 1 cycles in 0.03 s.
+INFO (IPF047): 0.0.Hp: The cover property "Bridge_Top.chk_top.assert_nonseq_read:precondition1" was covered in 1 cycles in 0.03 s.
+INFO (IPF047): 0.0.Hp: The cover property "Bridge_Top.chk_top.assert_read_timing:precondition1" was covered in 1 cycles in 0.03 s.
+INFO (IPF047): 0.0.Hp: The cover property "Bridge_Top.chk_top.assert_read_pselx:precondition1" was covered in 1 cycles in 0.03 s.
+0.0.Hp: A trace with 1 cycles was found. [0.00 s]
+INFO (IPF047): 0.0.Hp: The cover property "Bridge_Top.chk_top.assert_non_seq_read:precondition1" was covered in 1 cycles in 0.07 s.
+0.0.Hp: Trace Attempt  2	[0.02 s]
+0.0.Hp: A trace with 2 cycles was found. [0.02 s]
+INFO (IPF055): 0.0.Hp: A counterexample (cex) with 2 cycles was found for the property "Bridge_Top.chk_top.assert_read_pselx" in 0.12 s.
+0.0.N: clocks: 1, declared: 1, looping: 0, posedge: 1, negedge: 0, noedge: 0, bothedge: 0
+0: ProofGrid usable level: 6
+0.0.N: Next scan (0) will use per property time limit: 1s * 10 ^ 0 = 1s
+0.0.N: Starting proof for property "Bridge_Top.chk_top.assert_non_seq_read"	[0.00 s].
+0.0.N: Trace Attempt  1	[0.00 s]
+0.0.N: A max_length bound was found. The shortest trace is no longer than 512 cycles. [0.00 s]
+INFO (IPF008): 0.0.N: A max_length bound of 512 was found for the property "Bridge_Top.chk_top.assert_non_seq_read" in 0.00 s.
+0.0.N: Trace Attempt  2	[0.00 s]
+0.0.N: Trace Attempt  2	[0.00 s]
+0.0.N: Trace Attempt  3	[0.00 s]
+0.0.N: Trace Attempt  3	[0.00 s]
+0.0.N: Trace Attempt  4	[0.00 s]
+0.0.N: Trace Attempt  4	[0.00 s]
+0.0.N: A trace with 4 cycles was found. [0.00 s]
+INFO (IPF055): 0.0.N: A counterexample (cex) with 4 cycles was found for the property "Bridge_Top.chk_top.assert_non_seq_read" in 0.00 s.
+INFO (IPF055): 0.0.N: A counterexample (cex) with 3 cycles was found for the property "Bridge_Top.chk_top.assert_write_pselx" in 0.00 s by the incidental trace "Bridge_Top.chk_top.assert_non_seq_read".
+0.0.N: Stopped processing property "Bridge_Top.chk_top.assert_non_seq_read"	[0.03 s].
+0.0.Hp: A proof was found: No trace exists. [0.04 s]
+INFO (IPF057): 0.0.Hp: The property "Bridge_Top.chk_top._assert_4" was proven in 0.19 s.
+0.0.Hp: Trace Attempt  3	[0.04 s]
+0.0.Hp: A trace with 3 cycles was found. [0.04 s]
+INFO (IPF055): 0.0.Hp: A counterexample (cex) with 3 cycles was found for the property "Bridge_Top.chk_top.assert_read_timing" in 0.19 s.
+0.0.N: Starting proof for property "Bridge_Top.chk_top._assert_4:precondition1"	[0.00 s].
+0.0.N: Trace Attempt  1	[0.00 s]
+0.0.N: A max_length bound was found. The shortest trace is no longer than 8192 cycles. [0.00 s]
+INFO (IPF008): 0.0.N: A max_length bound of 8192 was found for the property "Bridge_Top.chk_top._assert_4:precondition1" in 0.00 s.
+0.0.N: Trace Attempt  2	[0.00 s]
+0.0.N: Trace Attempt  3	[0.00 s]
+0.0.N: Trace Attempt  3	[0.00 s]
+0.0.N: Trace Attempt  4	[0.00 s]
+0.0.N: Trace Attempt  4	[0.00 s]
+0.0.N: Trace Attempt  5	[0.00 s]
+0.0.N: Trace Attempt  5	[0.00 s]
+0: ProofGrid is temporarily paused because there are too many pending traces.
+0: ProofGrid is resuming to work after pausing for 0s. The amount of pending traces decreased.
+0.0.N: Trace Attempt  6	[0.00 s]
+0.0.N: A trace with 6 cycles was found. [0.00 s]
+INFO (IPF047): 0.0.N: The cover property "Bridge_Top.chk_top._assert_4:precondition1" was covered in 6 cycles in 0.00 s.
+0.0.N: Stopped processing property "Bridge_Top.chk_top._assert_4:precondition1"	[0.03 s].
+0.0.Ht: Proofgrid shell started at 2201287@micro25(local) jg_2180921_micro25_7
+0.0.Bm: Proofgrid shell started at 2201288@micro25(local) jg_2180921_micro25_7
+0.0.Mpcustom4: Proofgrid shell started at 2201289@micro25(local) jg_2180921_micro25_7
+0.0.Oh: Proofgrid shell started at 2201290@micro25(local) jg_2180921_micro25_7
+0.0.L: Proofgrid shell started at 2201291@micro25(local) jg_2180921_micro25_7
+0.0.AM: Proofgrid shell started at 2201293@micro25(local) jg_2180921_micro25_7
+0.0.N: Last scan. Per property time limit: 0s
+0.0.N: Starting proof for property "Bridge_Top.chk_top.assert_write_timing"	[0.00 s].
+0.0.N: Trace Attempt  1	[0.00 s]
+0.0.N: A max_length bound was found. The shortest trace is no longer than 256 cycles. [0.00 s]
+INFO (IPF008): 0.0.N: A max_length bound of 256 was found for the property "Bridge_Top.chk_top.assert_write_timing" in 0.00 s.
+0.0.N: Trace Attempt  2	[0.00 s]
+0.0.N: Trace Attempt  3	[0.00 s]
+0.0.N: Trace Attempt  3	[0.00 s]
+0.0.N: Trace Attempt  4	[0.00 s]
+0.0.N: Trace Attempt  4	[0.00 s]
+0.0.N: Requesting engine job to terminate
+0.0.Hp: Requesting engine job to terminate
+INFO (IPF144): 0: Initiating shutdown of proof [0.17 s]
+0.0.N: A trace with 4 cycles was found. [0.00 s]
+INFO (IPF055): 0.0.N: A counterexample (cex) with 4 cycles was found for the property "Bridge_Top.chk_top.assert_write_timing" in 0.00 s.
+0.0.N: Stopped processing property "Bridge_Top.chk_top.assert_write_timing"	[0.02 s].
+0.0.Hp: Trace Attempt  4	[0.04 s]
+0.0.Hp: All properties determined. [0.04 s]
+0.0.Ht: Requesting engine job to terminate
+0.0.Bm: Requesting engine job to terminate
+0.0.Mpcustom4: Requesting engine job to terminate
+0.0.Oh: Requesting engine job to terminate
+0.0.Hp: Exited with Success (@ 0.17 s)
+0: ProofGrid usable level: 0
+0.0.L: Requesting engine job to terminate
+0.0.L: All properties determined. [0.00 s]
+0.0.Ht: All properties determined. [0.00 s]
+0.0.Bm: All properties determined. [0.00 s]
+0.0.Oh: All properties determined. [0.00 s]
+0.0.Mpcustom4: All properties determined. [0.00 s]
+0.0.L: Exited with Success (@ 0.17 s)
+0.0.N: All properties determined. [0.12 s]
+0.0.Ht: Exited with Success (@ 0.17 s)
+0.0.Bm: Exited with Success (@ 0.17 s)
+0.0.Oh: Exited with Success (@ 0.17 s)
+0.0.Mpcustom4: Exited with Success (@ 0.17 s)
+0.0.AM: Preventing job from starting because proof is shutting down.
+0.0.AM: Requesting engine job to terminate
+0.0.N: Exited with Success (@ 0.17 s)
+0.0.AM: Interrupted. [0.00 s]
+0.0.B: Proofgrid shell started at 2201292@micro25(local) jg_2180921_micro25_7
+0.0.B: Requesting engine job to terminate
+0.0.AM: Exited with Success (@ 0.18 s)
+0.0.B: Preventing job from starting because proof is shutting down.
+0.0.B: Requesting engine job to terminate
+0.0.B: Interrupted. [0.00 s]
+0.0.B: Exited with Success (@ 0.18 s)
+0: --------------------------------------------------------------
+ProofGrid Summary (utilization 19.10 %)
+--------------------------------------------------------------
+     engines started                               :     9
+     engine jobs started                           :     9
+
+    Average time in state (seconds)
+    ------------------------------------------------------
+    Engine  Pending     Running        Dead    Utilization
+    ------------------------------------------------------
+      N        0.12        0.14        0.00       54.76 %
+     Hp        0.09        0.16        0.00       63.13 %
+     Ht        0.16        0.00        0.00        0.00 %
+     Bm        0.16        0.00        0.00        0.00 %
+    Mpcustom4        0.16        0.00        0.00        0.00 %
+     Oh        0.16        0.00        0.00        0.00 %
+      L        0.15        0.00        0.00        0.00 %
+      B        0.15        0.00        0.00        0.00 %
+     AM        0.13        0.00        0.00        0.00 %
+    all        0.14        0.03        0.00       19.10 %
+
+    Total time in state (seconds)
+    -----------------------------------------
+            Pending     Running        Dead  
+    -----------------------------------------
+               1.28        0.30        0.00
+
+    Data read    : 26.71 kiB
+    Data written : 2.61 kiB
+
+0: All pending notifications were processed.
+0: ProofGrid was paused 1 times for a total of 0.118 seconds
+INFO (IPF059): 0: Completed proof on task: "<embedded>"
+
+==============================================================
+SUMMARY
+==============================================================
+           Properties Considered              : 17
+                 assertions                   : 8
+                  - proven                    : 3 (37.5%)
+                  - bounded_proven (user)     : 0 (0%)
+                  - bounded_proven (auto)     : 0 (0%)
+                  - marked_proven             : 0 (0%)
+                  - cex                       : 5 (62.5%)
+                  - ar_cex                    : 0 (0%)
+                  - undetermined              : 0 (0%)
+                  - unknown                   : 0 (0%)
+                  - error                     : 0 (0%)
+                 covers                       : 9
+                  - unreachable               : 0 (0%)
+                  - bounded_unreachable (user): 0 (0%)
+                  - covered                   : 9 (100%)
+                  - ar_covered                : 0 (0%)
+                  - undetermined              : 0 (0%)
+                  - unknown                   : 0 (0%)
+                  - error                     : 0 (0%)
+[<embedded>] % visualize -violation -property <embedded>::Bridge_Top.chk_top.assert_non_seq_read -new_window
+INFO (IVS015): Setting Visualize task to "<embedded>".
+INFO (IVS008): Expanding analysis region to enable visualization of "<embedded>::Bridge_Top.chk_top.assert_non_seq_read".
+cex
+[<embedded>] % include /homes/user/stud/fall23/ym3000/6863/CSEE-6863-Final-Project/SVA/top/top_sva.tcl
+%% clear -all
+INFO (IPF121): Cleared environment completely for new design analysis.
+%% 
+%% analyze -sv09 top_sva.sv
+[-- (VERI-1482)] Analyzing Verilog file '/tools/cadence/jasper_2024.06p002/lib/verilog/packages/std/std.sv' into library 'std'
+[-- (VERI-1482)] Analyzing Verilog file 'top_sva.sv'
+%% analyze -sv09 ../../RTL/top.v
+[-- (VERI-1482)] Analyzing Verilog file '../../RTL/top.v'
+%% analyze -sv09 ../../RTL/AHB_Interface.v
+[-- (VERI-1482)] Analyzing Verilog file '../../RTL/AHB_Interface.v'
+%% analyze -sv09 ../../RTL/APB_FSM.v
+[-- (VERI-1482)] Analyzing Verilog file '../../RTL/APB_FSM.v'
+%% elaborate -top Bridge_Top
+INFO (ISW003): Top module name is "Bridge_Top".
+[INFO (VERI-1018)] ../../RTL/AHB_Interface.v(12): compiling module 'AHB_slave_interface'
+[INFO (VERI-1018)] ../../RTL/APB_FSM.v(2): compiling module 'APB_FSM'
+[INFO (VERI-1018)] top_sva.sv(1): compiling module 'top_sva'
+[INFO (VERI-1018)] ../../RTL/top.v(1): compiling module 'Bridge_Top'
+INFO (INL208): Elaboration synthesis summary:
+  Number of synthesized netlists          5 (1 packages)
+  Single run mode                         On
+  Pipeline                                On (4 pipelined netlists)
+  Late hierarchical reference connection  On
+  Number of analyzed Verilog modules      5 (5 synthesized)
+  Number of analyzed VHDL entities        0 (0 synthesized)
+INFO (INL003): Clearing all state information (assumes, stopats, and so forth).
+Bridge_Top
+%% 
+%% clock clk
+%% reset ~rst
+INFO (IPM031): Clearing proof results of all properties.
+INFO (IRS006): Current reset condition is "rst".
+Bridge_Top
+[<embedded>] % prove -bg -all
+background 0
+INFO (IPF036): Starting proof on task: "<embedded>", 17 properties to prove with 0 already proven/unreachable
+INFO (IRS029): Starting reset analysis: phase 1 of 4.
+INFO (IRS030): Running reset analysis: phase 2 of 4.
+INFO (IRS031): Running reset analysis: phase 3 of 4.
+INFO (IRS020): Starting the reset analysis simulation with a limit of 100 iterations (phase 4 of 4).
+INFO (IRS024): Reset iterations 0 to 4 analyzed.
+INFO (IRS018): Reset analysis simulation executed for 3 iterations. Assigned values for 202 of 202 design flops, 36 of 68 design latches, 151 of 161 internal elements.
+INFO (IRS039): Reset analysis complete.
+INFO (IPF031): Settings used for proof thread 0:
+    orchestration                 = on
+    time_limit                    = 86400s
+    per_property_time_limit       = 1s * 10 ^ scan
+    engine_mode                   = auto
+    proofgrid_per_engine_max_jobs = 1
+    max engine jobs               = auto
+    proofgrid_mode                = local
+    proofgrid_restarts            = 10
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property "Bridge_Top.chk_top.assert_nonseq_write" was proven in 0.00 s.
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property "Bridge_Top.chk_top.assert_nonseq_read" was proven in 0.00 s.
+0: Found proofs for 2 properties in preprocessing
+0: Using multistage preprocessing
+0: Starting reduce
+0: Finished reduce in 0.001s
+0.0.PRE: Performing Proof Simplification...
+0.0.N: clocks: 3, declared: 1, looping: 0, posedge: 3, negedge: 0, noedge: 0, bothedge: 0
+0.0.N: Proof Simplification Iteration 1	[0.00 s]
+0.0.N: Proof Simplification Iteration 2	[0.00 s]
+0.0.N: Proof Simplification Iteration 3	[0.00 s]
+0.0.N: Proof Simplification Iteration 4	[0.00 s]
+0.0.N: Proof Simplification Iteration 5	[0.00 s]
+0.0.N: Proof Simplification Iteration 6	[0.00 s]
+0.0.N: Proof Simplification Iteration 7	[0.00 s]
+0.0.N: Proof Simplification Iteration 8	[0.00 s]
+0.0.N: Proof Simplification Iteration 9	[0.00 s]
+0.0.N: Proof Simplification Iteration 10	[0.00 s]
+0.0.PRE: Proof Simplification completed in 0.01 s
+0.0.N: Identified and disabled 5 duplicated targets.
+0: About to start ProofGrid in its own thread with a limit of 10000 pending notifications and a limit of 10 traces.
+0: =============================== ProofGrid start ===============================
+0: ProofGrid usable level: 10
+0: Initial ProofGrid level: 1
+0: ProofGrid is starting event handling
+0.0.Hp: Proofgrid shell started at 2203861@micro25(local) jg_2180921_micro25_8
+0.0.Hp: clocks: 1, declared: 1, looping: 0, posedge: 1, negedge: 0, noedge: 0, bothedge: 0
+0.0.N: Proofgrid shell started at 2203860@micro25(local) jg_2180921_micro25_8
+0.0.Hp: A proof was found: No trace exists. [0.00 s]
+INFO (IPF051): 0.0.Hp: The cover property "Bridge_Top.chk_top.assert_nonseq_write:precondition1" was proven unreachable in 0.01 s.
+0.0.Hp: A proof was found: No trace exists. [0.00 s]
+INFO (IPF051): 0.0.Hp: The cover property "Bridge_Top.chk_top.assert_write_timing:precondition1" was proven unreachable in 0.01 s.
+0.0.Hp: A proof was found: No trace exists. [0.00 s]
+INFO (IPF051): 0.0.Hp: The cover property "Bridge_Top.chk_top.assert_write_pselx:precondition1" was proven unreachable in 0.01 s.
+0.0.Hp: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.Hp: The property "Bridge_Top.chk_top.assert_read_pselx" was proven in 0.01 s.
+0.0.Hp: Trace Attempt  1	[0.00 s]
+0.0.Hp: A trace with 1 cycles was found. [0.00 s]
+INFO (IPF047): 0.0.Hp: The cover property "Bridge_Top.chk_top._assume_2:precondition1" was covered in 1 cycles in 0.20 s.
+INFO (IPF047): 0.0.Hp: The cover property "Bridge_Top.chk_top.assert_nonseq_read:precondition1" was covered in 1 cycles in 0.20 s.
+INFO (IPF047): 0.0.Hp: The cover property "Bridge_Top.chk_top.assert_read_timing:precondition1" was covered in 1 cycles in 0.20 s.
+INFO (IPF047): 0.0.Hp: The cover property "Bridge_Top.chk_top.assert_read_pselx:precondition1" was covered in 1 cycles in 0.20 s.
+0.0.Hp: A trace with 1 cycles was found. [0.00 s]
+INFO (IPF047): 0.0.Hp: The cover property "Bridge_Top.chk_top.assert_non_seq_read:precondition1" was covered in 1 cycles in 0.23 s.
+0.0.Hp: Requesting engine job to terminate
+INFO (IPF144): 0: Initiating shutdown of proof [0.01 s]
+0.0.Hp: A proof was found: No trace exists. [0.01 s]
+INFO (IPF057): 0.0.Hp: The property "Bridge_Top.chk_top.assert_non_seq_read" was proven in 0.25 s.
+0.0.Hp: A proof was found: No trace exists. [0.01 s]
+INFO (IPF057): 0.0.Hp: The property "Bridge_Top.chk_top._assert_5" was proven in 0.25 s.
+0.0.Hp: A proof was found: No trace exists. [0.01 s]
+INFO (IPF051): 0.0.Hp: The cover property "Bridge_Top.chk_top._assert_5:precondition1" was proven unreachable in 0.25 s.
+0.0.Hp: A proof was found: No trace exists. [0.01 s]
+INFO (IPF057): 0.0.Hp: The property "Bridge_Top.chk_top.assert_read_timing" was proven in 0.25 s.
+0.0.Hp: A proof was found: No trace exists. [0.01 s]
+INFO (IPF057): 0.0.Hp: The property "Bridge_Top.chk_top.assert_write_timing" was proven in 0.25 s.
+0.0.Hp: A proof was found: No trace exists. [0.01 s]
+INFO (IPF057): 0.0.Hp: The property "Bridge_Top.chk_top.assert_write_pselx" was proven in 0.25 s.
+0.0.Hp: All properties determined. [0.01 s]
+0.0.N: Preventing job from starting because proof is shutting down.
+0.0.N: Requesting engine job to terminate
+0.0.Hp: Exited with Success (@ 0.02 s)
+0: ProofGrid usable level: 0
+0.0.N: Interrupted. [0.00 s]
+0.0.B: Proofgrid shell started at 2203897@micro25(local) jg_2180921_micro25_8
+0.0.B: Requesting engine job to terminate
+0.0.N: Exited with Success (@ 0.13 s)
+0.0.Mpcustom4: Proofgrid shell started at 2203894@micro25(local) jg_2180921_micro25_8
+0.0.Mpcustom4: Requesting engine job to terminate
+0.0.Oh: Proofgrid shell started at 2203895@micro25(local) jg_2180921_micro25_8
+0.0.Oh: Requesting engine job to terminate
+0.0.B: Preventing job from starting because proof is shutting down.
+0.0.B: Requesting engine job to terminate
+0.0.Oh: Preventing job from starting because proof is shutting down.
+0.0.Oh: Requesting engine job to terminate
+0.0.B: Interrupted. [0.00 s]
+0.0.Oh: Interrupted. [0.00 s]
+0.0.B: Exited with Success (@ 0.14 s)
+0.0.Mpcustom4: Preventing job from starting because proof is shutting down.
+0.0.Mpcustom4: Requesting engine job to terminate
+0.0.Oh: Exited with Success (@ 0.14 s)
+0.0.Mpcustom4: Interrupted. [0.00 s]
+0.0.Ht: Proofgrid shell started at 2203892@micro25(local) jg_2180921_micro25_8
+0.0.Ht: Requesting engine job to terminate
+0.0.Mpcustom4: Exited with Success (@ 0.14 s)
+0.0.Ht: Preventing job from starting because proof is shutting down.
+0.0.Ht: Requesting engine job to terminate
+0.0.Ht: Interrupted. [0.00 s]
+0.0.Bm: Proofgrid shell started at 2203893@micro25(local) jg_2180921_micro25_8
+0.0.Bm: Requesting engine job to terminate
+0.0.Ht: Exited with Success (@ 0.14 s)
+0.0.Bm: Preventing job from starting because proof is shutting down.
+0.0.Bm: Requesting engine job to terminate
+0.0.Bm: Interrupted. [0.00 s]
+0.0.L: Proofgrid shell started at 2203896@micro25(local) jg_2180921_micro25_8
+0.0.L: Requesting engine job to terminate
+0.0.Bm: Exited with Success (@ 0.15 s)
+0.0.L: Preventing job from starting because proof is shutting down.
+0.0.L: Requesting engine job to terminate
+0.0.L: Interrupted. [0.00 s]
+0.0.L: Exited with Success (@ 0.16 s)
+0: --------------------------------------------------------------
+ProofGrid Summary (utilization 1.15 %)
+--------------------------------------------------------------
+     engines started                               :     8
+     engine jobs started                           :     8
+
+    Average time in state (seconds)
+    ------------------------------------------------------
+    Engine  Pending     Running        Dead    Utilization
+    ------------------------------------------------------
+      N        0.11        0.00        0.00        0.00 %
+     Hp        0.09        0.01        0.00       11.55 %
+     Ht        0.14        0.00        0.00        0.00 %
+     Bm        0.14        0.00        0.00        0.00 %
+    Mpcustom4        0.12        0.00        0.00        0.00 %
+     Oh        0.12        0.00        0.00        0.00 %
+      L        0.14        0.00        0.00        0.00 %
+      B        0.11        0.00        0.00        0.00 %
+    all        0.12        0.00        0.00        1.15 %
+
+    Total time in state (seconds)
+    -----------------------------------------
+            Pending     Running        Dead  
+    -----------------------------------------
+               0.98        0.01        0.00
+
+    Data read    : 6.72 kiB
+    Data written : 620.00 B
+
+0: All pending notifications were processed.
+INFO (IPF059): 0: Completed proof on task: "<embedded>"
+
+==============================================================
+SUMMARY
+==============================================================
+           Properties Considered              : 17
+                 assertions                   : 8
+                  - proven                    : 8 (100%)
+                  - bounded_proven (user)     : 0 (0%)
+                  - bounded_proven (auto)     : 0 (0%)
+                  - marked_proven             : 0 (0%)
+                  - cex                       : 0 (0%)
+                  - ar_cex                    : 0 (0%)
+                  - undetermined              : 0 (0%)
+                  - unknown                   : 0 (0%)
+                  - error                     : 0 (0%)
+                 covers                       : 9
+                  - unreachable               : 4 (44.4444%)
+                  - bounded_unreachable (user): 0 (0%)
+                  - covered                   : 5 (55.5556%)
+                  - ar_covered                : 0 (0%)
+                  - undetermined              : 0 (0%)
+                  - unknown                   : 0 (0%)
+                  - error                     : 0 (0%)
+[<embedded>] % include /homes/user/stud/fall23/ym3000/6863/CSEE-6863-Final-Project/SVA/top/top_sva.tcl
+%% clear -all
+INFO (IPF121): Cleared environment completely for new design analysis.
+%% 
+%% analyze -sv09 top_sva.sv
+[-- (VERI-1482)] Analyzing Verilog file '/tools/cadence/jasper_2024.06p002/lib/verilog/packages/std/std.sv' into library 'std'
+[-- (VERI-1482)] Analyzing Verilog file 'top_sva.sv'
+%% analyze -sv09 ../../RTL/top.v
+[-- (VERI-1482)] Analyzing Verilog file '../../RTL/top.v'
+%% analyze -sv09 ../../RTL/AHB_Interface.v
+[-- (VERI-1482)] Analyzing Verilog file '../../RTL/AHB_Interface.v'
+%% analyze -sv09 ../../RTL/APB_FSM.v
+[-- (VERI-1482)] Analyzing Verilog file '../../RTL/APB_FSM.v'
+%% elaborate -top Bridge_Top
+INFO (ISW003): Top module name is "Bridge_Top".
+[INFO (VERI-1018)] ../../RTL/AHB_Interface.v(12): compiling module 'AHB_slave_interface'
+[INFO (VERI-1018)] ../../RTL/APB_FSM.v(2): compiling module 'APB_FSM'
+[INFO (VERI-1018)] top_sva.sv(1): compiling module 'top_sva'
+[INFO (VERI-1018)] ../../RTL/top.v(1): compiling module 'Bridge_Top'
+INFO (INL208): Elaboration synthesis summary:
+  Number of synthesized netlists          5 (1 packages)
+  Single run mode                         On
+  Pipeline                                On (4 pipelined netlists)
+  Late hierarchical reference connection  On
+  Number of analyzed Verilog modules      5 (5 synthesized)
+  Number of analyzed VHDL entities        0 (0 synthesized)
+INFO (INL003): Clearing all state information (assumes, stopats, and so forth).
+Bridge_Top
+%% 
+%% clock clk
+%% reset ~rst
+INFO (IPM031): Clearing proof results of all properties.
+INFO (IRS006): Current reset condition is "rst".
+Bridge_Top
+[<embedded>] % prove -bg -all
+background 0
+INFO (IPF036): Starting proof on task: "<embedded>", 17 properties to prove with 0 already proven/unreachable
+INFO (IRS029): Starting reset analysis: phase 1 of 4.
+INFO (IRS030): Running reset analysis: phase 2 of 4.
+INFO (IRS031): Running reset analysis: phase 3 of 4.
+INFO (IRS020): Starting the reset analysis simulation with a limit of 100 iterations (phase 4 of 4).
+INFO (IRS024): Reset iterations 0 to 4 analyzed.
+INFO (IRS018): Reset analysis simulation executed for 3 iterations. Assigned values for 202 of 202 design flops, 36 of 68 design latches, 51 of 63 internal elements.
+INFO (IRS039): Reset analysis complete.
+INFO (IPF031): Settings used for proof thread 0:
+    orchestration                 = on
+    time_limit                    = 86400s
+    per_property_time_limit       = 1s * 10 ^ scan
+    engine_mode                   = auto
+    proofgrid_per_engine_max_jobs = 1
+    max engine jobs               = auto
+    proofgrid_mode                = local
+    proofgrid_restarts            = 10
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property "Bridge_Top.chk_top.assert_nonseq_write" was proven in 0.00 s.
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property "Bridge_Top.chk_top.assert_nonseq_read" was proven in 0.00 s.
+0: Found proofs for 2 properties in preprocessing
+0: Using multistage preprocessing
+0: Starting reduce
+0: Finished reduce in 0s
+0.0.PRE: Performing Proof Simplification...
+0.0.N: clocks: 3, declared: 1, looping: 0, posedge: 3, negedge: 0, noedge: 0, bothedge: 0
+0.0.N: Proof Simplification Iteration 1	[0.00 s]
+0.0.N: Proof Simplification Iteration 2	[0.00 s]
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF051): 0.0.PRE: The cover property "Bridge_Top.chk_top.assert_write_timing:precondition1" was proven unreachable in 0.00 s.
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF051): 0.0.PRE: The cover property "Bridge_Top.chk_top.assert_write_pselx:precondition1" was proven unreachable in 0.00 s.
+0.0.N: A max_length bound was found. The shortest trace is no longer than 1 cycles. [0.00 s]
+INFO (IPF008): 0.0.N: A max_length bound of 1 was found for the property "Bridge_Top.chk_top._assume_2:precondition1" in 0.00 s.
+0.0.N: A max_length bound was found. The shortest trace is no longer than 1 cycles. [0.00 s]
+INFO (IPF008): 0.0.N: A max_length bound of 1 was found for the property "Bridge_Top.chk_top.assert_nonseq_read:precondition1" in 0.00 s.
+0.0.N: A max_length bound was found. The shortest trace is no longer than 1 cycles. [0.00 s]
+INFO (IPF008): 0.0.N: A max_length bound of 1 was found for the property "Bridge_Top.chk_top.assert_read_timing:precondition1" in 0.00 s.
+0.0.N: A max_length bound was found. The shortest trace is no longer than 1 cycles. [0.00 s]
+INFO (IPF008): 0.0.N: A max_length bound of 1 was found for the property "Bridge_Top.chk_top.assert_read_pselx:precondition1" in 0.00 s.
+0.0.N: Proof Simplification Iteration 3	[0.00 s]
+0.0.PRE: A trace with 1 cycles was found. [0.00 s]
+INFO (IPF047): 0.0.PRE: The cover property "Bridge_Top.chk_top._assert_5:precondition1" was covered in 1 cycles in 0.00 s.
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF051): 0.0.PRE: The cover property "Bridge_Top.chk_top.assert_nonseq_write:precondition1" was proven unreachable in 0.00 s.
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property "Bridge_Top.chk_top.assert_read_timing" was proven in 0.00 s.
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property "Bridge_Top.chk_top.assert_write_timing" was proven in 0.00 s.
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property "Bridge_Top.chk_top.assert_read_pselx" was proven in 0.00 s.
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property "Bridge_Top.chk_top.assert_write_pselx" was proven in 0.00 s.
+0.0.N: Proof Simplification Iteration 4	[0.14 s]
+0.0.N: Proof Simplification Iteration 5	[0.14 s]
+0.0.N: Proof Simplification Iteration 6	[0.14 s]
+0.0.N: Proof Simplification Iteration 7	[0.14 s]
+INFO (IPF055): 0.0.PRE: A counterexample (cex) with 2 cycles was found for the property ":noConflict" in 0.00 s.
+    Use check_assumptions -show to show this property in the property table.
+    Use check_assumptions -conflict to generate a cex trace.
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF051): 0.0.PRE: The cover property ":live" was proven unreachable in 0.00 s.
+    Use check_assumptions -show -live to show this property in the property table.
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property "Bridge_Top.chk_top.assert_non_seq_read" was proven in 0.00 s.
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property "Bridge_Top.chk_top._assert_5" was proven in 0.00 s.
+0.0.PRE: Proof Simplification completed in 0.14 s
+0.0.N: Identified and disabled 3 duplicated targets.
+0: About to start ProofGrid in its own thread with a limit of 10000 pending notifications and a limit of 10 traces.
+0: =============================== ProofGrid start ===============================
+0: ProofGrid usable level: 2
+0: Initial ProofGrid level: 1
+0: ProofGrid is starting event handling
+0.0.Hp: Proofgrid shell started at 2204980@micro25(local) jg_2180921_micro25_9
+0.0.N: Proofgrid shell started at 2204979@micro25(local) jg_2180921_micro25_9
+0.0.N: clocks: 1, declared: 1, looping: 0, posedge: 1, negedge: 0, noedge: 0, bothedge: 0
+0.0.N: Requesting engine job to terminate
+0.0.Hp: Requesting engine job to terminate
+INFO (IPF144): 0: Initiating shutdown of proof [0.01 s]
+0.0.N: A trace with 1 cycles was found. [0.00 s]
+INFO (IPF047): 0.0.N: The cover property "Bridge_Top.chk_top._assume_2:precondition1" was covered in 1 cycles in 0.00 s.
+INFO (IPF047): 0.0.N: The cover property "Bridge_Top.chk_top.assert_non_seq_read:precondition1" was covered in 1 cycles in 0.00 s.
+INFO (IPF047): 0.0.N: The cover property "Bridge_Top.chk_top.assert_nonseq_read:precondition1" was covered in 1 cycles in 0.00 s.
+INFO (IPF047): 0.0.N: The cover property "Bridge_Top.chk_top.assert_read_timing:precondition1" was covered in 1 cycles in 0.00 s.
+INFO (IPF047): 0.0.N: The cover property "Bridge_Top.chk_top.assert_read_pselx:precondition1" was covered in 1 cycles in 0.00 s.
+0.0.N: Next scan (0) will use per property time limit: 1s * 10 ^ 0 = 1s
+0.0.N: Starting proof for property "Bridge_Top.chk_top._assume_2:precondition1"	[0.00 s].
+0.0.N: Starting proof for property "Bridge_Top.chk_top.assert_nonseq_read:precondition1"	[0.00 s].
+0.0.N: Starting proof for property "Bridge_Top.chk_top.assert_read_timing:precondition1"	[0.00 s].
+0.0.N: Starting proof for property "Bridge_Top.chk_top.assert_read_pselx:precondition1"	[0.00 s].
+0.0.N: Stopped processing property "Bridge_Top.chk_top._assume_2:precondition1"	[0.00 s].
+0.0.N: Stopped processing property "Bridge_Top.chk_top.assert_nonseq_read:precondition1"	[0.00 s].
+0.0.N: Stopped processing property "Bridge_Top.chk_top.assert_read_timing:precondition1"	[0.00 s].
+0.0.N: Stopped processing property "Bridge_Top.chk_top.assert_read_pselx:precondition1"	[0.00 s].
+0.0.Hp: clocks: 1, declared: 1, looping: 0, posedge: 1, negedge: 0, noedge: 0, bothedge: 0
+0.0.Hp: Overconstrained at 2 [0.00 s]
+0.0.N: Overconstrained at 2 [0.00 s]
+0.0.Hp: Exited with Success (@ 0.01 s)
+0: ProofGrid usable level: 0
+0.0.Ht: Proofgrid shell started at 2205011@micro25(local) jg_2180921_micro25_9
+0.0.Ht: Requesting engine job to terminate
+0.0.N: Exited with Success (@ 0.09 s)
+0.0.Ht: Preventing job from starting because proof is shutting down.
+0.0.Ht: Requesting engine job to terminate
+0.0.Ht: Interrupted. [0.00 s]
+0.0.Mpcustom4: Proofgrid shell started at 2205013@micro25(local) jg_2180921_micro25_9
+0.0.Mpcustom4: Requesting engine job to terminate
+0.0.Ht: Exited with Success (@ 0.10 s)
+0.0.Bm: Proofgrid shell started at 2205012@micro25(local) jg_2180921_micro25_9
+0.0.Bm: Requesting engine job to terminate
+0.0.Mpcustom4: Preventing job from starting because proof is shutting down.
+0.0.Mpcustom4: Requesting engine job to terminate
+0.0.Mpcustom4: Interrupted. [0.00 s]
+0.0.Bm: Preventing job from starting because proof is shutting down.
+0.0.Bm: Requesting engine job to terminate
+0.0.Mpcustom4: Exited with Success (@ 0.10 s)
+0.0.Bm: Interrupted. [0.00 s]
+0.0.Bm: Exited with Success (@ 0.10 s)
+0: --------------------------------------------------------------
+ProofGrid Summary (utilization 0.72 %)
+--------------------------------------------------------------
+     engines started                               :     5
+     engine jobs started                           :     5
+
+    Average time in state (seconds)
+    ------------------------------------------------------
+    Engine  Pending     Running        Dead    Utilization
+    ------------------------------------------------------
+      N        0.11        0.00        0.00        1.62 %
+     Hp        0.10        0.00        0.00        1.69 %
+     Ht        0.09        0.00        0.00        0.00 %
+     Bm        0.10        0.00        0.00        0.00 %
+    Mpcustom4        0.09        0.00        0.00        0.00 %
+    all        0.10        0.00        0.00        0.72 %
+
+    Total time in state (seconds)
+    -----------------------------------------
+            Pending     Running        Dead  
+    -----------------------------------------
+               0.49        0.00        0.00
+
+    Data read    : 2.19 kiB
+    Data written : 675.00 B
+
+0: All pending notifications were processed.
+WARNING (WAS006): The task is inconsistent at cycle 2.
+INFO (IPF059): 0: Completed proof on task: "<embedded>"
+
+==============================================================
+SUMMARY
+==============================================================
+           Properties Considered              : 18
+                 assertions                   : 9
+                  - proven                    : 8 (88.8889%)
+                  - bounded_proven (user)     : 0 (0%)
+                  - bounded_proven (auto)     : 0 (0%)
+                  - marked_proven             : 0 (0%)
+                  - cex                       : 1 (11.1111%)
+                  - ar_cex                    : 0 (0%)
+                  - undetermined              : 0 (0%)
+                  - unknown                   : 0 (0%)
+                  - error                     : 0 (0%)
+                 covers                       : 9
+                  - unreachable               : 3 (33.3333%)
+                  - bounded_unreachable (user): 0 (0%)
+                  - covered                   : 6 (66.6667%)
+                  - ar_covered                : 0 (0%)
+                  - undetermined              : 0 (0%)
+                  - unknown                   : 0 (0%)
+                  - error                     : 0 (0%)
+[<embedded>] % include /homes/user/stud/fall23/ym3000/6863/CSEE-6863-Final-Project/SVA/top/top_sva.tcl
+%% clear -all
+INFO (IPF121): Cleared environment completely for new design analysis.
+%% 
+%% analyze -sv09 top_sva.sv
+[-- (VERI-1482)] Analyzing Verilog file '/tools/cadence/jasper_2024.06p002/lib/verilog/packages/std/std.sv' into library 'std'
+[-- (VERI-1482)] Analyzing Verilog file 'top_sva.sv'
+%% analyze -sv09 ../../RTL/top.v
+[-- (VERI-1482)] Analyzing Verilog file '../../RTL/top.v'
+%% analyze -sv09 ../../RTL/AHB_Interface.v
+[-- (VERI-1482)] Analyzing Verilog file '../../RTL/AHB_Interface.v'
+%% analyze -sv09 ../../RTL/APB_FSM.v
+[-- (VERI-1482)] Analyzing Verilog file '../../RTL/APB_FSM.v'
+%% elaborate -top Bridge_Top
+INFO (ISW003): Top module name is "Bridge_Top".
+[INFO (VERI-1018)] ../../RTL/AHB_Interface.v(12): compiling module 'AHB_slave_interface'
+[INFO (VERI-1018)] ../../RTL/APB_FSM.v(2): compiling module 'APB_FSM'
+[INFO (VERI-1018)] top_sva.sv(1): compiling module 'top_sva'
+[INFO (VERI-1018)] ../../RTL/top.v(1): compiling module 'Bridge_Top'
+INFO (INL208): Elaboration synthesis summary:
+  Number of synthesized netlists          5 (1 packages)
+  Single run mode                         On
+  Pipeline                                On (4 pipelined netlists)
+  Late hierarchical reference connection  On
+  Number of analyzed Verilog modules      5 (5 synthesized)
+  Number of analyzed VHDL entities        0 (0 synthesized)
+INFO (INL003): Clearing all state information (assumes, stopats, and so forth).
+Bridge_Top
+%% 
+%% clock clk
+%% reset ~rst
+INFO (IPM031): Clearing proof results of all properties.
+INFO (IRS006): Current reset condition is "rst".
+Bridge_Top
+[<embedded>] % prove -bg -all
+background 0
+INFO (IPF036): Starting proof on task: "<embedded>", 5 properties to prove with 0 already proven/unreachable
+INFO (IRS029): Starting reset analysis: phase 1 of 4.
+INFO (IRS030): Running reset analysis: phase 2 of 4.
+INFO (IRS031): Running reset analysis: phase 3 of 4.
+INFO (IRS020): Starting the reset analysis simulation with a limit of 100 iterations (phase 4 of 4).
+INFO (IRS024): Reset iterations 0 to 4 analyzed.
+INFO (IRS018): Reset analysis simulation executed for 3 iterations. Assigned values for 202 of 202 design flops, 36 of 68 design latches, 19 of 31 internal elements.
+INFO (IRS039): Reset analysis complete.
+INFO (IPF031): Settings used for proof thread 0:
+    orchestration                 = on
+    time_limit                    = 86400s
+    per_property_time_limit       = 1s * 10 ^ scan
+    engine_mode                   = auto
+    proofgrid_per_engine_max_jobs = 1
+    max engine jobs               = auto
+    proofgrid_mode                = local
+    proofgrid_restarts            = 10
+0: Using multistage preprocessing
+0: Starting reduce
+0: Finished reduce in 0s
+0.0.PRE: Performing Proof Simplification...
+0.0.N: clocks: 2, declared: 1, looping: 0, posedge: 2, negedge: 0, noedge: 0, bothedge: 0
+0.0.N: Proof Simplification Iteration 1	[0.00 s]
+0.0.N: Proof Simplification Iteration 2	[0.00 s]
+0.0.N: A max_length bound was found. The shortest trace is no longer than 1 cycles. [0.00 s]
+INFO (IPF008): 0.0.N: A max_length bound of 1 was found for the property "Bridge_Top.chk_top._assume_2:precondition1" in 0.00 s.
+0.0.N: Proof Simplification Iteration 3	[0.00 s]
+0.0.PRE: A trace with 1 cycles was found. [0.00 s]
+INFO (IPF047): 0.0.PRE: The cover property "Bridge_Top.chk_top._assert_5:precondition1" was covered in 1 cycles in 0.00 s.
+0.0.N: Proof Simplification Iteration 4	[0.15 s]
+0.0.N: Proof Simplification Iteration 5	[0.15 s]
+INFO (IPF055): 0.0.PRE: A counterexample (cex) with 2 cycles was found for the property ":noConflict" in 0.00 s.
+    Use check_assumptions -show to show this property in the property table.
+    Use check_assumptions -conflict to generate a cex trace.
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF051): 0.0.PRE: The cover property ":live" was proven unreachable in 0.00 s.
+    Use check_assumptions -show -live to show this property in the property table.
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property "Bridge_Top.chk_top.assert_non_seq_read" was proven in 0.00 s.
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property "Bridge_Top.chk_top._assert_5" was proven in 0.00 s.
+0.0.PRE: Proof Simplification completed in 0.15 s
+0: About to start ProofGrid in its own thread with a limit of 10000 pending notifications and a limit of 10 traces.
+0: =============================== ProofGrid start ===============================
+0: ProofGrid usable level: 2
+0: Initial ProofGrid level: 1
+0: ProofGrid is starting event handling
+0.0.Hp: Proofgrid shell started at 2205309@micro25(local) jg_2180921_micro25_10
+0.0.N: Proofgrid shell started at 2205308@micro25(local) jg_2180921_micro25_10
+0.0.Hp: clocks: 1, declared: 1, looping: 0, posedge: 1, negedge: 0, noedge: 0, bothedge: 0
+0.0.Hp: Trace Attempt  1	[0.00 s]
+0.0.Hp: A trace with 1 cycles was found. [0.00 s]
+INFO (IPF047): 0.0.Hp: The cover property "Bridge_Top.chk_top._assume_2:precondition1" was covered in 1 cycles in 0.01 s.
+0.0.N: Requesting engine job to terminate
+0.0.Hp: Requesting engine job to terminate
+INFO (IPF144): 0: Initiating shutdown of proof [0.02 s]
+0.0.Hp: A trace with 1 cycles was found. [0.00 s]
+INFO (IPF047): 0.0.Hp: The cover property "Bridge_Top.chk_top.assert_non_seq_read:precondition1" was covered in 1 cycles in 0.05 s.
+0.0.Hp: Overconstrained at 2 [0.00 s]
+0.0.N: clocks: 1, declared: 1, looping: 0, posedge: 1, negedge: 0, noedge: 0, bothedge: 0
+0.0.N: Next scan (0) will use per property time limit: 1s * 10 ^ 0 = 1s
+0.0.N: Last scan. Per property time limit: 0s
+0.0.N: Starting proof for property "Bridge_Top.chk_top._assume_2:precondition1"	[0.00 s].
+0.0.N: Stopped processing property "Bridge_Top.chk_top._assume_2:precondition1"	[0.00 s].
+0.0.Hp: Exited with Success (@ 0.02 s)
+0: ProofGrid usable level: 0
+0.0.N: Overconstrained at 2 [0.01 s]
+0.0.N: Exited with Success (@ 0.03 s)
+0.0.Mpcustom4: Proofgrid shell started at 2205342@micro25(local) jg_2180921_micro25_10
+0.0.Mpcustom4: Requesting engine job to terminate
+0.0.Oh: Proofgrid shell started at 2205344@micro25(local) jg_2180921_micro25_10
+0.0.Oh: Requesting engine job to terminate
+0.0.Oh: Preventing job from starting because proof is shutting down.
+0.0.Oh: Requesting engine job to terminate
+0.0.Oh: Interrupted. [0.00 s]
+0.0.Bm: Proofgrid shell started at 2205341@micro25(local) jg_2180921_micro25_10
+0.0.Bm: Requesting engine job to terminate
+0.0.Mpcustom4: Preventing job from starting because proof is shutting down.
+0.0.Mpcustom4: Requesting engine job to terminate
+0.0.Mpcustom4: Interrupted. [0.00 s]
+0.0.Oh: Exited with Success (@ 0.12 s)
+0.0.Mpcustom4: Exited with Success (@ 0.12 s)
+0.0.Bm: Preventing job from starting because proof is shutting down.
+0.0.Bm: Requesting engine job to terminate
+0.0.Bm: Interrupted. [0.00 s]
+0.0.L: Proofgrid shell started at 2205345@micro25(local) jg_2180921_micro25_10
+0.0.L: Requesting engine job to terminate
+0.0.Bm: Exited with Success (@ 0.13 s)
+0.0.L: Preventing job from starting because proof is shutting down.
+0.0.L: Requesting engine job to terminate
+0.0.L: Interrupted. [0.00 s]
+0.0.L: Exited with Success (@ 0.13 s)
+0.0.B: Proofgrid shell started at 2205346@micro25(local) jg_2180921_micro25_10
+0.0.B: Requesting engine job to terminate
+0.0.B: Preventing job from starting because proof is shutting down.
+0.0.B: Requesting engine job to terminate
+0.0.B: Interrupted. [0.00 s]
+0.0.Ht: Proofgrid shell started at 2205340@micro25(local) jg_2180921_micro25_10
+0.0.Ht: Requesting engine job to terminate
+0.0.AM: Proofgrid shell started at 2205347@micro25(local) jg_2180921_micro25_10
+0.0.AM: Requesting engine job to terminate
+0.0.Ht: Preventing job from starting because proof is shutting down.
+0.0.Ht: Requesting engine job to terminate
+0.0.B: Exited with Success (@ 0.14 s)
+0.0.Ht: Interrupted. [0.00 s]
+0.0.AM: Preventing job from starting because proof is shutting down.
+0.0.AM: Requesting engine job to terminate
+0.0.Ht: Exited with Success (@ 0.15 s)
+0.0.AM: Interrupted. [0.00 s]
+0.0.AM: Exited with Success (@ 0.15 s)
+0: --------------------------------------------------------------
+ProofGrid Summary (utilization 2.58 %)
+--------------------------------------------------------------
+     engines started                               :     9
+     engine jobs started                           :     9
+
+    Average time in state (seconds)
+    ------------------------------------------------------
+    Engine  Pending     Running        Dead    Utilization
+    ------------------------------------------------------
+      N        0.11        0.01        0.00       10.91 %
+     Hp        0.10        0.01        0.00       12.66 %
+     Ht        0.14        0.00        0.00        0.00 %
+     Bm        0.11        0.00        0.00        0.00 %
+    Mpcustom4        0.11        0.00        0.00        0.00 %
+     Oh        0.10        0.00        0.00        0.00 %
+      L        0.12        0.00        0.00        0.00 %
+      B        0.13        0.00        0.00        0.00 %
+     AM        0.13        0.00        0.00        0.00 %
+    all        0.12        0.00        0.00        2.58 %
+
+    Total time in state (seconds)
+    -----------------------------------------
+            Pending     Running        Dead  
+    -----------------------------------------
+               1.06        0.03        0.00
+
+    Data read    : 3.76 kiB
+    Data written : 755.00 B
+
+0: All pending notifications were processed.
+WARNING (WAS006): The task is inconsistent at cycle 2.
+INFO (IPF059): 0: Completed proof on task: "<embedded>"
+
+==============================================================
+SUMMARY
+==============================================================
+           Properties Considered              : 6
+                 assertions                   : 3
+                  - proven                    : 2 (66.6667%)
+                  - bounded_proven (user)     : 0 (0%)
+                  - bounded_proven (auto)     : 0 (0%)
+                  - marked_proven             : 0 (0%)
+                  - cex                       : 1 (33.3333%)
+                  - ar_cex                    : 0 (0%)
+                  - undetermined              : 0 (0%)
+                  - unknown                   : 0 (0%)
+                  - error                     : 0 (0%)
+                 covers                       : 3
+                  - unreachable               : 0 (0%)
+                  - bounded_unreachable (user): 0 (0%)
+                  - covered                   : 3 (100%)
+                  - ar_covered                : 0 (0%)
+                  - undetermined              : 0 (0%)
+                  - unknown                   : 0 (0%)
+                  - error                     : 0 (0%)
+[<embedded>] % include /homes/user/stud/fall23/ym3000/6863/CSEE-6863-Final-Project/SVA/top/top_sva.tcl
+%% clear -all
+INFO (IPF121): Cleared environment completely for new design analysis.
+%% 
+%% analyze -sv09 top_sva.sv
+[-- (VERI-1482)] Analyzing Verilog file '/tools/cadence/jasper_2024.06p002/lib/verilog/packages/std/std.sv' into library 'std'
+[-- (VERI-1482)] Analyzing Verilog file 'top_sva.sv'
+[ERROR (VERI-1137)] top_sva.sv(47): syntax error near ';'
+[ERROR (VERI-1137)] top_sva.sv(54): syntax error near 'sequence'
+[ERROR (VERI-2344)] top_sva.sv(54): SystemVerilog 2009 keyword 'sequence' used in incorrect context
+[ERROR (VERI-1137)] top_sva.sv(56): syntax error near 'endsequence'
+[ERROR (VERI-2344)] top_sva.sv(56): SystemVerilog 2009 keyword 'endsequence' used in incorrect context
+[ERROR (VERI-1137)] top_sva.sv(60): syntax error near 'endsequence'
+[ERROR (VERI-2344)] top_sva.sv(60): SystemVerilog 2009 keyword 'endsequence' used in incorrect context
+[ERROR (VERI-1137)] top_sva.sv(64): syntax error near 'endsequence'
+[ERROR (VERI-2344)] top_sva.sv(64): SystemVerilog 2009 keyword 'endsequence' used in incorrect context
+[ERROR (VERI-1137)] top_sva.sv(68): syntax error near 'endsequence'
+[ERROR (VERI-2344)] top_sva.sv(68): SystemVerilog 2009 keyword 'endsequence' used in incorrect context
+[ERROR (VERI-1137)] top_sva.sv(73): syntax error near 'endsequence'
+[ERROR (VERI-2344)] top_sva.sv(73): SystemVerilog 2009 keyword 'endsequence' used in incorrect context
+[ERROR (VERI-1137)] top_sva.sv(77): syntax error near 'endsequence'
+[ERROR (VERI-2344)] top_sva.sv(77): SystemVerilog 2009 keyword 'endsequence' used in incorrect context
+[ERROR (VERI-1137)] top_sva.sv(81): syntax error near 'endsequence'
+[ERROR (VERI-2344)] top_sva.sv(81): SystemVerilog 2009 keyword 'endsequence' used in incorrect context
+[ERROR (VERI-1072)] top_sva.sv(193): module 'top_sva' is ignored due to previous errors
+Summary of errors detected:
+	[ERROR (VERI-1137)] top_sva.sv(47): syntax error near ';'
+	[ERROR (VERI-1137)] top_sva.sv(54): syntax error near 'sequence'
+	[ERROR (VERI-2344)] top_sva.sv(54): SystemVerilog 2009 keyword 'sequence' used in incorrect context
+	[ERROR (VERI-1137)] top_sva.sv(56): syntax error near 'endsequence'
+	[ERROR (VERI-2344)] top_sva.sv(56): SystemVerilog 2009 keyword 'endsequence' used in incorrect context
+	[ERROR (VERI-1137)] top_sva.sv(60): syntax error near 'endsequence'
+	[ERROR (VERI-2344)] top_sva.sv(60): SystemVerilog 2009 keyword 'endsequence' used in incorrect context
+	[ERROR (VERI-1137)] top_sva.sv(64): syntax error near 'endsequence'
+	[ERROR (VERI-2344)] top_sva.sv(64): SystemVerilog 2009 keyword 'endsequence' used in incorrect context
+	[ERROR (VERI-1137)] top_sva.sv(68): syntax error near 'endsequence'
+	[ERROR (VERI-2344)] top_sva.sv(68): SystemVerilog 2009 keyword 'endsequence' used in incorrect context
+	[ERROR (VERI-1137)] top_sva.sv(73): syntax error near 'endsequence'
+	[ERROR (VERI-2344)] top_sva.sv(73): SystemVerilog 2009 keyword 'endsequence' used in incorrect context
+	[ERROR (VERI-1137)] top_sva.sv(77): syntax error near 'endsequence'
+	[ERROR (VERI-2344)] top_sva.sv(77): SystemVerilog 2009 keyword 'endsequence' used in incorrect context
+	[ERROR (VERI-1137)] top_sva.sv(81): syntax error near 'endsequence'
+	[ERROR (VERI-2344)] top_sva.sv(81): SystemVerilog 2009 keyword 'endsequence' used in incorrect context
+	[ERROR (VERI-1072)] top_sva.sv(193): module 'top_sva' is ignored due to previous errors
+ERROR at line 3 in file /homes/user/stud/fall23/ym3000/6863/CSEE-6863-Final-Project/SVA/top/top_sva.tcl, more info in Tcl-variable errorInfo
+ERROR (ENL034): 18 errors detected in the design file(s).
+
+
+% include /homes/user/stud/fall23/ym3000/6863/CSEE-6863-Final-Project/SVA/top/top_sva.tcl
+%% clear -all
+INFO (IPF121): Cleared environment completely for new design analysis.
+%% 
+%% analyze -sv09 top_sva.sv
+[-- (VERI-1482)] Analyzing Verilog file '/tools/cadence/jasper_2024.06p002/lib/verilog/packages/std/std.sv' into library 'std'
+[-- (VERI-1482)] Analyzing Verilog file 'top_sva.sv'
+[ERROR (VERI-1137)] top_sva.sv(47): syntax error near ';'
+[ERROR (VERI-1137)] top_sva.sv(54): syntax error near 'sequence'
+[ERROR (VERI-2344)] top_sva.sv(54): SystemVerilog 2009 keyword 'sequence' used in incorrect context
+[ERROR (VERI-1137)] top_sva.sv(56): syntax error near 'endsequence'
+[ERROR (VERI-2344)] top_sva.sv(56): SystemVerilog 2009 keyword 'endsequence' used in incorrect context
+[ERROR (VERI-1137)] top_sva.sv(60): syntax error near 'endsequence'
+[ERROR (VERI-2344)] top_sva.sv(60): SystemVerilog 2009 keyword 'endsequence' used in incorrect context
+[ERROR (VERI-1137)] top_sva.sv(64): syntax error near 'endsequence'
+[ERROR (VERI-2344)] top_sva.sv(64): SystemVerilog 2009 keyword 'endsequence' used in incorrect context
+[ERROR (VERI-1137)] top_sva.sv(68): syntax error near 'endsequence'
+[ERROR (VERI-2344)] top_sva.sv(68): SystemVerilog 2009 keyword 'endsequence' used in incorrect context
+[ERROR (VERI-1137)] top_sva.sv(73): syntax error near 'endsequence'
+[ERROR (VERI-2344)] top_sva.sv(73): SystemVerilog 2009 keyword 'endsequence' used in incorrect context
+[ERROR (VERI-1137)] top_sva.sv(77): syntax error near 'endsequence'
+[ERROR (VERI-2344)] top_sva.sv(77): SystemVerilog 2009 keyword 'endsequence' used in incorrect context
+[ERROR (VERI-1137)] top_sva.sv(81): syntax error near 'endsequence'
+[ERROR (VERI-2344)] top_sva.sv(81): SystemVerilog 2009 keyword 'endsequence' used in incorrect context
+[ERROR (VERI-1072)] top_sva.sv(193): module 'top_sva' is ignored due to previous errors
+Summary of errors detected:
+	[ERROR (VERI-1137)] top_sva.sv(47): syntax error near ';'
+	[ERROR (VERI-1137)] top_sva.sv(54): syntax error near 'sequence'
+	[ERROR (VERI-2344)] top_sva.sv(54): SystemVerilog 2009 keyword 'sequence' used in incorrect context
+	[ERROR (VERI-1137)] top_sva.sv(56): syntax error near 'endsequence'
+	[ERROR (VERI-2344)] top_sva.sv(56): SystemVerilog 2009 keyword 'endsequence' used in incorrect context
+	[ERROR (VERI-1137)] top_sva.sv(60): syntax error near 'endsequence'
+	[ERROR (VERI-2344)] top_sva.sv(60): SystemVerilog 2009 keyword 'endsequence' used in incorrect context
+	[ERROR (VERI-1137)] top_sva.sv(64): syntax error near 'endsequence'
+	[ERROR (VERI-2344)] top_sva.sv(64): SystemVerilog 2009 keyword 'endsequence' used in incorrect context
+	[ERROR (VERI-1137)] top_sva.sv(68): syntax error near 'endsequence'
+	[ERROR (VERI-2344)] top_sva.sv(68): SystemVerilog 2009 keyword 'endsequence' used in incorrect context
+	[ERROR (VERI-1137)] top_sva.sv(73): syntax error near 'endsequence'
+	[ERROR (VERI-2344)] top_sva.sv(73): SystemVerilog 2009 keyword 'endsequence' used in incorrect context
+	[ERROR (VERI-1137)] top_sva.sv(77): syntax error near 'endsequence'
+	[ERROR (VERI-2344)] top_sva.sv(77): SystemVerilog 2009 keyword 'endsequence' used in incorrect context
+	[ERROR (VERI-1137)] top_sva.sv(81): syntax error near 'endsequence'
+	[ERROR (VERI-2344)] top_sva.sv(81): SystemVerilog 2009 keyword 'endsequence' used in incorrect context
+	[ERROR (VERI-1072)] top_sva.sv(193): module 'top_sva' is ignored due to previous errors
+ERROR at line 3 in file /homes/user/stud/fall23/ym3000/6863/CSEE-6863-Final-Project/SVA/top/top_sva.tcl, more info in Tcl-variable errorInfo
+ERROR (ENL034): 18 errors detected in the design file(s).
+
+
+% include /homes/user/stud/fall23/ym3000/6863/CSEE-6863-Final-Project/SVA/top/top_sva.tcl
+%% clear -all
+INFO (IPF121): Cleared environment completely for new design analysis.
+%% 
+%% analyze -sv09 top_sva.sv
+[-- (VERI-1482)] Analyzing Verilog file '/tools/cadence/jasper_2024.06p002/lib/verilog/packages/std/std.sv' into library 'std'
+[-- (VERI-1482)] Analyzing Verilog file 'top_sva.sv'
+%% analyze -sv09 ../../RTL/top.v
+[-- (VERI-1482)] Analyzing Verilog file '../../RTL/top.v'
+%% analyze -sv09 ../../RTL/AHB_Interface.v
+[-- (VERI-1482)] Analyzing Verilog file '../../RTL/AHB_Interface.v'
+%% analyze -sv09 ../../RTL/APB_FSM.v
+[-- (VERI-1482)] Analyzing Verilog file '../../RTL/APB_FSM.v'
+%% elaborate -top Bridge_Top
+INFO (ISW003): Top module name is "Bridge_Top".
+[INFO (VERI-1018)] ../../RTL/AHB_Interface.v(12): compiling module 'AHB_slave_interface'
+[INFO (VERI-1018)] ../../RTL/APB_FSM.v(2): compiling module 'APB_FSM'
+[INFO (VERI-1018)] top_sva.sv(1): compiling module 'top_sva'
+[INFO (VERI-1018)] ../../RTL/top.v(1): compiling module 'Bridge_Top'
+INFO (INL208): Elaboration synthesis summary:
+  Number of synthesized netlists          5 (1 packages)
+  Single run mode                         On
+  Pipeline                                On (4 pipelined netlists)
+  Late hierarchical reference connection  On
+  Number of analyzed Verilog modules      5 (5 synthesized)
+  Number of analyzed VHDL entities        0 (0 synthesized)
+INFO (INL003): Clearing all state information (assumes, stopats, and so forth).
+Bridge_Top
+%% 
+%% clock clk
+%% reset ~rst
+INFO (IPM031): Clearing proof results of all properties.
+INFO (IRS006): Current reset condition is "rst".
+Bridge_Top
+[<embedded>] % prove -bg -all
+background 0
+INFO (IPF036): Starting proof on task: "<embedded>", 5 properties to prove with 0 already proven/unreachable
+INFO (IRS029): Starting reset analysis: phase 1 of 4.
+INFO (IRS030): Running reset analysis: phase 2 of 4.
+INFO (IRS031): Running reset analysis: phase 3 of 4.
+INFO (IRS020): Starting the reset analysis simulation with a limit of 100 iterations (phase 4 of 4).
+INFO (IRS024): Reset iterations 0 to 4 analyzed.
+INFO (IRS018): Reset analysis simulation executed for 3 iterations. Assigned values for 202 of 202 design flops, 36 of 68 design latches, 19 of 35 internal elements.
+INFO (IRS039): Reset analysis complete.
+INFO (IPF031): Settings used for proof thread 0:
+    orchestration                 = on
+    time_limit                    = 86400s
+    per_property_time_limit       = 1s * 10 ^ scan
+    engine_mode                   = auto
+    proofgrid_per_engine_max_jobs = 1
+    max engine jobs               = auto
+    proofgrid_mode                = local
+    proofgrid_restarts            = 10
+0: Using multistage preprocessing
+0: Starting reduce
+0: Finished reduce in 0s
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property "Bridge_Top.chk_top._assert_5" was proven in 0.00 s.
+0: Found proofs for 1 properties in preprocessing
+0.0.PRE: Performing Proof Simplification...
+0.0.N: clocks: 2, declared: 1, looping: 0, posedge: 2, negedge: 0, noedge: 0, bothedge: 0
+0.0.N: Proof Simplification Iteration 1	[0.00 s]
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF051): 0.0.PRE: The cover property "Bridge_Top.chk_top._assert_5:precondition1" was proven unreachable in 0.00 s.
+0.0.N: A max_length bound was found. The shortest trace is no longer than 1 cycles. [0.00 s]
+INFO (IPF008): 0.0.N: A max_length bound of 1 was found for the property "Bridge_Top.chk_top._assume_2:precondition1" in 0.00 s.
+0.0.N: A max_length bound was found. The shortest trace is no longer than 1 cycles. [0.00 s]
+INFO (IPF008): 0.0.N: A max_length bound of 1 was found for the property "Bridge_Top.chk_top.assert_non_seq_read:precondition1" in 0.00 s.
+0.0.N: Proof Simplification Iteration 2	[0.00 s]
+0.0.N: Proof Simplification Iteration 3	[0.00 s]
+0.0.N: Proof Simplification Iteration 4	[0.00 s]
+0.0.N: Proof Simplification Iteration 5	[0.00 s]
+INFO (IPF055): 0.0.PRE: A counterexample (cex) with 2 cycles was found for the property ":noConflict" in 0.00 s.
+    Use check_assumptions -show to show this property in the property table.
+    Use check_assumptions -conflict to generate a cex trace.
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF051): 0.0.PRE: The cover property ":live" was proven unreachable in 0.00 s.
+    Use check_assumptions -show -live to show this property in the property table.
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property "Bridge_Top.chk_top.assert_non_seq_read" was proven in 0.00 s.
+0.0.PRE: Proof Simplification completed in 0.00 s
+0.0.N: Identified and disabled 1 duplicated target.
+0: About to start ProofGrid in its own thread with a limit of 10000 pending notifications and a limit of 10 traces.
+0: =============================== ProofGrid start ===============================
+0: ProofGrid usable level: 1
+0: Initial ProofGrid level: 1
+0: ProofGrid is starting event handling
+0.0.Hp: Proofgrid shell started at 2207770@micro25(local) jg_2180921_micro25_11
+0.0.Hp: clocks: 1, declared: 1, looping: 0, posedge: 1, negedge: 0, noedge: 0, bothedge: 0
+0.0.Hp: Trace Attempt  1	[0.00 s]
+0.0.Hp: Requesting engine job to terminate
+INFO (IPF144): 0: Initiating shutdown of proof [0.01 s]
+0.0.Hp: A trace with 1 cycles was found. [0.00 s]
+INFO (IPF047): 0.0.Hp: The cover property "Bridge_Top.chk_top._assume_2:precondition1" was covered in 1 cycles in 0.16 s.
+INFO (IPF047): 0.0.Hp: The cover property "Bridge_Top.chk_top.assert_non_seq_read:precondition1" was covered in 1 cycles in 0.16 s.
+0.0.Hp: Overconstrained at 2 [0.00 s]
+0.0.N: Proofgrid shell started at 2207769@micro25(local) jg_2180921_micro25_11
+0.0.N: Requesting engine job to terminate
+0.0.Hp: Exited with Success (@ 0.01 s)
+0: ProofGrid usable level: 0
+0.0.N: Preventing job from starting because proof is shutting down.
+0.0.N: Requesting engine job to terminate
+0.0.N: Interrupted. [0.00 s]
+0.0.Bm: Proofgrid shell started at 2207802@micro25(local) jg_2180921_micro25_11
+0.0.Bm: Requesting engine job to terminate
+0.0.Mpcustom4: Proofgrid shell started at 2207803@micro25(local) jg_2180921_micro25_11
+0.0.Mpcustom4: Requesting engine job to terminate
+0.0.N: Exited with Success (@ 0.11 s)
+0.0.Ht: Proofgrid shell started at 2207801@micro25(local) jg_2180921_micro25_11
+0.0.Ht: Requesting engine job to terminate
+0.0.Bm: Preventing job from starting because proof is shutting down.
+0.0.Bm: Requesting engine job to terminate
+0.0.Bm: Interrupted. [0.00 s]
+0.0.Mpcustom4: Preventing job from starting because proof is shutting down.
+0.0.Mpcustom4: Requesting engine job to terminate
+0.0.Bm: Exited with Success (@ 0.11 s)
+0.0.Mpcustom4: Interrupted. [0.00 s]
+0.0.Ht: Preventing job from starting because proof is shutting down.
+0.0.Ht: Requesting engine job to terminate
+0.0.Mpcustom4: Exited with Success (@ 0.11 s)
+0.0.Ht: Interrupted. [0.00 s]
+0.0.L: Proofgrid shell started at 2207805@micro25(local) jg_2180921_micro25_11
+0.0.L: Requesting engine job to terminate
+0.0.Ht: Exited with Success (@ 0.12 s)
+0.0.Oh: Proofgrid shell started at 2207804@micro25(local) jg_2180921_micro25_11
+0.0.Oh: Requesting engine job to terminate
+0.0.L: Preventing job from starting because proof is shutting down.
+0.0.L: Requesting engine job to terminate
+0.0.L: Interrupted. [0.00 s]
+0.0.L: Exited with Success (@ 0.12 s)
+0.0.Oh: Preventing job from starting because proof is shutting down.
+0.0.Oh: Requesting engine job to terminate
+0.0.Oh: Interrupted. [0.00 s]
+0.0.Oh: Exited with Success (@ 0.12 s)
+0: --------------------------------------------------------------
+ProofGrid Summary (utilization 0.62 %)
+--------------------------------------------------------------
+     engines started                               :     7
+     engine jobs started                           :     7
+
+    Average time in state (seconds)
+    ------------------------------------------------------
+    Engine  Pending     Running        Dead    Utilization
+    ------------------------------------------------------
+      N        0.12        0.00        0.00        0.00 %
+     Hp        0.10        0.00        0.00        4.40 %
+     Ht        0.11        0.00        0.00        0.00 %
+     Bm        0.10        0.00        0.00        0.00 %
+    Mpcustom4        0.10        0.00        0.00        0.00 %
+     Oh        0.11        0.00        0.00        0.00 %
+      L        0.11        0.00        0.00        0.00 %
+    all        0.11        0.00        0.00        0.62 %
+
+    Total time in state (seconds)
+    -----------------------------------------
+            Pending     Running        Dead  
+    -----------------------------------------
+               0.75        0.00        0.00
+
+    Data read    : 2.61 kiB
+    Data written : 345.00 B
+
+0: All pending notifications were processed.
+WARNING (WAS006): The task is inconsistent at cycle 2.
+INFO (IPF059): 0: Completed proof on task: "<embedded>"
+
+==============================================================
+SUMMARY
+==============================================================
+           Properties Considered              : 6
+                 assertions                   : 3
+                  - proven                    : 2 (66.6667%)
+                  - bounded_proven (user)     : 0 (0%)
+                  - bounded_proven (auto)     : 0 (0%)
+                  - marked_proven             : 0 (0%)
+                  - cex                       : 1 (33.3333%)
+                  - ar_cex                    : 0 (0%)
+                  - undetermined              : 0 (0%)
+                  - unknown                   : 0 (0%)
+                  - error                     : 0 (0%)
+                 covers                       : 3
+                  - unreachable               : 1 (33.3333%)
+                  - bounded_unreachable (user): 0 (0%)
+                  - covered                   : 2 (66.6667%)
+                  - ar_covered                : 0 (0%)
+                  - undetermined              : 0 (0%)
+                  - unknown                   : 0 (0%)
+                  - error                     : 0 (0%)
+INFO (IPL005): Received request to exit from the console.
+INFO (IPL014): Waiting for the Tcl-thread to exit.
+INFO: Waiting for proof threads to stop...
+INFO: Proof threads stopped.
+INFO (IPL018): The peak resident set memory use for this session was 0.488 GB.
+INFO (IPL015): The Tcl-thread exited with status 0.
+INFO (IPL016): Exiting the analysis session with status 0.
