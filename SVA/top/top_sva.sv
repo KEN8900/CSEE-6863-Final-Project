@@ -22,37 +22,13 @@ let addr2 = Haddr>=32'h8800_0000 && Haddr<32'h8C00_0000;
 
 let possible_Pselx = ((Pselx == 0) || (Pselx == 1) || (Pselx == 2) || (Pselx == 4));
 
-//input constraint
+/*************input addr and mode constraint*************/
 let valid_addr = Haddr>=32'h8000_0000 && Haddr<32'h8C00_0000;
 assume property (@(posedge clk) Haddr>=32'h8000_0000 && Haddr<32'h8C00_0000);
 assume property (@(posedge clk) Htrans == 2'b1x);
 
-property burst_read_Hreadyin;
-	@(posedge clk) disable iff(!rst)
-	 //Hreadyin && !Hwrite |-> ##1 !Hreadyin;
-	(read_h ##1 !Hwrite ##1 read_h) |-> $past(Hreadyin,2) && $past(!Hreadyin,1) && Hreadyin;
-endproperty
-assume property (burst_read_Hreadyin);
 
-property burst_write_Hreadyin_1;
-	@(posedge clk) disable iff(!rst)
-	 write_h ##1 write_h |-> ##1 Hwrite && !Hreadyin ##1 Hreadyin;
-endproperty
-assume property (burst_write_Hreadyin_1);
-
-property burst_write_Hreadyin_2;
-	@(posedge clk) disable iff(!rst)
-	 Hwrite && !Hreadyin ##1 write_h ##1 Hwrite && !Hreadyin |-> !Hreadyin;
-endproperty
-assume property (burst_write_Hreadyin_2);
-
-property burst_write_Hreadyin_3;
-	@(posedge clk) disable iff(!rst)
-	 write_h ##1 Hwrite && !Hreadyin |-> ##1 Hwrite ;
-endproperty
-assume property (burst_write_Hreadyin_3);
-
-//back-to-back constraint
+/*************back-to-back constraint*************/
 property read_follows_write1;
 	@(posedge clk) disable iff(!rst)
 	write_h ##1 read_h |-> ##1 !Hreadyin ##1 !Hreadyin ##1 !Hreadyin;
@@ -64,29 +40,70 @@ property read_follows_write2;
 	write_h ##1 read_h |-> $past(!Hreadyin,2) && $past(!Hreadyin,3) && $past(!Hreadyin,4);
 endproperty
 assume property (read_follows_write2);
+//three invalid cycles before and after write-read pattern 
 
 property write_follows_read1;
 	@(posedge clk) disable iff(!rst)
 	read_h ##1 Hwrite |-> ($past(Hwrite && Hreadyin,2));
 endproperty
 assume property (write_follows_read1);
+//must be write-read-write
 
 property write_follows_read2;
 	@(posedge clk) disable iff(!rst)
 	read_h ##1 Hwrite |-> (!Hreadyin ##1 Hwrite && !Hreadyin ##1 Hwrite && !Hreadyin ##1 write_h);
 endproperty
 assume property (write_follows_read2);
+//three invalid cycles before and after write-read pattern
 
-//burst constraint
-property burst_read_Hwrite;
+/***************burst constraint***************/
+//burst read 
+property burst_read_pre;
 	@(posedge clk) disable iff(!rst)
-	!Hwrite ##1 !Hwrite ##1 !Hwrite|-> !$past(Hwrite,3) && !$past(Hwrite,4) && !$past(Hwrite,5) ;
+	read_h ##1 !Hwrite ##1 read_h|-> (!$past(Hwrite,3) && !$past(Hwrite,4) && !$past(Hwrite,5)) || ($past(!Hreadyin,3) && $past(!Hreadyin,4) && $past(!Hreadyin,5));
 endproperty
-assume property (burst_read_Hwrite);
+assume property (burst_read_pre);
+
+property burst_read_post;
+	@(posedge clk) disable iff(!rst)
+	(read_h ##1 !Hwrite ##1 read_h) |-> $past(!Hreadyin,3) && $past(!Hreadyin,1) ##1 !Hreadyin ##1 Hreadyin;
+endproperty
+assume property (burst_read_post);
+//Hreadyin pattern for burst read
+//make sure that there are no valid write in 3 cycles before burst read starts
+
+//burst write
+property burst_write_pre;
+	@(posedge clk) disable iff(!rst)
+	Hwrite ##1 Hwrite ##1 Hwrite|-> ($past(Hwrite,3) && $past(Hwrite,4)) || ($past(!Hreadyin,3) && $past(!Hreadyin,4));
+endproperty
+assume property (burst_write_pre);
+//make sure that there are no valid read in 2 cycles before burst write starts
+
+property burst_write_start;
+	@(posedge clk) disable iff(!rst)
+	 write_h ##1 write_h |-> ##1 Hwrite && !Hreadyin ##1 Hreadyin;
+endproperty
+assume property (burst_write_start);
+//start pattern of burst write
+
+property burst_write_body;
+	@(posedge clk) disable iff(!rst)
+	write_h ##1 Hwrite && !Hreadyin ##1 write_h |-> ($past(Hwrite && Hreadyin,3)) || ($past(Hwrite,3) && $past(Hwrite,4));
+endproperty
+assume property (burst_write_body);
+//when burst write body pattern occurs, it follows either start pattern or body pattern
+ 
+property burst_write_post;
+	@(posedge clk) disable iff(!rst)
+	//write_h ##1 Hwrite && !Hreadyin ##1 write_h |-> ##1 !Hreadyin ##1 Hreadyin;
+	write_h ##1 Hwrite ##1 write_h |-> $past(!Hreadyin,1) ##1 !Hreadyin ##1 Hreadyin;
+endproperty
+assume property (burst_write_post);
 
 property burst_write_Hwrite;
 	@(posedge clk) disable iff(!rst)
-	Hwrite ##1 Hwrite ##1 Hwrite|-> $past(Hwrite,3) && $past(Hwrite,4);
+	 write_h ##1 Hwrite && !Hreadyin |-> ##1 Hwrite ;
 endproperty
 assume property (burst_write_Hwrite);
 
@@ -120,14 +137,83 @@ sequence read_h;
 	valid_addr && !Hwrite && Hreadyin;
 endsequence
 
-//back to back check
-//read after write
-property read_after_write1;
+//single read/write check---------//use testbench to test single read and write case
+sequence single_read;
+	!Hwrite && Hreadyin && $past(!Hreadyin,1) && $past(!Hreadyin,2) && $past(!Hreadyin,3) ##1 !Hreadyin ##1 (Hreadyin && !Hwrite);
+endsequence
+
+sequence single_write;
+	Hwrite && Hreadyin && $past(!Hreadyin,1) && $past(!Hreadyin,2) && $past(!Hreadyin,3) ##1 Hreadyin ##1 !Hreadyin ##1 !Hreadyin;
+endsequence
+
+property single_read_check;
 	@(posedge clk) disable iff(!rst)
-	write_h ##1 read_h |-> ##1 !Penable ##1 Penable ##1 !Penable ##1 Penable;
+	single_read |-> $past(!Pwrite,1) && $past(!Penable,1) && !Pwrite && Penable ##1 !Penable;
+endproperty
+ 
+
+////////back to back check
+////read after write
+//Penable check
+property back_to_back_Penable;
+	@(posedge clk) disable iff(!rst)
+	write_h ##1 read_h |-> ##2 Penable ##1 !Penable ##1 Penable;
 endproperty
 
-property read_after_write2;
+//burst read check
+property read_data_transfer;
+	@(posedge clk) disable iff(!rst)
+	Penable |-> Hrdata == Prdata;
+endproperty
+
+sequence burst_read;
+	read_h ##1 !Hwrite && !Hreadyin ##1 read_h;
+endsequence
+
+property read_Pwrite;         
+	@(posedge clk) disable iff(!rst)
+	burst_read |-> $past(!Pwrite);
+endproperty
+
+property read_Penable;
+	@(posedge clk) disable iff(!rst)
+	burst_read |-> Penable ##1 !Penable ##1 Penable ##1 !Penable;
+endproperty
+
+
+//burst write check
+property write_data_transfer;
+	@(posedge clk) disable iff(!rst)
+	Penable |-> Pwdata == $past(Hwdata,2);
+endproperty	//data transfer error
+
+property write_Pwrite;
+	@(posedge clk) disable iff(!rst)
+	write_h ##1 Hwrite |-> ##1 Pwrite;
+endproperty
+
+sequence burst_write1;
+	write_h ##1 write_h ;
+endsequence 
+
+sequence burst_write2;
+	Hwrite && !Hreadyin ##1 write_h ;
+endsequence
+
+property write_Penable1;
+	@(posedge clk) disable iff(!rst)
+	burst_write1 |-> ##2 Penable ##1 !Penable ##1 Penable;
+endproperty
+
+property write_Penable2;	
+	@(posedge clk) disable iff(!rst)
+	burst_write1 ##1 (burst_write2[*]) |-> ##1 !Penable ##1 Penable ##1 !Penable;
+	//write_h ##1 Hwrite && !Hreadyin ##1 write_h |-> ##4 Penable ##1 !Penable ##1 Penable;
+endproperty
+
+
+//Paddr check
+property back_to_back_Paddr;
 	@(posedge clk) disable iff(!rst)
 	write_p ##1 read_p |-> ##1  $past(Paddr,2) == $past(Paddr);
 endproperty
@@ -148,34 +234,66 @@ sequence psel_s2;
 	$onehot(Pselx) ##0 (Pselx[2] ##1 Pselx[2]);
 endsequence
 
-//burst read check
-property read_data_transfer;
+//check the address
+//burst read
+property burst_read_addr;
 	@(posedge clk) disable iff(!rst)
-	Penable |-> Hrdata == Prdata;
+	//addr0 ##0 burst_read |-> $past(Pselx[0],1) && Pselx[0] && $onehot(Pselx);
+	burst_read |-> Paddr == $past(Haddr,2) && $past(Paddr,1) == $past(Haddr,2);
 endproperty
 
-property read_Pwrite;         
+//read after write
+property read_after_write_addr;
 	@(posedge clk) disable iff(!rst)
-	read_h ##1 !Hwrite ##1 read_h |-> $past(!Pwrite);
+	//write_h ##1 read_h ##0 addr0 |-> ##3 psel_s0;  //pselx has issue
+	write_h ##1 read_h |-> ##3 (Paddr == $past(Haddr,3));
+endproperty	 
+
+
+//burst write
+/*
+property burst_write_psel0;
+	@(posedge clk) disable iff(!rst)
+	addr0 ##0 burst_write1 |-> psel_s0;
 endproperty
-//burst write check
-property write_Pwrite;
+*/
+
+property burst_write_addr1;
 	@(posedge clk) disable iff(!rst)
-	write_h ##1 Hwrite |-> ##1 Pwrite;
+	burst_write1 |-> ##1 Paddr == $past(Haddr,2) ##1 Paddr == $past(Haddr,3);
 endproperty
 
+property burst_write_addr2;
+	@(posedge clk) disable iff(!rst)
+	burst_write1 ##1 burst_write2 |-> ##1 Paddr == $past(Haddr,3) ##1 Paddr == $past(Paddr,1s);
+endproperty
+
+//write after read
+property write_after_read_addr;
+	@(posedge clk) disable iff(!rst)
+	read_h ##1 !Hreadyin ##1 !Hreadyin ##1 !Hreadyin ##1 write_h |-> ##2 (Paddr == $past(Haddr,2));
+endproperty
 
 
 
 //assertion check
 Reset_check_Paddr: assert property (reset_check_Paddr);
 Reset_check_Penable: assert property (reset_check_Penable);
-Read_after_write1: assert property (read_after_write1);
-Read_after_write2: assert property (read_after_write2);
+Single_read_check: assert property (single_read_check);
+Back_to_back_Penable: assert property (back_to_back_Penable);
+Back_to_back_Paddr: assert property (back_to_back_Paddr);
 Read_data_transfer: assert property (read_data_transfer);
 Read_Pwrite: assert property (read_Pwrite);
+Write_data_transfer: assert property (write_data_transfer);
 Write_Pwrite: assert property (write_Pwrite);
-
+Read_Penable: assert property (read_Penable);
+Write_Penable1: assert property (write_Penable1);
+Write_Penable2: assert property (write_Penable2);
+Burst_read_addr: assert property (burst_read_addr);
+Read_after_write_addr: assert property (read_after_write_addr);
+Burst_write_addr1: assert property (burst_write_addr1);
+Burst_write_addr2: assert property (burst_write_addr2);
+Write_after_read_addr: assert property (write_after_read_addr);
 
 endmodule
 
