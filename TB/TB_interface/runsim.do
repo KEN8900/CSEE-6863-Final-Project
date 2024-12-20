@@ -7,7 +7,7 @@ vlib work
 vmap work work
 
 # include netlist and testbench files
-vlog +acc -incr ../../RTL/AHB_Slave_Interface.v
+vlog +acc -incr ../../RTL/AHB_Interface.v
  
 vlog +acc -incr AHB_Slave_Interface_tb.v 
 
