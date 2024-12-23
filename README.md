@@ -12,7 +12,7 @@ We conduct a formal verification for hardware using Cadence Jasper Gold: a Forma
 
 In our file hierarchy, the files are organized into distinct folders.
 
-- `RTL`: Contains the RTL design files of the AHB2APB bridge from [AHB-to-APB-Bridge](https://github.com/prajwalgekkouga/AHB-to-APB-Bridge) with our own small preference modifications.
+- `RTL`: Contains the RTL design files of the AHB2APB bridge from [AHB-to-APB-Bridge](https://github.com/prajwalgekkouga/AHB-to-APB-Bridge) with our own small naming preference modifications.
 - `SVA`: Contains FPV SVA code used for formal verification. Also contains several `.tcl` files, along with `run.sh` scripts, to execute Cadence Jasper Gold.
 - `TB`: Includes the testbench `.v` code, along with `waveform.do`, `runsim.do`, and `run.sh` files, to execute the simulation in Siemens ModelSim.
 - `Specification_Sheets`: Contains AMBA specification documents.
