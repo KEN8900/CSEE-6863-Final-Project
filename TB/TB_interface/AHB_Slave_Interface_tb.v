@@ -49,7 +49,7 @@ initial begin
 	Haddr = 32'b0;
 	Hwdata = 32'b0;
 	Prdata = 32'b0;
-    #15 rst = 1; // Release reset after 10ns
+    #15 rst = 1; // Release reset after 15ns
 
     // Step 2: Read-Write-Read-Write Test
     $display("Starting Read-Write-Read-Write Test");
