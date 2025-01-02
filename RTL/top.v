@@ -1,4 +1,4 @@
-module Bridge_Top(clk,rst,Hwrite,Hreadyin,Hreadyout,Hwdata,Haddr,Htrans,Prdata,Penable,Pwrite,Pselx,Paddr,Pwdata,Hreadyout,Hresp,Hrdata);
+module Bridge_Top(clk,rst,Hwrite,Hreadyin,Hreadyout,Hwdata,Haddr,Htrans,Prdata,Penable,Pwrite,Pselx,Paddr,Pwdata,Hresp,Hrdata);
 
 input clk,rst,Hwrite,Hreadyin;
 input [31:0] Hwdata,Haddr,Prdata;
@@ -21,7 +21,7 @@ wire [2:0] tempselx;
 
 AHB_slave_interface AHBSlave (clk,rst,Hwrite,Hreadyin,Htrans,Haddr,Hwdata,Prdata,valid,Haddr1,Haddr2,Hwdata1,Hwdata2,Hrdata,Hwritereg,tempselx,Hresp);
 
-APB_FSM APBFSM (clk,rst,valid,Haddr1,Haddr2,Hwdata1,Hwdata2,Prdata,Hwrite,Haddr,Hwdata,Hwritereg,tempselx,Pwrite,Penable,Pselx,Paddr,Pwdata,Hreadyout,Penable_temp,Hreadyout_temp,Pwrite_temp,Pselx_temp,Paddr_temp, Pwdata_temp);
+APB_FSM APBFSM (clk,rst,valid,Haddr1,Haddr2,Hwdata1,Hwdata2,Prdata,Hwrite,Haddr,Hwdata,Hwritereg,tempselx,Pwrite,Penable,Pselx,Paddr,Pwdata,Hreadyout);
 
 
 endmodule

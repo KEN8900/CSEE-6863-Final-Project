@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wavelist version="3">
+  <insertion-point-position>12</insertion-point-position>
+  <wave>
+    <expr>clk</expr>
+    <label/>
+    <radix/>
+  </wave>
+  <wave>
+    <expr>&lt;embedded&gt;::Bridge_Top.chk_top.assert_nonseq_timing</expr>
+    <label/>
+    <radix/>
+  </wave>
+  <wave>
+    <expr>chk_top.Hreadyin</expr>
+    <label/>
+    <radix/>
+  </wave>
+  <wave collapsed="true">
+    <expr>chk_top.Htrans</expr>
+    <label/>
+    <radix/>
+  </wave>
+  <wave>
+    <expr>chk_top.Hwrite</expr>
+    <label/>
+    <radix/>
+  </wave>
+  <wave>
+    <expr>chk_top.Penable</expr>
+    <label/>
+    <radix/>
+  </wave>
+  <wave>
+    <expr>chk_top.clk</expr>
+    <label/>
+    <radix/>
+  </wave>
+  <wave>
+    <expr>chk_top.rst</expr>
+    <label/>
+    <radix/>
+  </wave>
+  <wave collapsed="true">
+    <expr>Hrdata</expr>
+    <label/>
+    <radix/>
+  </wave>
+  <wave collapsed="true">
+    <expr>Prdata</expr>
+    <label/>
+    <radix/>
+  </wave>
+  <wave collapsed="true">
+    <expr>Haddr</expr>
+    <label/>
+    <radix/>
+  </wave>
+  <wave collapsed="true">
+    <expr>Pselx</expr>
+    <label/>
+    <radix/>
+  </wave>
+</wavelist>

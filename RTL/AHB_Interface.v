@@ -79,6 +79,19 @@ output  [1:0] Hresp;
 		
 /// Implementing Tempselx Logic
 
+/*	always @(Haddr,rst)
+		begin
+			tempselx=3'b000;
+			if (rst && Haddr>=32'h8000_0000 && Haddr<32'h8400_0000)
+				tempselx=3'b001;
+			else if (rst && Haddr>=32'h8400_0000 && Haddr<32'h8800_0000)
+				tempselx=3'b010;
+			else if (rst && Haddr>=32'h8800_0000 && Haddr<32'h8C00_0000)
+				tempselx=3'b100;
+
+		end
+*/	
+
 	always @(Haddr,rst)
 		begin
 			tempselx=3'b000;
@@ -90,7 +103,6 @@ output  [1:0] Hresp;
 				tempselx=3'b100;
 
 		end
-	
 
 assign Hrdata = Prdata;
 assign Hresp=2'b00;

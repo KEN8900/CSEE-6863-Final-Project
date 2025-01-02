@@ -3,7 +3,7 @@
 module AHB_slave_interface_tb;
 
 // DUT signals
-reg Hclk, Hresetn;
+reg clk, rst;
 reg Hwrite, Hreadyin;
 reg [1:0] Htrans;
 reg [31:0] Haddr, Hwdata, Prdata;
@@ -16,8 +16,8 @@ wire [1:0] Hresp;
 
 // Instantiate the DUT
 AHB_slave_interface DUT (
-    .Hclk(Hclk),
-    .Hresetn(Hresetn),
+    .clk(clk),
+    .rst(rst),
     .Hwrite(Hwrite),
     .Hreadyin(Hreadyin),
     .Htrans(Htrans),
@@ -36,20 +36,20 @@ AHB_slave_interface DUT (
 );
 
 // Clock Generation
-always #5 Hclk = ~Hclk; // 10ns clock period
+always #5 clk = ~clk; // 10ns clock period
 
 // Testbench Procedure
 initial begin
     // Step 1: Initialize
-    Hclk = 0;
-	Hresetn = 0;
+    clk = 0;
+	rst = 0;
 	Hwrite = 0;
 	Hreadyin = 0;
 	Htrans = 2'b00;
 	Haddr = 32'b0;
 	Hwdata = 32'b0;
 	Prdata = 32'b0;
-    #15 Hresetn = 1; // Release reset after 10ns
+    #15 rst = 1; // Release reset after 15ns
 
     // Step 2: Read-Write-Read-Write Test
     $display("Starting Read-Write-Read-Write Test");
@@ -94,13 +94,13 @@ initial begin
 
     // Step 4: Reset Test
     $display("Starting Reset Test");
-    Hresetn = 0;
+    rst = 0;
     #10;
     if (Haddr1 == 0 && Haddr2 == 0 && Hwdata1 == 0 && Hwdata2 == 0)
         $display("Reset Test Passed");
     else
         $display("Reset Test Failed");
-    Hresetn = 1;
+    rst = 1;
 
     // Step 5: Burst Test (Incremental and Wrapping)
     $display("Starting Burst Test");

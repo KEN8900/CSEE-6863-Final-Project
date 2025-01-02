@@ -1,6 +1,6 @@
 
 module APB_FSM( clk,rst,valid,Haddr1,Haddr2,Hwdata1,Hwdata2,Prdata,Hwrite,Haddr,Hwdata,Hwritereg,tempselx, 
-			   Pwrite,Penable,Pselx,Paddr,Pwdata,Hreadyout,Penable_temp,Hreadyout_temp,Pwrite_temp,Pselx_temp,Paddr_temp, Pwdata_temp);
+			   Pwrite,Penable,Pselx,Paddr,Pwdata,Hreadyout);
 
 input clk,rst,valid,Hwrite,Hwritereg;
 input [31:0] Hwdata,Haddr,Haddr1,Haddr2,Hwdata1,Hwdata2,Prdata;
@@ -109,10 +109,10 @@ always @(CS,valid,Hwrite,Hwritereg)
 
 ////////////////////////////////////////////////////////OUTPUT LOGIC:COMBINATIONAL
 
-//modified as output ports
-output reg Penable_temp,Hreadyout_temp,Pwrite_temp;
-output reg [2:0] Pselx_temp;
-output reg [31:0] Paddr_temp, Pwdata_temp;
+
+reg Penable_temp,Hreadyout_temp,Pwrite_temp;
+reg [2:0] Pselx_temp;
+reg [31:0] Paddr_temp, Pwdata_temp;
 
 always @(*)
  begin:OUTPUT_COMBINATIONAL_LOGIC
@@ -131,6 +131,7 @@ always @(*)
 			  else if (valid && Hwrite)
 			   begin:IDLE_TO_WWAIT
 			        Pselx_temp=0;
+				//Pselx_temp=tempselx;
 				Penable_temp=0;
 				Hreadyout_temp=1;			   
 			   end

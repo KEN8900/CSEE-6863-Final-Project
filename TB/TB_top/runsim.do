@@ -7,11 +7,13 @@ vlib work
 vmap work work
 
 # include netlist and testbench files
+vlog +acc -incr ../../RTL/top.v
 vlog +acc -incr ../../RTL/AHB_Interface.v
+vlog +acc -incr ../../RTL/APB_FSM.v
  
-vlog +acc -incr AHB_Slave_Interface_tb.v 
+vlog +acc -incr top_tb.v 
 
 # run simulation 
-vsim +acc -t ps -lib work AHB_slave_interface_tb
+vsim +acc -t ps -lib work top_tb
 do waveformat.do   
 run -all

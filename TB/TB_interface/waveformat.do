@@ -1,7 +1,7 @@
 onerror {resume}
 quietly WaveActivateNextPane {} 0
-add wave -noupdate /AHB_slave_interface_tb/Hclk
-add wave -noupdate /AHB_slave_interface_tb/Hresetn
+add wave -noupdate /AHB_slave_interface_tb/clk
+add wave -noupdate /AHB_slave_interface_tb/rst
 add wave -noupdate /AHB_slave_interface_tb/Hwrite
 add wave -noupdate /AHB_slave_interface_tb/Hreadyin
 add wave -noupdate /AHB_slave_interface_tb/valid
