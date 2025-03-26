@@ -8,7 +8,6 @@
 //
 // Modifications: The Combinational part sensitivity list did not inclued rst and hence they gave x output on reset
 
-
 module AHB_slave_interface(clk,rst,Hwrite,Hreadyin,Htrans,Haddr,Hwdata,
 			   Prdata,valid,Haddr1,Haddr2,Hwdata1,Hwdata2,Hrdata,Hwritereg,tempselx,Hresp);
 input clk,rst;
@@ -21,8 +20,6 @@ output [31:0] Hrdata;
 output reg Hwritereg;
 output reg [2:0] tempselx;
 output  [1:0] Hresp;
-
-
 
 /// Implementing Pipeline Logic for Address,Data and Control Signal
 
@@ -65,8 +62,7 @@ output  [1:0] Hresp;
 			else
 				Hwritereg<=Hwrite;
 		end
-		
-		
+				
 /// Implementing Valid Logic Generation
 
 	always @(Hreadyin,Haddr,Htrans,rst)

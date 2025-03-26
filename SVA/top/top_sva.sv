@@ -15,7 +15,6 @@ module top_sva(input logic clk,
                       input logic [1:0] Hresp,
                       input logic [31:0] Hrdata);
 
-
 let addr0 = Haddr>=32'h8000_0000 && Haddr<32'h8400_0000;
 let addr1 = Haddr>=32'h8400_0000 && Haddr<32'h8800_0000;
 let addr2 = Haddr>=32'h8800_0000 && Haddr<32'h8C00_0000;
@@ -27,6 +26,8 @@ let possible_Pselx = ((Pselx == 0) || (Pselx == 1) || (Pselx == 2) || (Pselx == 
 assume property (@(posedge clk) Haddr>=32'h8000_0000 && Haddr<32'h8C00_0000);
 
 assume property (@(posedge clk) Htrans == 2'b1x);
+// flaw of RTL, only support non-sequential and sequential transfer
+// this assumption has grammar issue with VC Formal 2018 but can run perfectly in JasperGold 2024 
 
 
 /*************back-to-back constraint*************/
@@ -41,7 +42,7 @@ property read_follows_write2;
 	write_h ##1 read_h |-> $past(!Hreadyin,2) && $past(!Hreadyin,3) && $past(!Hreadyin,4);
 endproperty
 assume property (read_follows_write2);
-//three invalid cycles before and after write-read pattern 
+// three invalid cycles before and after write-read pattern 
 
 property write_follows_read1;
 	@(posedge clk) disable iff(!rst)
@@ -55,7 +56,7 @@ property write_follows_read2;
 	read_h ##1 Hwrite |-> (!Hreadyin ##1 Hwrite && !Hreadyin ##1 Hwrite && !Hreadyin ##1 write_h);
 endproperty
 assume property (write_follows_read2);
-//three invalid cycles before and after write-read pattern
+// three invalid cycles before and after write-read pattern
 
 /***************burst constraint***************/
 //burst read 
@@ -70,8 +71,8 @@ property burst_read_post;
 	(read_h ##1 !Hwrite ##1 read_h) |-> $past(!Hreadyin,3) && $past(!Hreadyin,1) ##1 !Hreadyin ##1 Hreadyin;
 endproperty
 assume property (burst_read_post);
-//Hreadyin pattern for burst read
-//make sure that there are no valid write in 3 cycles before burst read starts
+// Hreadyin pattern for burst read
+// make sure that there are no valid write in 3 cycles before burst read starts
 
 //burst write
 property burst_write_pre;
@@ -79,21 +80,21 @@ property burst_write_pre;
 	Hwrite ##1 Hwrite ##1 Hwrite|-> ($past(Hwrite,3) && $past(Hwrite,4)) || ($past(!Hreadyin,3) && $past(!Hreadyin,4));
 endproperty
 assume property (burst_write_pre);
-//make sure that there are no valid read in 2 cycles before burst write starts
+// make sure that there are no valid read in 2 cycles before burst write starts
 
 property burst_write_start;
 	@(posedge clk) disable iff(!rst)
 	 write_h ##1 write_h |-> ##1 Hwrite && !Hreadyin ##1 Hreadyin;
 endproperty
 assume property (burst_write_start);
-//start pattern of burst write
+// start pattern of burst write
 
 property burst_write_body;
 	@(posedge clk) disable iff(!rst)
 	write_h ##1 Hwrite && !Hreadyin ##1 write_h |-> ($past(Hwrite && Hreadyin,3)) || ($past(Hwrite,3) && $past(Hwrite,4));
 endproperty
 assume property (burst_write_body);
-//when burst write body pattern occurs, it follows either start pattern or body pattern
+// when burst write body pattern occurs, it follows either start pattern or body pattern
  
 property burst_write_post;
 	@(posedge clk) disable iff(!rst)
@@ -151,7 +152,7 @@ endsequence
 
 //single read/write check---------//use testbench to test single read and write case
 
-/*************burst write check*************/
+/*************burst read check*************/
 
 property read_data_transfer;
 	@(posedge clk) disable iff(!rst)
@@ -313,9 +314,5 @@ Burst_write_psel0: assert property (burst_write_psel0);
 
 endmodule
 
-
 bind Bridge_Top top_sva chk_top (.clk(clk), .rst(rst), .Hwrite(Hwrite), .Hreadyin(Hreadyin), .Hwdata(Hwdata), .Haddr(Haddr), .Htrans(Htrans), .Prdata(Prdata), .Pselx(Pselx), .Paddr(Paddr), .Pwdata(Pwdata), .Penable(Penable), .Pwrite(Pwrite), .Hreadyout(Hreadyout), .Hresp(Hresp), .Hrdata(Hrdata));
-
-
- 
 

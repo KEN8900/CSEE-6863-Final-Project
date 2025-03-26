@@ -10,7 +10,6 @@ output reg Hreadyout;
 output reg [2:0] Pselx;
 output reg [31:0] Paddr,Pwdata;
 
-
 //////////////////////////////////////////////////////states
 
 parameter IDLE=3'b000;
@@ -21,7 +20,6 @@ parameter WRITEP=3'b100;
 parameter RENABLE=3'b101;
 parameter WENABLE=3'b110;
 parameter WENABLEP=3'b111;
-
 
 //////////////////////////////////////////////////// PRESENT STATE LOGIC
 
@@ -34,7 +32,6 @@ always @(posedge clk or negedge rst)
   else
     CS<=NS;
  end
-
 
 /////////////////////////////////////////////////////// NEXT STATE LOGIC
 
@@ -104,11 +101,9 @@ always @(CS,valid,Hwrite,Hwritereg)
 		   NS=IDLE;
 		  end
   endcase
- end
-
+end
 
 ////////////////////////////////////////////////////////OUTPUT LOGIC:COMBINATIONAL
-
 
 reg Penable_temp,Hreadyout_temp,Pwrite_temp;
 reg [2:0] Pselx_temp;
@@ -263,7 +258,6 @@ always @(*)
  endcase
 end
 
-
 ////////////////////////////////////////////////////////OUTPUT LOGIC:SEQUENTIAL
 
 always @(posedge clk or negedge rst)
@@ -288,8 +282,9 @@ always @(posedge clk or negedge rst)
 	Penable<=Penable_temp;
 	Hreadyout<=Hreadyout_temp;
    end
- end
- ///////////////////////
+end
 
+///////////////////////
 
 endmodule
+
