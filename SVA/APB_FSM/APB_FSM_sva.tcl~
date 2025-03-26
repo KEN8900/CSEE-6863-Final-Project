@@ -1,8 +1,0 @@
-clear -all
-
-analyze -sv09 APB_Controller_sva.sv
-analyze -sv09 ../RTL/APB_Controller.v
-elaborate -top APB_FSM_Controller
-
-clock Hclk
-reset ~Hresetn

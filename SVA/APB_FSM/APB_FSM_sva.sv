@@ -20,10 +20,9 @@ module APB_FSM_sva(
         input wire Hreadyout,
         input wire [2:0] CS,
         input wire [2:0] NS
-
 );
-//PARAMETERS
 
+//PARAMETERS
 	parameter IDLE=3'b000;
 	parameter WAIT=3'b001;
 	parameter READ= 3'b010;
@@ -156,7 +155,6 @@ property WENABLEP_TO_READ;
 	CS == WENABLEP && valid && !Hwritereg |-> NS == READ;
 endproperty
 assert_wenablep2read: assert property (WENABLEP_TO_READ);
-
 
 endmodule
 

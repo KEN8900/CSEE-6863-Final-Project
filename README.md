@@ -4,7 +4,7 @@ This repository is for the Final Project of Columbia University Course CSEE by Y
 
 
 
-We conduct a formal verification for hardware using Cadence Jasper Gold: a Formal Property Verification (FPV) using SystemVerilog Assertion (SVA) for a AHB-to-APB bridge. The reference repositories can be found here: [Formal-Verification-of-an-AHB2APB-Bridge](https://github.com/Ghonimo/Formal-Verification-of-an-AHB2APB-Bridge) and [AHB-to-APB-Bridge](https://github.com/prajwalgekkouga/AHB-to-APB-Bridge) .
+We conduct a formal verification for hardware mainly using Cadence Jasper Gold 2024: a Formal Property Verification (FPV) using SystemVerilog Assertion (SVA) for a AHB-to-APB bridge. The reference repositories can be found here: [Formal-Verification-of-an-AHB2APB-Bridge](https://github.com/Ghonimo/Formal-Verification-of-an-AHB2APB-Bridge) and [AHB-to-APB-Bridge](https://github.com/prajwalgekkouga/AHB-to-APB-Bridge) .
 
 
 
